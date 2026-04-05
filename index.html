@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Mark McNees — Energy Policy Expert & Keynote Speaker</title>
+<meta name="description" content="Dr. Mark McNees is an FSU professor and nationally published policy commentator arguing that corporations shouldn't externalize costs while internalizing profits. Energy is today's proof point. Corporate accountability is the brand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #0C1524;
+    --navy-mid: #162035;
+    --gold:    #C4972A;
+    --gold-lt: #D4A94A;
+    --cream:   #F0EEE8;
+    --muted:   #8A8680;
+    --border:  rgba(196,151,42,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 4rem;
+    background: rgba(12,21,36,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; gap: 2.4rem; align-items: center; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--cream); }
+
+  .nav-cta {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold) !important;
+    padding: 0.5rem 1.4rem;
+    border-radius: 2px;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--navy) !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 4rem;
+    padding-top: 5rem;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-text { max-width: 540px; }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 600;
+    line-height: 1.08;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  .hero-position {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 2.4rem;
+    line-height: 1.8;
+  }
+  .hero-position strong { color: var(--cream); font-weight: 500; }
+
+  .hero-statement {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: var(--cream);
+    border-left: 2px solid var(--gold);
+    padding-left: 1.4rem;
+    margin-bottom: 2.8rem;
+  }
+
+  .hero-actions { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.9rem 2.2rem;
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-lt); }
+
+  .btn-secondary {
+    display: inline-block;
+    border: 1px solid rgba(240,238,232,0.25);
+    color: var(--cream);
+    padding: 0.9rem 2.2rem;
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--cream); }
+
+  .hero-photo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    max-width: 440px;
+    height: 580px;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(8%) contrast(1.04);
+    border-radius: 2px;
+  }
+
+  .hero-photo::before {
+    content: '';
+    position: absolute;
+    top: 20px; left: 20px;
+    right: -20px; bottom: -20px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    z-index: -1;
+  }
+
+  /* ── LOGOS / MEDIA BAR ── */
+  #media-bar {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 4rem;
+    background: var(--navy-mid);
+  }
+
+  .media-bar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .media-bar-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    margin-right: 0.6rem;
+  }
+
+  .media-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.8rem;
+    align-items: center;
+  }
+
+  .media-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .media-logo:hover { color: var(--gold); }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 6rem 4rem; }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 1.6rem;
+  }
+
+  /* ── THE ARGUMENT ── */
+  #argument { background: var(--navy-mid); }
+
+  .argument-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .argument-text p {
+    font-size: 1.05rem;
+    color: rgba(240,238,232,0.82);
+    line-height: 1.8;
+    margin-bottom: 1.4rem;
+  }
+
+  .argument-text p strong {
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  .stat-cards { display: flex; flex-direction: column; gap: 1.4rem; }
+
+  .stat-card {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    padding: 1.4rem 1.6rem;
+    background: rgba(12,21,36,0.6);
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-size: 0.82rem;
+    color: rgba(240,238,232,0.7);
+    line-height: 1.5;
+  }
+
+  /* ── SPEAKING ── */
+  #speaking {}
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .topic-card {
+    border: 1px solid var(--border);
+    padding: 2.4rem;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+  .topic-card:hover { border-color: var(--gold); }
+
+  .topic-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--border);
+    position: absolute;
+    top: 1.2rem; right: 1.6rem;
+    line-height: 1;
+  }
+
+  .topic-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+    max-width: 85%;
+  }
+
+  .topic-desc {
+    font-size: 0.9rem;
+    color: rgba(240,238,232,0.7);
+    line-height: 1.75;
+    margin-bottom: 1.4rem;
+  }
+
+  .topic-audience {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── CLIPS ── */
+  #clips { background: var(--navy-mid); }
+
+  .clips-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+    margin-top: 3rem;
+  }
+
+  .clip-card {
+    border: 1px solid var(--border);
+    padding: 1.6rem;
+    text-decoration: none;
+    display: block;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .clip-card:hover { border-color: var(--gold); background: rgba(196,151,42,0.04); }
+
+  .clip-pub {
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.7rem;
+  }
+
+  .clip-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1.4;
+  }
+
+  /* ── ABOUT ── */
+  #about {}
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-sidebar {}
+
+  .about-fact {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-fact-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .about-fact-value {
+    font-size: 0.92rem;
+    color: rgba(240,238,232,0.82);
+    line-height: 1.5;
+  }
+
+  .about-bio p {
+    font-size: 1.05rem;
+    color: rgba(240,238,232,0.82);
+    line-height: 1.8;
+    margin-bottom: 1.4rem;
+  }
+  .about-bio p strong { color: var(--cream); font-weight: 500; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--navy-mid); }
+
+  .contact-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-inner .section-heading { margin-bottom: 1rem; }
+
+  .contact-sub {
+    font-size: 1rem;
+    color: rgba(240,238,232,0.65);
+    margin-bottom: 2.8rem;
+    line-height: 1.7;
+  }
+
+  .contact-form { text-align: left; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group.full { margin-bottom: 1.2rem; }
+
+  .form-group label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    background: rgba(240,238,232,0.05);
+    border: 1px solid var(--border);
+    color: var(--cream);
+    padding: 0.8rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+    border-radius: 1px;
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--gold); }
+
+  .form-group textarea { min-height: 120px; resize: vertical; }
+
+  .form-group select option { background: var(--navy); }
+
+  .form-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s;
+    margin-top: 0.6rem;
+  }
+  .form-submit:hover { background: var(--gold-lt); }
+
+  .contact-alt {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  .contact-alt a { color: var(--gold); text-decoration: none; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2.4rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .footer-links { display: flex; gap: 1.8rem; }
+  .footer-links a {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--cream); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-text { animation: fadeUp 0.8s ease forwards; }
+  .hero-photo { animation: fadeUp 0.8s ease 0.15s both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { gap: 1.4rem; }
+    #hero { grid-template-columns: 1fr; padding: 2rem; padding-top: 7rem; gap: 3rem; }
+    .hero-photo { order: -1; }
+    .hero-photo img { max-width: 320px; height: 400px; }
+    section { padding: 4rem 2rem; }
+    #media-bar { padding: 1.8rem 2rem; }
+    .argument-grid,
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .topics-grid { grid-template-columns: 1fr; }
+    .clips-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Dr. Mark McNees</a>
+  <div class="nav-links">
+    <a href="#argument">The Argument</a>
+    <a href="#speaking">Speaking</a>
+    <a href="#clips">Media</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="nav-cta">Book a Talk</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Corporate Accountability · Energy Policy · Keynote Speaker</p>
+    <h1 class="hero-name">Dr. Mark<br>McNees</h1>
+    <p class="hero-title">The FSU faculty member and nationally published energy policy voice arguing that corporations shouldn't externalize costs while internalizing profits.</p>
+    <p class="hero-position">
+      <strong>Director of Social and Sustainable Enterprises</strong><br>
+      Jim Moran College of Entrepreneurship, Florida State University<br>
+      <strong>Managing Consultant</strong>, The McNees Group
+    </p>
+    <blockquote class="hero-statement">
+      Big Tech internalizes the profits. Ratepayers pay the power bill. Four states have passed legislation to stop it. The rest of the country is catching up.
+    </blockquote>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book a Talk</a>
+      <a href="#clips" class="btn-secondary">Read the Work</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="images/headshot.png" alt="Dr. Mark McNees" loading="eager">
+  </div>
+</div>
+
+<!-- MEDIA BAR -->
+<div id="media-bar">
+  <div class="media-bar-inner">
+    <span class="media-bar-label">Published in</span>
+    <div class="media-logos">
+      <a href="https://www.usatoday.com" target="_blank" class="media-logo">USA Today</a>
+      <a href="https://thehill.com" target="_blank" class="media-logo">The Hill</a>
+      <a href="https://floridapolitics.com" target="_blank" class="media-logo">Florida Politics</a>
+      <a href="https://www.theinvadingsea.com" target="_blank" class="media-logo">The Invading Sea</a>
+      <a href="https://www.orlandosentinel.com" target="_blank" class="media-logo">Orlando Sentinel</a>
+      <a href="https://www.tallahassee.com" target="_blank" class="media-logo">Tallahassee Democrat</a>
+      <span class="media-logo" style="cursor:default;">Reuters</span>
+    </div>
+  </div>
+</div>
+
+<!-- THE ARGUMENT -->
+<section id="argument">
+  <div class="section-inner">
+    <div class="argument-grid">
+      <div class="argument-text">
+        <p class="section-label">The Argument</p>
+        <h2 class="section-heading">Corporations shouldn't externalize costs while internalizing profits. Energy is the current proof point.</h2>
+        <p>When a data center connects to the grid, it triggers infrastructure investment that can run into the billions. Under current utility regulation in most states, that cost is distributed across every existing ratepayer. The company building the data center pays nothing for the grid it depends on.</p>
+        <p>This is cost externalization. <strong>The company internalizes the profit. The public absorbs the expense.</strong> The mechanism is not unique to energy. The same structure drives pharmaceutical pricing, insurance withdrawal from high-risk markets, hospital consolidation, and agricultural water rights. The sector changes. The logic is identical.</p>
+        <p>Energy is where the legislation is moving right now. Florida, Pennsylvania, Colorado, and Arizona have all required load creators to fund their own infrastructure. The White House issued a voluntary pledge. ALEC published a market-logic brief. The consensus is arriving. That makes energy the best entry point for the broader argument.</p>
+        <p><strong>That's what this work is about. The energy pieces are the current vehicle. Corporate accountability is the destination.</strong></p>
+      </div>
+      <div class="stat-cards">
+        <div class="stat-card">
+          <div class="stat-number">96%</div>
+          <div class="stat-label">Projected data center electricity demand growth, 2026–2031 (Wood Mackenzie)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">29</div>
+          <div class="stat-label">Large load tariffs approved by state regulators in 2025 alone (Utility Dive)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4</div>
+          <div class="stat-label">States that have passed cost accountability legislation for data centers in 2025–2026</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">195%</div>
+          <div class="stat-label">Increase in gas turbine prices as utilities scramble to meet AI load growth</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEAKING -->
+<section id="speaking">
+  <div class="section-inner">
+    <p class="section-label">Speaking Topics</p>
+    <h2 class="section-heading">Two talks. One thesis.</h2>
+    <div class="topics-grid">
+      <div class="topic-card">
+        <span class="topic-number">01</span>
+        <h3 class="topic-title">Who Pays? The Case for Load Creator Accountability</h3>
+        <p class="topic-desc">The data center boom is raising electricity bills across the country. But this talk isn't about data centers. It's about a structural problem in how infrastructure costs are allocated when large new loads connect to shared systems. This talk walks through the economics of cost externalization — what it is, why it happens, and what four states have already done to stop it. Audience takeaway: a clear framework for evaluating infrastructure accountability policy, and why the load-creator-pays model is the market-aligned solution.</p>
+        <span class="topic-audience">Energy conferences · Utility industry · Policy convenings · C-suite leadership</span>
+      </div>
+      <div class="topic-card">
+        <span class="topic-number">02</span>
+        <h3 class="topic-title">The Externalization Economy: When Corporations Don't Pay Their Own Way</h3>
+        <p class="topic-desc">Energy is the current proof point. But the pattern — corporations internalizing profits while externalizing costs onto the public — runs through pharmaceutical pricing, insurance withdrawal, hospital consolidation, and water rights. This talk builds the broader corporate accountability argument using energy as the entry point, and explains why market logic, not regulation, is the durable fix.</p>
+        <span class="topic-audience">Business schools · Entrepreneurship programs · Investor audiences · Corporate leadership</span>
+      </div>
+    </div>
+    <div style="margin-top:2.4rem; padding: 1.8rem 2rem; border: 1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+      <div>
+        <p style="font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Booking details</p>
+        <p style="font-size:0.88rem; color:rgba(240,238,232,0.75); line-height:1.6;">Keynote fee: $5,000 · Travel: Delta Comfort+ and Marriott/IHG, all expenses covered</p>
+      </div>
+      <a href="#contact" class="btn-primary">Check availability</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLIPS -->
+<section id="clips">
+  <div class="section-inner">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-heading">The record on the page.</h2>
+    <div class="clips-grid">
+      <a href="https://www.usatoday.com/story/opinion/2025/09/12/recycling-regulations-us-companies-epr-laws/86057604007/" target="_blank" class="clip-card">
+        <p class="clip-pub">USA Today</p>
+        <p class="clip-title">Circular Economy: We recycle plastic containers and cell phones, so why not cars and dishwashers?</p>
+      </a>
+      <a href="https://thehill.com/opinion/energy-environment/5501854-california-has-set-the-standard-for-how-not-to-do-renewable-energy/" target="_blank" class="clip-card">
+        <p class="clip-pub">The Hill</p>
+        <p class="clip-title">Why California Pays Double for Electricity Despite Mandating Renewable Energy</p>
+      </a>
+      <a href="https://floridapolitics.com/archives/781599-mark-mcnees-sam-altman-just-made-the-case-for-sb-484/" target="_blank" class="clip-card">
+        <p class="clip-pub">Florida Politics</p>
+        <p class="clip-title">Sam Altman Just Made the Case for SB 484</p>
+      </a>
+      <a href="https://floridapolitics.com/archives/785299-mark-mcnees-sb-484-is-good-law-but-who-decides-whats-feasible/" target="_blank" class="clip-card">
+        <p class="clip-pub">Florida Politics</p>
+        <p class="clip-title">SB 484 Is Good Law. But Ask Who Decides What's Feasible.</p>
+      </a>
+      <a href="https://www.theinvadingsea.com/2026/01/26/data-centers-utility-bills-electricity-infrastructure-power-outages-renewable-solar-battery-storage/" target="_blank" class="clip-card">
+        <p class="clip-pub">The Invading Sea</p>
+        <p class="clip-title">Data Centers and Energy Policy: Who Pays for the Infrastructure They Demand?</p>
+      </a>
+      <a href="https://www.usatoday.com/story/opinion/2025/10/03/trump-un-speech-clean-energy/86427089007/" target="_blank" class="clip-card">
+        <p class="clip-pub">USA Today</p>
+        <p class="clip-title">America's Energy Future Needs Facts, Not Fear</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-sidebar">
+        <p class="section-label">Background</p>
+        <div class="about-fact">
+          <p class="about-fact-label">Position</p>
+          <p class="about-fact-value">Director of Social and Sustainable Enterprises, Jim Moran College of Entrepreneurship, Florida State University</p>
+        </div>
+        <div class="about-fact">
+          <p class="about-fact-label">Consulting</p>
+          <p class="about-fact-value">Managing Consultant, The McNees Group</p>
+        </div>
+        <div class="about-fact">
+          <p class="about-fact-label">Focus areas</p>
+          <p class="about-fact-value">Energy policy, ratepayer economics, corporate cost accountability, AI infrastructure, data center regulation</p>
+        </div>
+        <div class="about-fact">
+          <p class="about-fact-label">Podcast</p>
+          <p class="about-fact-value">Host, InNOLEvation Mindset — FSU's entrepreneurship podcast, 120+ episodes</p>
+        </div>
+        <div class="about-fact">
+          <p class="about-fact-label">Contact</p>
+          <p class="about-fact-value"><a href="/cdn-cgi/l/email-protection#234e4e404d464650634550560d464756" style="color:var(--gold); text-decoration:none;"><span class="__cf_email__" data-cfemail="a8c5c5cbc6cdcddbe8cedbdd86cdccdd">[email&#160;protected]</span></a><br>850.973.7687</p>
+        </div>
+      </div>
+      <div class="about-bio">
+        <h2 class="section-heading" style="margin-bottom:1.8rem;">Economics first. Always.</h2>
+        <p>Mark McNees is the Director of Social and Sustainable Enterprises at Florida State University's Jim Moran College of Entrepreneurship. He teaches, writes, and speaks at the intersection of market logic and corporate accountability — with a current focus on energy infrastructure, AI data center demand, and who bears the cost of both.</p>
+        <p>His core argument is not an environmental one. It's a market logic one. When corporations are permitted to externalize costs — infrastructure costs, risk costs, depletion costs — onto the public while retaining the profits, the market is not functioning. The fix is alignment of incentives, not restriction of commerce. <strong>Load creators should pay for the load they create.</strong> That's the thesis. Energy is the proof point right now.</p>
+        <p>His op-eds have appeared in USA Today, The Hill, Florida Politics, The Invading Sea, the Orlando Sentinel, and other outlets. He has been a source for Reuters on the economics of utility rate structures and AI infrastructure demand. Florida SB 484, signed into law in 2026, is the legislative model he has written about and advocated for.</p>
+        <p>Before FSU, Mark spent 25 years in corporate consulting and entrepreneurial ventures. He brings that practitioner's frame to every conversation about policy — not ideology, just math.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="section-label">Book a Talk</p>
+    <h2 class="section-heading">Let's talk.</h2>
+    <p class="contact-sub">Keynote inquiries, media requests, and consulting conversations welcome. Response within 48 hours.</p>
+    <form class="contact-form" action="mailto:mmcnees@fsu.edu" method="post" enctype="text/plain">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="org">Organization</label>
+          <input type="text" id="org" name="org" placeholder="Organization or event">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="type">Type of inquiry</label>
+          <select id="type" name="type">
+            <option value="">Select one</option>
+            <option value="keynote">Keynote booking</option>
+            <option value="media">Media / interview</option>
+            <option value="consulting">Consulting</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group full">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell me about your event, organization, or what you're working on."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send inquiry</button>
+    </form>
+    <p class="contact-alt">Prefer email directly? <a href="/cdn-cgi/l/email-protection#c0adada3aea5a5b380a6b3b5eea5a4b5"><span class="__cf_email__" data-cfemail="0a676769646f6f794a6c797f246f6e7f">[email&#160;protected]</span></a> &nbsp;·&nbsp; 850.973.7687</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">Dr. Mark McNees</span>
+  <div 
