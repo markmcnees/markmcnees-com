@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press Resources — Dr. Mark McNees</title>
+<meta name="description" content="Press resources for reporters covering data center energy costs and ratepayer policy. Liftable quotes, downloadable graphic, bio, and direct contact for Dr. Mark McNees, FSU.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* =================================================================
+     DESIGN TOKENS — swap these to your exact markmcnees.com values.
+     I matched the live site's look (serif display, warm-neutral,
+     economics-first restraint). Adjust hex/fonts here only.
+     ================================================================= */
+  :root{
+    --ink:#1a1a17;
+    --paper:#ffffff;
+    --wash:#f6f4ef;       /* section background */
+    --line:#e2ddd2;
+    --accent:#C4972A;     /* site gold */
+    --accent-soft:#e8f0ea;
+    --hot:#9c3a1c;        /* clay accent for the "gap" */
+    --muted:#6a6458;
+    --font-display:"Cormorant Garamond",Georgia,serif;
+    --font-body:"DM Sans",-apple-system,sans-serif;
+    --maxw:1080px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font-body);color:var(--ink);background:var(--paper);line-height:1.6;}
+  a{color:var(--accent);}
+
+  /* ---- top bar ---- */
+  header.bar{
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;background:rgba(255,255,255,.95);
+    backdrop-filter:saturate(120%) blur(6px);z-index:10;
+  }
+  .bar .wrap{max-width:var(--maxw);margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .bar .name{font-family:var(--font-display);font-size:19px;font-weight:700;text-decoration:none;color:var(--ink);}
+  .bar nav a{margin-left:20px;font-size:14px;text-decoration:none;color:var(--muted);}
+  .bar nav a:hover{color:var(--accent);}
+  .bar nav a.back{color:var(--accent);font-weight:600;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* ---- hero ---- */
+  .hero{padding:64px 0 44px;}
+  .eyebrow{font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px;}
+  .hero h1{font-family:var(--font-display);font-size:46px;line-height:1.08;font-weight:700;margin-bottom:18px;max-width:18ch;}
+  .hero .lede{font-size:19px;color:var(--ink);max-width:60ch;margin-bottom:14px;}
+  .hero .sub{font-size:16px;color:var(--muted);max-width:60ch;}
+  .hero .cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{display:inline-block;text-decoration:none;font-size:15px;font-weight:600;padding:12px 22px;border-radius:6px;}
+  .btn.solid{background:var(--accent);color:#fff;}
+  .btn.ghost{border:1px solid var(--line);color:var(--ink);}
+
+  /* ---- sections ---- */
+  section.band{padding:54px 0;border-top:1px solid var(--line);}
+  section.band.wash{background:var(--wash);}
+  .label{font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px;}
+  h2{font-family:var(--font-display);font-size:31px;line-height:1.14;font-weight:700;margin-bottom:22px;max-width:24ch;}
+  h3{font-family:var(--font-display);font-size:21px;font-weight:700;margin-bottom:8px;}
+  p{font-size:17px;margin-bottom:14px;}
+  p:last-child{margin-bottom:0;}
+  .muted{color:var(--muted);font-size:15px;}
+
+  /* ---- quotes ---- */
+  .quotes{display:grid;gap:16px;}
+  @media(min-width:720px){.quotes{grid-template-columns:1fr 1fr;}}
+  .quote{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:22px 24px;}
+  .quote blockquote{font-family:var(--font-display);font-size:18.5px;line-height:1.4;font-weight:700;color:var(--ink);margin-bottom:12px;}
+  .quote .attr{font-size:13.5px;color:var(--muted);}
+  .copy{margin-top:14px;background:none;border:1px solid var(--line);border-radius:5px;font-size:13px;font-family:var(--font-body);color:var(--accent);padding:6px 12px;cursor:pointer;}
+  .copy:hover{background:var(--accent-soft);}
+  .copy.ok{color:#fff;background:var(--accent);border-color:var(--accent);}
+
+  /* ---- infographic ---- */
+  .ig{background:#11241b;border-radius:12px;padding:32px 30px;color:#eef2ec;margin-top:8px;}
+  .ig .igh{font-family:var(--font-display);font-size:23px;font-weight:700;color:#fff;margin-bottom:4px;}
+  .ig .igc{font-size:14.5px;color:#9fc7b3;margin-bottom:26px;}
+  .flow{display:flex;align-items:stretch;flex-wrap:wrap;}
+  .node{flex:1;min-width:150px;background:#1c3329;border:1px solid #2f5142;border-radius:9px;padding:15px 16px;text-align:center;}
+  .node .role{font-size:11.5px;letter-spacing:.5px;color:#84b59f;text-transform:uppercase;margin-bottom:6px;font-weight:600;}
+  .node .who{font-size:16px;font-weight:600;color:#fff;line-height:1.25;}
+  .arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:96px;padding:0 4px;}
+  .arrow .lbl{font-size:12.5px;color:#cfe3d8;text-align:center;margin-bottom:3px;line-height:1.2;}
+  .arrow .bar{width:100%;height:3px;position:relative;}
+  .arrow .bar::after{content:"";position:absolute;right:-1px;top:-4px;border-top:5px solid transparent;border-bottom:5px solid transparent;}
+  .arrow.guarded .bar{background:#3aa07a;} .arrow.guarded .bar::after{border-left:9px solid #3aa07a;}
+  .arrow.open .bar{background:#c7522f;} .arrow.open .bar::after{border-left:9px solid #c7522f;}
+  .doors{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;}
+  .door{border-radius:9px;padding:16px 18px;}
+  .door.front{background:#16352a;border:1px solid #3aa07a;}
+  .door.side{background:#3a2018;border:1px solid #c7522f;}
+  .door .dh{font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:7px;font-weight:600;}
+  .door.front .dh{color:#7fd3ad;} .door.side .dh{color:#e8957a;}
+  .door .dt{font-size:16px;font-weight:600;color:#fff;margin-bottom:6px;}
+  .door .dd{font-size:14px;color:#c9d4cd;line-height:1.4;}
+  .ig .kick{margin-top:24px;font-family:var(--font-display);font-size:18px;font-weight:700;color:#fff;text-align:center;}
+  .ig-actions{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;}
+  .ig-actions button{background:#fff;color:#11241b;border:none;border-radius:6px;font-size:14px;font-weight:600;font-family:var(--font-body);padding:10px 18px;cursor:pointer;}
+  .ig-actions button.line{background:transparent;color:#fff;border:1px solid #3f6b58;}
+
+  @media(max-width:720px){
+    .flow{flex-direction:column;}
+    .arrow{min-width:0;padding:8px 0;}
+    .arrow .bar{width:3px;height:30px;}
+    .arrow .bar::after{right:auto;left:-4px;top:auto;bottom:-1px;border-left:5px solid transparent;border-right:5px solid transparent;}
+    .arrow.guarded .bar::after{border-top:9px solid #3aa07a;border-left-color:transparent;}
+    .arrow.open .bar::after{border-top:9px solid #c7522f;border-left-color:transparent;}
+    .doors{grid-template-columns:1fr;}
+    .hero h1{font-size:36px;}
+  }
+
+  /* ---- facts ---- */
+  .facts{display:grid;gap:18px;}
+  @media(min-width:680px){.facts{grid-template-columns:repeat(4,1fr);}}
+  .fact .n{font-family:var(--font-display);font-size:38px;font-weight:700;color:var(--accent);line-height:1;}
+  .fact .d{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.4;}
+
+  /* ---- clips ---- */
+  .clips{display:grid;gap:12px;}
+  @media(min-width:680px){.clips{grid-template-columns:1fr 1fr;}}
+  .clip{display:block;text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:16px 18px;color:var(--ink);transition:border-color .15s;}
+  .clip:hover{border-color:var(--accent);}
+  .clip .out{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:5px;}
+  .clip .ti{font-family:var(--font-display);font-size:16.5px;font-weight:700;line-height:1.25;}
+
+  /* ---- bio + contact ---- */
+  .twocol{display:grid;gap:36px;}
+  @media(min-width:760px){.twocol{grid-template-columns:1.6fr 1fr;}}
+  .bio p{font-size:16px;}
+  .contact{background:var(--accent);color:#fff;border-radius:10px;padding:26px 26px;}
+  .contact h3{color:#fff;}
+  .contact .row{margin:14px 0;}
+  .contact .k{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#a9cdbb;}
+  .contact .v{font-size:18px;font-weight:600;}
+  .contact .v a{color:#fff;text-decoration:none;}
+  .contact .avail{margin-top:18px;font-size:14px;color:#d4e6dc;border-top:1px solid #2f6a4e;padding-top:16px;line-height:1.5;}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:14px;color:var(--muted);}
+  footer a{color:var(--muted);text-decoration:none;margin-left:16px;}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a href="/" class="name">Dr. Mark McNees</a>
+    <nav>
+      <a href="/#argument">The Argument</a>
+      <a href="/#clips">Media</a>
+      <a href="/#about">About</a>
+      <a href="/press/" class="back">Press Resources</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">Press Resources</div>
+    <h1>A one-stop source kit for reporters on deadline.</h1>
+    <p class="lede">I cover the economics of who pays when data centers connect to the grid: utility rate structures, ratepayer cost shifting, and the state laws now reshaping who funds the build-out.</p>
+    <p class="sub">Quotes below are cleared for direct use. The graphic is free to download and run. Call or email anytime, including on deadline.</p>
+    <div class="cta">
+      <a href="#quotes" class="btn solid">Quotes you can use</a>
+      <a href="#graphic" class="btn ghost">Download the graphic</a>
+    </div>
+  </section>
+</div>
+
+<section class="band wash" id="quotes">
+  <div class="wrap">
+    <div class="label">Cleared for direct use</div>
+    <h2>Quote me</h2>
+    <p class="muted" style="margin-bottom:24px;max-width:60ch">Attribute to Dr. Mark R. McNees, Florida State University. Copy any quote with one click. Need something tailored to your story? Call and I will give you a fresh line.</p>
+    <div class="quotes">
+
+      <div class="quote">
+        <blockquote id="q1">Load creators should pay for the load they create. When a data center triggers billions in grid investment and every household absorbs the cost, the market is not functioning. The fix is aligning incentives, not restricting commerce.</blockquote>
+        <div class="attr">Dr. Mark R. McNees, Florida State University</div>
+        <button class="copy" data-q="q1" data-a="attr1">Copy quote</button>
+        <span id="attr1" hidden>Dr. Mark R. McNees, Director of the MS in Social and Sustainable Enterprises, Florida State University</span>
+      </div>
+
+      <div class="quote">
+        <blockquote id="q2">The cost of serving a data center does not show up as a line item on your bill. It arrives years later as a general rate increase, after the equipment is built into the rate base and earns a guaranteed return for thirty or forty years. By the time the bill comes, the decision that caused it is locked in.</blockquote>
+        <div class="attr">Dr. Mark R. McNees, Florida State University</div>
+        <button class="copy" data-q="q2" data-a="attr1">Copy quote</button>
+      </div>
+
+      <div class="quote">
+        <blockquote id="q3">Florida's SB 484 audits what the utility charges the data center. It does not check the price the utility pays its own affiliated generator in the middle. The front door is guarded. The side door is wide open.</blockquote>
+        <div class="attr">Dr. Mark R. McNees, Florida State University</div>
+        <button class="copy" data-q="q3" data-a="attr1">Copy quote</button>
+      </div>
+
+      <div class="quote">
+        <blockquote id="q4">Florida, Pennsylvania, and others have passed laws requiring data centers to fund the capacity their demand requires. This is not an anti-growth position. It is market logic, and it is arriving on a bipartisan basis.</blockquote>
+        <div class="attr">Dr. Mark R. McNees, Florida State University</div>
+        <button class="copy" data-q="q4" data-a="attr1">Copy quote</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="band" id="graphic">
+  <div class="wrap">
+    <div class="label">Free to download and run</div>
+    <h2>The affiliate transfer-price gap</h2>
+    <p class="muted" style="max-width:62ch;margin-bottom:6px">A reporter-ready visual on the gap SB 484 leaves open: the law watches what the utility charges the data center, not the internal price it pays its own generator. Right-click to save, or use the buttons below.</p>
+    <div class="ig" id="igcard">
+      <div class="igh">Where the money moves, and where the audit stops</div>
+      <div class="igc">Two transactions. SB 484 watches one of them.</div>
+      <div class="flow">
+        <div class="node"><div class="role">Affiliated generator</div><div class="who">The utility's own power company</div></div>
+        <div class="arrow open"><div class="lbl">sells power at an<br>internal price</div><div class="bar"></div></div>
+        <div class="node"><div class="role">Regulated utility</div><div class="who">The company on your bill</div></div>
+        <div class="arrow guarded"><div class="lbl">charges the<br>data center</div><div class="bar"></div></div>
+        <div class="node"><div class="role">Data center</div><div class="who">The new large customer</div></div>
+      </div>
+      <div class="doors">
+        <div class="door front">
+          <div class="dh">Front door — guarded</div>
+          <div class="dt">Utility to data center</div>
+          <div class="dd">SB 484 requires the utility to disclose what it charges the large customer. This transaction is now audited.</div>
+        </div>
+        <div class="door side">
+          <div class="dh">Side door — wide open</div>
+          <div class="dt">Affiliate to utility</div>
+          <div class="dd">The internal price the utility pays its own generator is set inside the same corporate family. SB 484 does not check it. If it runs high, the excess flows into everyone's rates.</div>
+        </div>
+      </div>
+      <div class="kick">The front door is now guarded. The side door is wide open.</div>
+    </div>
+    <div class="ig-actions">
+      <button id="dl">Download as image</button>
+      <a href="mailto:mmcnees@fsu.edu?subject=Affiliate%20transfer-price%20graphic" style="text-decoration:none"><button class="line">Request a print-resolution file</button></a>
+    </div>
+  </div>
+</section>
+
+<section class="band wash">
+  <div class="wrap">
+    <div class="label">Context numbers, sourced</div>
+    <h2>The fast facts</h2>
+    <div class="facts">
+      <div class="fact"><div class="n">96%</div><div class="d">Projected data center electricity demand growth, 2026 to 2031 (Wood Mackenzie)</div></div>
+      <div class="fact"><div class="n">29</div><div class="d">Large load tariffs approved by state regulators in 2025 alone (Utility Dive)</div></div>
+      <div class="fact"><div class="n">4</div><div class="d">States that have passed cost accountability legislation for data centers, 2025 to 2026</div></div>
+      <div class="fact"><div class="n">5–10×</div><div class="d">Connection requests utilities receive versus facilities actually built (industry estimates)</div></div>
+    </div>
+    <p class="muted" style="margin-top:22px">Please verify figures against the cited source before publication. Happy to point you to the underlying reports.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="label">Selected published work</div>
+    <h2>The record on the page</h2>
+    <div class="clips">
+      <a class="clip" href="https://www.usatoday.com/story/opinion/2025/10/03/trump-un-speech-clean-energy/86427089007/"><div class="out">USA Today</div><div class="ti">America's Energy Future Needs Facts, Not Fear</div></a>
+      <a class="clip" href="https://thehill.com/opinion/energy-environment/5501854-california-has-set-the-standard-for-how-not-to-do-renewable-energy/"><div class="out">The Hill</div><div class="ti">Why California Pays Double for Electricity Despite Mandating Renewable Energy</div></a>
+      <a class="clip" href="https://floridapolitics.com/archives/781599-mark-mcnees-sam-altman-just-made-the-case-for-sb-484/"><div class="out">Florida Politics</div><div class="ti">Sam Altman Just Made the Case for SB 484</div></a>
+      <a class="clip" href="https://www.theinvadingsea.com/2026/01/26/data-centers-utility-bills-electricity-infrastructure-power-outages-renewable-solar-battery-storage/"><div class="out">The Invading Sea</div><div class="ti">Data Centers and Energy Policy: Who Pays for the Infrastructure They Demand?</div></a>
+    </div>
+  </div>
+</section>
+
+<section class="band wash" id="bio">
+  <div class="wrap">
+    <div class="twocol">
+      <div class="bio">
+        <div class="label">For your story</div>
+        <h2>Bio and how to describe me</h2>
+        <p><strong>Short version:</strong> Dr. Mark R. McNees is Director of the MS in Social and Sustainable Enterprises at Florida State University's Jim Moran College of Entrepreneurship. He writes and speaks on energy economics, utility rate structures, and who bears the cost of the data center build-out.</p>
+        <p><strong>Longer version:</strong> McNees argues that corporations should not externalize costs while internalizing profits, and that energy is the clearest current proof point. His commentary has appeared in USA Today, The Hill, Florida Politics, the Tampa Bay Times, and The Invading Sea, and he has been a source for Reuters on utility rate structures and AI infrastructure demand. Florida SB 484 is the legislative model he has written about. Before FSU, he spent more than two decades in corporate consulting and entrepreneurial ventures.</p>
+        <p class="muted">Title for first reference: Dr. Mark R. McNees, Florida State University. He is a business professor and policy commentator, not an economist.</p>
+      </div>
+      <div class="contact">
+        <h3>Reach me</h3>
+        <div class="row"><div class="k">Media cell</div><div class="v"><a href="tel:+18509737687">850.973.7687</a></div></div>
+        <div class="row"><div class="k">Email</div><div class="v"><a href="mailto:mmcnees@fsu.edu">mmcnees@fsu.edu</a></div></div>
+        <div class="avail">Available for interviews on deadline. Energy policy, data center cost accountability, utility regulation, and ratepayer impact. I respond fast.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="yr"></span> Dr. Mark McNees</div>
+    <div>
+      <a href="https://www.linkedin.com/in/markmcnees/">LinkedIn</a>
+      <a href="https://x.com/markmcnees">X</a>
+      <a href="/">Home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var q=document.getElementById(btn.dataset.q).innerText.trim();
+      var a=document.getElementById('attr1').innerText.trim();
+      var text='"'+q+'"\n— '+a;
+      navigator.clipboard.writeText(text).then(function(){
+        var old=btn.textContent;btn.textContent='Copied with attribution';btn.classList.add('ok');
+        setTimeout(function(){btn.textContent=old;btn.classList.remove('ok');},1800);
+      });
+    });
+  });
+
+  document.getElementById('dl').addEventListener('click',function(){
+    var card=document.getElementById('igcard');
+    if(typeof html2canvas==='undefined'){alert('Image export is loading, try again in a moment.');return;}
+    html2canvas(card,{backgroundColor:'#11241b',scale:2}).then(function(canvas){
+      var link=document.createElement('a');
+      link.download='mcnees-affiliate-transfer-price-gap.png';
+      link.href=canvas.toDataURL('image/png');
+      link.click();
+    });
+  });
+</script>
+</body>
+</html>
