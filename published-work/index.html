@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Published Work — Dr. Mark McNees</title>
+<meta name="description" content="The complete archive of Dr. Mark McNees's published op-eds and commentary on energy economics, utility rate structures, and corporate cost accountability, newest first.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* =================================================================
+     Shared tokens and classes lifted from /press/ so this page stays
+     visually consistent with the rest of the site.
+     ================================================================= */
+  :root{
+    --ink:#1a1a17;
+    --paper:#ffffff;
+    --wash:#f6f4ef;       /* section background */
+    --line:#e2ddd2;
+    --accent:#C4972A;     /* site gold */
+    --accent-soft:#e8f0ea;
+    --hot:#9c3a1c;        /* clay accent */
+    --muted:#6a6458;
+    --font-display:"Cormorant Garamond",Georgia,serif;
+    --font-body:"DM Sans",-apple-system,sans-serif;
+    --maxw:1080px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font-body);color:var(--ink);background:var(--paper);line-height:1.6;}
+  a{color:var(--accent);}
+
+  /* ---- top bar ---- */
+  header.bar{
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;background:rgba(255,255,255,.95);
+    backdrop-filter:saturate(120%) blur(6px);z-index:10;
+  }
+  .bar .wrap{max-width:var(--maxw);margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .bar .name{font-family:var(--font-display);font-size:19px;font-weight:700;text-decoration:none;color:var(--ink);}
+  .bar nav a{margin-left:20px;font-size:14px;text-decoration:none;color:var(--muted);}
+  .bar nav a:hover{color:var(--accent);}
+  .bar nav a.back{color:var(--accent);font-weight:600;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* ---- hero ---- */
+  .hero{padding:64px 0 44px;}
+  .eyebrow{font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px;}
+  .hero h1{font-family:var(--font-display);font-size:46px;line-height:1.08;font-weight:700;margin-bottom:18px;max-width:18ch;}
+  .hero .lede{font-size:19px;color:var(--ink);max-width:60ch;margin-bottom:14px;}
+
+  /* ---- sections ---- */
+  section.band{padding:54px 0;border-top:1px solid var(--line);}
+  section.band.wash{background:var(--wash);}
+  .label{font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px;}
+  h2{font-family:var(--font-display);font-size:31px;line-height:1.14;font-weight:700;margin-bottom:22px;max-width:24ch;}
+  p{font-size:17px;margin-bottom:14px;}
+  p:last-child{margin-bottom:0;}
+  .muted{color:var(--muted);font-size:15px;}
+
+  /* ---- clips (same card style as /press/), with a date line ---- */
+  .year-label{font-family:var(--font-display);font-size:23px;font-weight:700;color:var(--ink);margin:30px 0 14px;}
+  .year-label:first-child{margin-top:0;}
+  .clips{display:grid;gap:12px;}
+  @media(min-width:680px){.clips{grid-template-columns:1fr 1fr;}}
+  .clip{display:block;text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:16px 18px;color:var(--ink);transition:border-color .15s;}
+  .clip:hover{border-color:var(--accent);}
+  .clip .out{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:5px;}
+  .clip .ti{font-family:var(--font-display);font-size:16.5px;font-weight:700;line-height:1.25;margin-bottom:7px;}
+  .clip .dt{font-size:13px;color:var(--muted);}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:14px;color:var(--muted);}
+  footer a{color:var(--muted);text-decoration:none;margin-left:16px;}
+
+  @media(max-width:720px){
+    .hero h1{font-size:36px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a href="/" class="name">Dr. Mark McNees</a>
+    <nav>
+      <a href="/#argument">The Argument</a>
+      <a href="/#clips">Media</a>
+      <a href="/#about">About</a>
+      <a href="/published-work/" class="back">Published Work</a>
+      <a href="/press/">Press Resources</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">Published Work</div>
+    <h1>Published Work</h1>
+    <p class="lede">The full archive of Dr. Mark McNees's published op-eds and commentary on energy economics and corporate cost accountability, newest first.</p>
+  </section>
+</div>
+
+<section class="band wash">
+  <div class="wrap">
+    <div class="label">Op-eds and commentary</div>
+    <h2>The record on the page</h2>
+    <div id="pw-list">
+      <p class="muted">Loading published work...</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="yr"></span> Dr. Mark McNees</div>
+    <div>
+      <a href="https://www.linkedin.com/in/markmcnees/">LinkedIn</a>
+      <a href="https://x.com/markmcnees">X</a>
+      <a href="/">Home</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  (function(){
+    var list=document.getElementById('pw-list');
+
+    function escapeHtml(s){
+      return String(s).replace(/[&<>"']/g,function(c){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+      });
+    }
+
+    function formatDate(iso){
+      // Parse as local midnight so the displayed day never shifts by timezone.
+      var parts=String(iso).split('-');
+      if(parts.length!==3) return iso;
+      var d=new Date(parseInt(parts[0],10),parseInt(parts[1],10)-1,parseInt(parts[2],10));
+      if(isNaN(d.getTime())) return iso;
+      return d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+    }
+
+    function fallback(){
+      list.innerHTML='<p class="muted">The published work list could not be loaded right now. '+
+        'For the full list, email <a href="mailto:mmcnees@fsu.edu">mmcnees@fsu.edu</a>.</p>';
+    }
+
+    function render(items){
+      if(!Array.isArray(items)||items.length===0){ fallback(); return; }
+
+      // Newest first.
+      items.sort(function(a,b){
+        return String(b.date).localeCompare(String(a.date));
+      });
+
+      var html='';
+      var currentYear='';
+      var openGrid=false;
+
+      items.forEach(function(item){
+        if(!item||!item.url||!item.title) return;
+        var year=String(item.date).slice(0,4);
+        if(year!==currentYear){
+          if(openGrid){ html+='</div>'; }
+          html+='<div class="year-label">'+escapeHtml(year)+'</div><div class="clips">';
+          openGrid=true;
+          currentYear=year;
+        }
+        html+='<a class="clip" href="'+escapeHtml(item.url)+'" target="_blank" rel="noopener">'+
+                '<div class="out">'+escapeHtml(item.outlet||'')+'</div>'+
+                '<div class="ti">'+escapeHtml(item.title)+'</div>'+
+                '<div class="dt">'+escapeHtml(formatDate(item.date))+'</div>'+
+              '</a>';
+      });
+      if(openGrid){ html+='</div>'; }
+
+      if(!html){ fallback(); return; }
+      list.innerHTML=html;
+    }
+
+    fetch('/published-work/published-work.json',{cache:'no-cache'})
+      .then(function(res){ if(!res.ok){ throw new Error('HTTP '+res.status); } return res.json(); })
+      .then(render)
+      .catch(fallback);
+  })();
+</script>
+</body>
+</html>
