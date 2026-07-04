@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Books and Podcast, Dr. Mark McNees</title>
+<meta name="description" content="The CEO's Mindset Reset book series and daily leadership podcast by Dr. Mark McNees. A daily practice for leaders.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:    #0C1524;
+    --navy-mid: #162035;
+    --gold:    #C4972A;
+    --gold-lt: #D4A94A;
+    --cream:   #F0EEE8;
+    --muted:   #8A8680;
+    --border:  rgba(196,151,42,0.18);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--cream); font-family: 'DM Sans', sans-serif; line-height: 1.6; }
+  a { color: var(--gold); text-decoration: none; }
+
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.6rem 3rem; background: var(--navy);
+    border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50;
+  }
+  .nav-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--cream); }
+  .nav-links { display: flex; gap: 2.4rem; align-items: center; }
+  .nav-links a { color: var(--muted); font-size: 0.95rem; }
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a.on { color: var(--gold); }
+  .nav-cta { border: 1px solid var(--gold); color: var(--gold) !important; padding: 0.5rem 1.1rem; border-radius: 4px; }
+  .nav-cta:hover { background: var(--gold); color: var(--navy) !important; }
+  @media (max-width: 820px){ nav { padding: 1.2rem 1.4rem; flex-wrap: wrap; gap: 0.8rem; } .nav-links { gap: 1rem 1.2rem; font-size: 0.85rem; flex-wrap: wrap; justify-content: flex-start; } }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 3rem; }
+  @media (max-width: 820px){ .wrap { padding: 0 1.4rem; } }
+
+  .hero { padding: 5rem 0 3rem; text-align: center; }
+  .hero .eyebrow { color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem; font-weight: 500; margin-bottom: 1.2rem; }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 700; line-height: 1.08; margin-bottom: 1.2rem; }
+  .hero p { color: var(--cream); font-size: 1.15rem; max-width: 60ch; margin: 0 auto; opacity: 0.9; }
+
+  section { padding: 3.5rem 0; }
+  .sec-head { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .sec-sub { color: var(--muted); margin-bottom: 2.5rem; max-width: 60ch; }
+
+  .books { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  @media (max-width: 760px){ .books { grid-template-columns: 1fr; } }
+  .book { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+  .book img { width: 100%; height: 300px; object-fit: cover; display: block; }
+  .book .body { padding: 1.6rem 1.8rem 1.8rem; display: flex; flex-direction: column; flex: 1; }
+  .book .vol { color: var(--gold); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .book h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.7rem; }
+  .book p { color: var(--cream); opacity: 0.85; font-size: 0.98rem; margin-bottom: 1.4rem; flex: 1; }
+  .book .buy { align-self: flex-start; border: 1px solid var(--gold); color: var(--gold); padding: 0.6rem 1.3rem; border-radius: 4px; font-size: 0.95rem; font-weight: 500; transition: background 0.15s, color 0.15s; }
+  .book .buy:hover { background: var(--gold); color: var(--navy); }
+
+  .series-note { text-align: center; color: var(--muted); margin-top: 2rem; font-size: 0.95rem; }
+  .series-note a { font-weight: 500; }
+
+  .podcast { background: var(--navy-mid); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .pod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  @media (max-width: 760px){ .pod-grid { grid-template-columns: 1fr; } }
+  .pod-copy .eyebrow { color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 0.8rem; }
+  .pod-copy h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; font-weight: 600; line-height: 1.15; margin-bottom: 1rem; }
+  .pod-copy p { color: var(--cream); opacity: 0.88; margin-bottom: 1.2rem; }
+  .pod-format { list-style: none; margin: 0 0 1.6rem; padding: 0; }
+  .pod-format li { padding: 0.35rem 0; color: var(--cream); opacity: 0.85; font-size: 0.96rem; border-bottom: 1px solid var(--border); }
+  .pod-format li:last-child { border-bottom: 0; }
+  .pod-format li b { color: var(--gold-lt); font-weight: 500; }
+  .pod-cta { display: inline-block; background: var(--gold); color: var(--navy); padding: 0.75rem 1.6rem; border-radius: 4px; font-weight: 500; }
+  .pod-cta:hover { background: var(--gold-lt); }
+  .pod-embed { width: 100%; border-radius: 12px; }
+
+  .through { text-align: center; padding: 4rem 0 5rem; }
+  .through p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.5rem; max-width: 44ch; margin: 0 auto; line-height: 1.4; color: var(--cream); }
+
+  footer { border-top: 1px solid var(--border); padding: 2rem 3rem; text-align: center; color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-name">Dr. Mark McNees</a>
+  <div class="nav-links">
+    <a href="/#argument">The Argument</a>
+    <a href="/#speaking">Speaking</a>
+    <a href="/#clips">Media</a>
+    <a href="/bio/">Bio</a>
+    <a href="/books/" class="on">Books</a>
+    <a href="/press/">Press</a>
+    <a href="/#contact" class="nav-cta">Book a Talk</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="hero">
+    <p class="eyebrow">Books and Podcast</p>
+    <h1>A daily practice for leaders</h1>
+    <p>The work of leading is not transformed by a weekend of reading. It is built one day at a time. The CEO's Mindset Reset, in print and in your ears every morning, turns that idea into a habit.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="books-section">
+    <h2 class="sec-head">The CEO's Mindset Reset</h2>
+    <p class="sec-sub">A 365-day leadership development system delivered across volumes. Each daily entry follows one rhythm: a leader's story you will recognize, a research-backed reframe, a reflection, and one action to take before the day gets away from you.</p>
+
+    <div class="books">
+      <div class="book">
+        <img src="/images/cmr-vol1.jpg" alt="The CEO's Mindset Reset Volume 1 on a desk">
+        <div class="body">
+          <div class="vol">Volume 1 &middot; Days 1 to 91</div>
+          <h3>Foundation Building</h3>
+          <p>Stop drowning in leadership chaos and build your foundation. The first 91 days work through the fundamental challenges every leader faces: decision paralysis, culture, focus, and the weight of the top job.</p>
+          <a class="buy" href="https://www.amazon.com/dp/B0H4S76F27" target="_blank" rel="noopener">View on Amazon</a>
+        </div>
+      </div>
+      <div class="book">
+        <img src="/images/cmr-vol2.jpg" alt="The CEO's Mindset Reset Volume 2, print and digital">
+        <div class="body">
+          <div class="vol">Volume 2 &middot; Days 92 to 182</div>
+          <h3>Building the Advanced Capabilities</h3>
+          <p>You have the fundamentals. Volume 2 picks up where the foundation leaves off, guiding you through the harder, higher-stakes work of empowerment, scale, and leading through complexity.</p>
+          <a class="buy" href="https://www.amazon.com/dp/B0H4S76F27" target="_blank" rel="noopener">View on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="series-note">Both volumes, in paperback and Kindle, are on the <a href="https://www.amazon.com/dp/B0H4S76F27" target="_blank" rel="noopener">CEO's Mindset Reset series page</a>.</p>
+  </section>
+</div>
+
+<section class="podcast">
+  <div class="wrap">
+    <div class="pod-grid">
+      <div class="pod-copy">
+        <p class="eyebrow">The daily podcast</p>
+        <h2>Five minutes every morning</h2>
+        <p>The book, read aloud and expanded, one day at a time. Each morning's episode gives you a reset before the meetings, the fires, and the noise begin.</p>
+        <ul class="pod-format">
+          <li><b>Mindset Minute:</b> a leader's story you will recognize</li>
+          <li><b>The Mindset Reset:</b> a research-backed reframe</li>
+          <li><b>Your Reflection:</b> a question to carry through the day</li>
+          <li><b>Today's Practice:</b> one action to take now</li>
+        </ul>
+        <a class="pod-cta" href="https://open.spotify.com/show/0U6Ck1OiuJMjgGDDBGuPzI" target="_blank" rel="noopener">Listen on Spotify</a>
+      </div>
+      <div>
+        <iframe class="pod-embed" src="https://open.spotify.com/embed/show/0U6Ck1OiuJMjgGDDBGuPzI" height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="The CEO's Mindset Reset podcast"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="through">
+    <p>Extraordinary achievements are not built through grand gestures. They are built through small, consistent daily actions.</p>
+  </div>
+</div>
+
+<footer>
+  Dr. Mark McNees &nbsp;&middot;&nbsp; <a href="/">markmcnees.com</a>
+</footer>
+
+</body>
+</html>
