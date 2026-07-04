@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reporter FAQ, data centers and your electric bill, Dr. Mark McNees</title>
+<meta name="description" content="Plain-English answers to the questions reporters ask about AI data centers, electricity costs, and who pays. Every answer sourced.">
+<style>
+  :root{
+    --ink:#1a1a17;
+    --paper:#ffffff;
+    --wash:#f6f4ef;
+    --line:#e2ddd2;
+    --accent:#C4972A;
+    --accent-soft:#e8f0ea;
+    --green:#173f34;
+    --hot:#9c3a1c;
+    --muted:#6a6458;
+    --font-display:"Cormorant Garamond",Georgia,serif;
+    --font-body:"DM Sans",-apple-system,sans-serif;
+    --maxw:900px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font-body);color:var(--ink);background:var(--paper);line-height:1.65;}
+  a{color:var(--accent);}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  header.bar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 28px;border-bottom:1px solid var(--line);
+    position:sticky;top:0;background:var(--paper);z-index:50;
+  }
+  .bar .name{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--ink);text-decoration:none;}
+  .bar nav a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px;}
+  .bar nav a.on{color:var(--accent);font-weight:600;}
+  @media(max-width:720px){.bar nav a{margin-left:14px;font-size:13px;}}
+
+  .strip{
+    background:var(--green);color:#e9efe9;font-size:13px;letter-spacing:.02em;
+    padding:9px 28px;display:flex;gap:20px;flex-wrap:wrap;align-items:center;
+  }
+  .strip b{color:#fff;font-weight:600;}
+  .strip a{color:#f0d99a;}
+  .strip .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;}
+
+  .hero{padding:48px 0 32px;}
+  .kick{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px;}
+  h1{font-family:var(--font-display);font-size:clamp(30px,4vw,44px);line-height:1.12;font-weight:700;max-width:24ch;}
+  .lede{color:var(--muted);max-width:64ch;margin-top:16px;font-size:16px;}
+
+  .toc{
+    background:var(--wash);border:1px solid var(--line);border-radius:8px;
+    padding:20px 24px;margin:28px 0 8px;
+  }
+  .toc .t{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px;}
+  .toc ol{margin-left:20px;font-size:14.5px;columns:2;column-gap:36px;}
+  .toc li{margin-bottom:6px;break-inside:avoid;}
+  .toc a{text-decoration:none;color:var(--ink);}
+  .toc a:hover{color:var(--accent);}
+  @media(max-width:640px){.toc ol{columns:1;}}
+
+  .faq{padding:14px 0 60px;}
+  .qa{border-top:1px solid var(--line);padding:30px 0;}
+  .qa:last-of-type{border-bottom:1px solid var(--line);}
+  .qa h2{font-family:var(--font-display);font-size:clamp(21px,2.6vw,26px);font-weight:700;line-height:1.25;margin-bottom:12px;}
+  .qa p{max-width:68ch;font-size:15.5px;}
+  .qa p+p{margin-top:10px;}
+  .qa .short{
+    font-weight:600;background:var(--accent-soft);border-left:3px solid var(--green);
+    padding:12px 16px;border-radius:0 6px 6px 0;margin-bottom:14px;max-width:68ch;
+  }
+  .qa .src{font-size:13px;color:var(--muted);margin-top:14px;max-width:68ch;}
+  .qa .src a{color:var(--muted);}
+  .qa .why{
+    margin-top:14px;font-size:14px;color:var(--muted);
+    border-left:3px solid var(--accent);padding-left:12px;max-width:66ch;
+  }
+  .qa .why b{color:var(--ink);}
+
+  .cta-band{background:var(--green);color:#e9efe9;padding:36px 0;}
+  .cta-band .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+  .cta-band h3{font-family:var(--font-display);font-size:24px;color:#fff;font-weight:700;}
+  .cta-band p{font-size:14.5px;}
+  .cta-band a.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:600;font-size:14.5px;padding:12px 22px;border-radius:4px;text-decoration:none;white-space:nowrap;}
+
+  footer{border-top:1px solid var(--line);padding:26px 28px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a class="name" href="/">Dr. Mark McNees</a>
+  <nav>
+    <a href="/#argument">The Argument</a>
+    <a href="/bio/">About</a>
+    <a href="/press/">Press Resources</a>
+    <a href="/press/faq.html" class="on">Reporter FAQ</a>
+    <a href="/press/data-center-tracker.html">State Tracker</a>
+  </nav>
+</header>
+
+<div class="strip">
+  <span class="dot"></span>
+  <span><b>Reporter FAQ.</b> Plain-English answers, every one sourced. Last verified July 4, 2026.</span>
+  <span>On deadline: <a href="tel:+18509737687">850.973.7687</a></span>
+</div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="kick">The vocabulary of the story</div>
+    <h1>Data centers and your electric bill: the questions reporters ask</h1>
+    <p class="lede">Each answer opens with the one-sentence version, then the detail, then the source. If your question is not here, call. It will probably end up on this page.</p>
+
+    <div class="toc">
+      <div class="t">Jump to a question</div>
+      <ol>
+        <li><a href="#hyperscaler">What is a hyperscaler?</a></li>
+        <li><a href="#btm">What does "behind the meter" mean?</a></li>
+        <li><a href="#tariff">What is a large-load tariff?</a></li>
+        <li><a href="#capacity">What is a capacity auction?</a></li>
+        <li><a href="#ratebase">Why do data center costs hit my bill years later?</a></li>
+        <li><a href="#stranded">What is a stranded asset?</a></li>
+        <li><a href="#gas-solar">Isn't gas cheaper than solar?</a></li>
+        <li><a href="#buildtime">How long does it take to build solar, gas, or nuclear?</a></li>
+        <li><a href="#jobs">How many people does a hyperscaler employ, and what do the jobs pay?</a></li>
+        <li><a href="#redlining">What is industrial redlining?</a></li>
+        <li><a href="#backdoor">What is the affiliate transfer price, the "back door"?</a></li>
+        <li><a href="#thresholds">Why do the laws use thresholds like 50 MW or 75 MW?</a></li>
+        <li><a href="#killswitch">What is curtailment, the "kill switch"?</a></li>
+        <li><a href="#curtail">Can AI data centers cut their power use at peak hours?</a></li>
+        <li><a href="#watercooling">Water-cooled versus waterless: what is the difference?</a></li>
+        <li><a href="#wateruse">How much water does a hyperscaler use?</a></li>
+        <li><a href="#whyrising">If data centers pay their own way, why are my rates still going up?</a></li>
+        <li><a href="#dc">What is Washington doing, and can't Congress just pass a law?</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="faq">
+
+    <div class="qa" id="hyperscaler">
+      <h2>What is a hyperscaler?</h2>
+      <p class="short">A company that builds massive data centers to run its own cloud and AI workloads: Amazon, Google, Microsoft, Meta.</p>
+      <p>The distinction that matters for your story is hyperscale versus colocation. Hyperscalers build and operate their own campuses. Colocation companies (Equinix, Digital Realty) are landlords who lease space, power, and cooling to tenants. Brookings found the two types have very different local economic effects: counties that land hyperscale facilities see information-sector job gains, while colocation counties largely do not.</p>
+      <p class="src">Source: <a href="https://www.brookings.edu/articles/new-evidence-on-data-center-employment-effects/" target="_blank" rel="noopener">Brookings, "New evidence on data center employment effects," May 2026</a></p>
+    </div>
+
+    <div class="qa" id="btm">
+      <h2>What does "behind the meter" mean?</h2>
+      <p class="short">Power generated and consumed on the customer's side of the utility meter, so it never touches the public grid or a monthly bill.</p>
+      <p>When a data center builds or contracts its own on-site generation (gas turbines, solar, batteries) and consumes that power directly, the arrangement is behind the meter. The appeal for the data center is speed and price certainty. The policy question is what happens when a behind-the-meter deal pulls an existing power plant's output off the shared grid: the plant's capacity was serving everyone, and now it serves one customer. Texas addressed exactly this in SB 6, which requires ERCOT study and commission approval before an existing grid-connected generator can be paired with a new large load.</p>
+      <p class="src">Source: <a href="https://www.bakerbotts.com/thought-leadership/publications/2025/july/texas-senate-bill-6-understanding-the-impacts-to-large-loads-and-co-located-generation" target="_blank" rel="noopener">Baker Botts analysis of Texas SB 6, July 2025</a></p>
+    </div>
+
+    <div class="qa" id="tariff">
+      <h2>What is a large-load tariff?</h2>
+      <p class="short">The rate schedule and contract terms a utility applies specifically to very large customers, designed so those customers pay the full cost of serving them.</p>
+      <p>A tariff is the public price list a regulated utility files with its state commission. A large-load tariff adds terms sized to the risk a giant customer creates: minimum contract lengths, minimum monthly payments whether or not the power is used, collateral or deposits, and exit fees. The goal is that if the customer leaves or never materializes, the infrastructure built for it does not land on everyone else. Florida's SB 484 requires every public utility to file one by October 1, 2026.</p>
+      <p class="src">Source: <a href="https://www.flsenate.gov/Committees/BillSummaries/2026/html/484" target="_blank" rel="noopener">Florida Senate, SB 484 bill summary, 2026</a></p>
+    </div>
+
+    <div class="qa" id="capacity">
+      <h2>What is a capacity auction?</h2>
+      <p class="short">An insurance market for the grid: power plants are paid to promise they will be available years from now, and the cost of those promises flows to customer bills.</p>
+      <p>Grid operators like PJM (13 states plus D.C., 67 million people) run auctions to lock in enough generating capacity for future peak demand. When demand forecasts spike, the auction price spikes. Data center growth pushed PJM's clearing price from $28.92 per MW-day for 2024/25 to the $333.44 cap for 2027/28, and the December 2025 auction fell 6,623 MW short of PJM's reliability target, a first. Those costs pass through utilities to households.</p>
+      <p class="src">Sources: <a href="https://insidelines.pjm.com/pjm-auction-procures-134479-mw-of-generation-resources/" target="_blank" rel="noopener">PJM, Dec. 17, 2025</a> &middot; <a href="https://ieefa.org/resources/projected-data-center-growth-spurs-pjm-capacity-prices-factor-10" target="_blank" rel="noopener">IEEFA price history</a></p>
+    </div>
+
+    <div class="qa" id="ratebase">
+      <h2>Why do data center costs hit my bill years later, not now?</h2>
+      <p class="short">Because utilities recover big infrastructure spending through the rate base, and the bill arrives after the equipment is built, in a general rate increase that never names its cause.</p>
+      <p>A regulated utility earns a state-approved profit on the infrastructure it builds. When it builds plants and lines to serve a new data center, that spending goes into the rate base, and customers pay it back, with the utility's return on top, over the asset's life of thirty or forty years. The cost shows up in a future rate case as a general increase. By then the decision that caused it is locked in. That timing gap is why the fights are happening now, at tariff filing and rate case stage, not later.</p>
+      <p class="why"><b>Live example:</b> Arizona Public Service's pending rate case (Docket E-01345A-25-0105) requests about $662 million, roughly a $20 per month increase for households, while proposing a separate class and roughly 45% higher rates for extra-large users like data centers.</p>
+      <p class="src">Source: <a href="https://azcapitoltimes.com/news/2026/05/19/aps-rate-case-kicks-off-with-hours-of-protest-over-14-rate-increase/" target="_blank" rel="noopener">Arizona Capitol Times, May 19, 2026</a></p>
+    </div>
+
+    <div class="qa" id="stranded">
+      <h2>What is a stranded asset?</h2>
+      <p class="short">Infrastructure customers are still paying for after the demand it was built to serve disappears.</p>
+      <p>If a utility builds a plant or transmission line for a forecast load and the load never arrives, shrinks, or leaves, the asset is stranded: it produces little value but its cost stays in the rate base, and customers keep paying it off for decades. This is the core risk of the AI buildout. PJM's independent market monitor found $6.2 billion of December's capacity auction costs trace to data centers that have not been built. If those loads never materialize, households paid for phantom demand. Stranded-asset protection (deposits, minimum takes, exit fees) is what the new state tariffs are for.</p>
+      <p class="src">Source: <a href="https://www.utilitydive.com/news/data-centers-pjm-capacity-auction/808951/" target="_blank" rel="noopener">Monitoring Analytics, via Utility Dive, Jan. 2026</a></p>
+    </div>
+
+    <div class="qa" id="gas-solar">
+      <h2>Isn't gas cheaper than solar?</h2>
+      <p class="short">Not for new construction. Lazard's 2025 analysis puts new utility-scale solar at 3.8 to 7.8 cents per kWh without any subsidy, while new gas peaker plants run 13.8 to 26.2 cents.</p>
+      <p>The standard yardstick is levelized cost of electricity, the lifetime cost of building and running a plant divided by the power it produces. On that measure, Lazard (an investment bank, not an advocacy group) finds unsubsidized new solar and onshore wind beat new-build gas and coal. Solar paired with battery storage runs 5 to 13.1 cents per kWh, still below the gas peaker range. The honest nuance: the cheapest already-built combined-cycle gas plants can still beat new renewables on marginal cost unless subsidies apply, and firm capacity for reliability is a separate cost question. But for the question utilities face when serving new data center load, which is what to build next, new solar is the low bid.</p>
+      <p class="src">Sources: <a href="https://www.lazard.com/media/uounhon4/lazards-lcoeplus-june-2025.pdf" target="_blank" rel="noopener">Lazard LCOE+ report, June 2025</a> &middot; <a href="https://pv-magazine-usa.com/2025/07/01/solar-cost-of-electricity-beats-lowest-cost-fossil-fuel-even-without-tax-credits/" target="_blank" rel="noopener">pv magazine summary</a></p>
+    </div>
+
+    <div class="qa" id="buildtime">
+      <h2>How long does it take to build solar, gas, or nuclear?</h2>
+      <p class="short">Utility-scale solar: 12 to 18 months. A new gas plant: five years or more, because turbine backlogs stretch to 2029. Nuclear: a decade or longer.</p>
+      <p>Speed is now the deciding variable, because data centers go up in 18 to 24 months and want power on day one. Solar and battery projects deploy in roughly a year to a year and a half. New combined-cycle gas plants have gone from about 3.5 years of lead time in 2023 to five or more in 2025, per Rocky Mountain Institute analysis of BloombergNEF data, and the three companies that make more than 75 percent of large gas turbines have order backlogs running to 2028 through 2030, with manufacturers advising developers to plan seven to eight years out. Dominion's Chesterfield gas peaker in Virginia, announced in 2024, is not expected online until 2029. Conventional nuclear runs a decade or more, and small modular reactors remain years from commercial operation in the U.S.</p>
+      <p class="why"><b>Why it matters for your story:</b> when a utility says it must build to serve data center load, the build-time table determines what actually gets built, and who waits.</p>
+      <p class="src">Sources: <a href="https://www.techtimes.com/articles/317964/20260607/us-solar-energy-boom-hits-28-months-running-gas-turbine-backlog-ai-demand-outweigh-policy-cuts.htm" target="_blank" rel="noopener">RMI and BloombergNEF lead-time data, turbine backlog reporting</a> &middot; <a href="https://www.utilitydive.com/news/data-center-power-problem-solar/758809/" target="_blank" rel="noopener">Utility Dive on build timelines</a> &middot; <a href="https://www.turbomachinerymag.com/view/gas-turbine-industry-10-year-outlook" target="_blank" rel="noopener">Turbomachinery Magazine on backlogs to 2029</a></p>
+    </div>
+
+    <div class="qa" id="jobs">
+      <h2>How many people does a hyperscale data center employ, and what do the jobs pay?</h2>
+      <p class="short">Construction employs thousands for one to three years. Permanent operations typically run 50 to a few hundred people, and the most automated campuses need only 20 to 40 staff per 100 MW.</p>
+      <p>The construction phase is real and large: 1,000 to several thousand workers on a hyperscale build. The permanent numbers are much smaller. Meta's $10 billion Lebanon, Indiana campus will support about 300 permanent jobs. Brookings, studying 770 data centers across 93 counties, found host counties gain 4 to 5 percent total employment over five to six years, but that industry-sponsored estimates overstate the effect by roughly a factor of three, and hyperscale facilities produce information-sector gains that colocation facilities do not.</p>
+      <p>On pay: data center technicians typically earn $60,000 to $90,000, and Brookings found county wages rise 3 to 4 percent after a data center arrives. No reliable state-by-state salary table for data center workers exists yet; treat any precise per-state figure you are handed with suspicion, and ask whether it counts construction, operations, or both.</p>
+      <p class="src">Sources: <a href="https://www.brookings.edu/articles/new-evidence-on-data-center-employment-effects/" target="_blank" rel="noopener">Brookings, May 2026</a> &middot; <a href="https://builtin.com/articles/data-center-jobs" target="_blank" rel="noopener">Built In, staffing and pay ranges</a> &middot; <a href="https://hamminstitute.org/site-files/documents/data_center_workforce.pdf" target="_blank" rel="noopener">Hamm Institute workforce forecast, Nov. 2025</a></p>
+    </div>
+
+    <div class="qa" id="redlining">
+      <h2>What is industrial redlining?</h2>
+      <p class="short">The siting of heavy industrial infrastructure, now including hyperscale data centers and their gas turbines, in the same communities that redlining maps and urban renewal marked decades ago: communities without the political capital to push back.</p>
+      <p>The 1930s redlining maps drew lines around minority neighborhoods to deny them mortgage capital. Urban renewal then routed highways, refineries, and power plants through those same neighborhoods. Hyperscale siting is the next layer on the same maps. The clearest case is Boxtown, in south Memphis, a community founded by freedmen in 1863, where xAI's Colossus data center installed dozens of unpermitted methane gas turbines identified by Southern Environmental Law Center drone flyovers, and residents learned of the project through media reports. Policy can encode the pattern too: Florida's SB 484 permits nondisclosure agreements that keep data center siting decisions confidential for up to a year, which lets a facility land before the community can weigh in.</p>
+      <p class="why"><b>Note for reporters:</b> the term as applied to data centers comes from Dr. McNees's May 2026 analysis. He is available on the record to discuss it: 850.973.7687.</p>
+      <p class="src">Source: <a href="https://www.theinvadingsea.com/2026/05/12/redlining-data-centers-florida-sb-484-boxtown-colossus-energy-pollution-nondisclosure/" target="_blank" rel="noopener">McNees, "Industrial redlining: Data centers repeating historic pattern of harm," The Invading Sea, May 12, 2026</a> Also ran in the <a href="https://www.chronicleonline.com/opinion/columnists/industrial-redlining-data-centers-repeating-historic-pattern-of-harm/article_d853383c-c6a4-56e1-b43e-78cfd8f53d56.html" target="_blank" rel="noopener">Citrus County Chronicle</a>.</p>
+    </div>
+
+    <div class="qa" id="backdoor">
+      <h2>What is the affiliate transfer price, the "back door"?</h2>
+      <p class="short">The internal price a utility pays a power generator owned by its own parent company. State laws like SB 484 audit what the utility charges the data center; they do not reach this internal price.</p>
+      <p>Many utilities belong to holding companies that also own unregulated generation. When the regulated utility buys power from its corporate sibling, the price is set inside the family. Florida's SB 484 guards the front door: it audits the invoice between the utility and the large customer. The back door is the affiliate transfer price, which state cost-of-service review does not reach; oversight of that transaction sits with federal wholesale rules at FERC. If the internal price runs high, the excess flows into everyone's rates through fuel and purchased-power clauses. The seam between state and federal review is where reporting should focus.</p>
+      <p class="src">Source: <a href="https://flsenate.gov/Session/Bill/2026/484/BillText/er/HTML" target="_blank" rel="noopener">SB 484 enrolled text (scope of tariff review)</a>. Analysis: Dr. Mark McNees, available on the record at 850.973.7687.</p>
+    </div>
+
+    <div class="qa" id="thresholds">
+      <h2>Why do the laws use thresholds like 50 MW or 75 MW?</h2>
+      <p class="short">The threshold defines who counts as a "large load" and therefore who the special rules apply to. Florida set it at 50 MW; Texas at 75 MW.</p>
+      <p>Legislatures need a line separating a big factory from a grid-reshaping customer. Florida's SB 484 applies its data center provisions at 50 MW of monthly peak demand. Texas SB 6 sets its default at 75 MW at a single site, adjustable by the state commission. The threshold is itself a story: set it too high and large facilities split into smaller meters to duck under it, which is why SB 484 explicitly prohibits dividing load at a single location to avoid the tariff.</p>
+      <p class="src">Sources: <a href="https://www.hklaw.com/en/insights/publications/2026/02/proposed-florida-legislation-creates-new-regulatory-framework" target="_blank" rel="noopener">Holland &amp; Knight on SB 484 (50 MW)</a> &middot; <a href="https://www.mayerbrown.com/en/insights/publications/2025/07/important-texas-regulatory-updates-for-data-centers" target="_blank" rel="noopener">Mayer Brown on Texas SB 6 (75 MW)</a></p>
+    </div>
+
+    <div class="qa" id="killswitch">
+      <h2>What is curtailment, the "kill switch"?</h2>
+      <p class="short">The grid operator's authority to order big customers to power down, or to disconnect them remotely, during emergencies, so hospitals and homes stay on.</p>
+      <p>Texas SB 6 made this concrete. New large loads interconnecting in ERCOT after December 31, 2025 must install equipment allowing remote disconnection during firm load-shed events, which is why some in the industry call SB 6 the "kill switch bill." ERCOT can order large loads to switch to backup generators or curtail, with notice, and only after market options are exhausted. The policy logic: a data center with backup power can ride out an emergency; a household in a heat wave cannot.</p>
+      <p class="src">Sources: <a href="https://www.mcguirewoods.com/client-resources/alerts/2025/7/texas-senate-bill-6-significantly-expands-regulatory-oversight-over-large-loads-in-ercot/" target="_blank" rel="noopener">McGuireWoods on SB 6</a> &middot; <a href="https://www.datacenterfrontier.com/energy/article/55298872/texas-senate-bill-6-a-bellwether-on-how-states-may-approach-data-center-energy-use" target="_blank" rel="noopener">Data Center Frontier</a></p>
+    </div>
+
+    <div class="qa" id="curtail">
+      <h2>Can AI data centers cut their power use at peak hours?</h2>
+      <p class="short">Yes, and the numbers are large: Duke University found 76 GW of new load fits on today's grid if data centers curtail just 0.25 percent of their uptime, about two hours per event on average.</p>
+      <p>Duke's Nicholas Institute ("Rethinking Load Growth," 2025) measured how much new load the existing grid can absorb if that load powers down briefly during peaks: 76 GW at 0.25 percent annual curtailment, 98 GW at 0.5 percent, 126 GW at 1 percent, with PJM alone holding 18 GW of that headroom. The flexibility is real because servers never run at 100 percent of nameplate power, and AI training jobs can pause or shift to other regions. It is already happening: Google has integrated 1 GW of data center demand response with U.S. utilities, and its agreements with Indiana Michigan Power and the Tennessee Valley Authority were the first documented cases of AI data center flexibility written into utility planning. Texas SB 6 makes the capability mandatory for new large loads in ERCOT.</p>
+      <p class="why"><b>The tension to probe:</b> most existing data centers have historically avoided demand response to protect uptime. Flexibility is becoming the price of faster interconnection, so ask any operator claiming it cannot curtail why Google can.</p>
+      <p class="src">Sources: <a href="https://www.utilitydive.com/news/us-grid-headroom-flexible-load-data-center-ai-ev-duke-report/739767/" target="_blank" rel="noopener">Duke Nicholas Institute, via Utility Dive</a> &middot; <a href="https://www.renewableenergyworld.com/power-grid/smart-grids/google-has-integrated-1-gw-of-data-center-demand-response-with-us-utilities/" target="_blank" rel="noopener">Google 1 GW demand response</a> &middot; <a href="https://www.canarymedia.com/articles/utilities/north-carolina-duke-plans-data-center-demand" target="_blank" rel="noopener">Canary Media on the IMP and TVA agreements</a></p>
+    </div>
+
+    <div class="qa" id="watercooling">
+      <h2>Water-cooled versus waterless: what is the difference?</h2>
+      <p class="short">Evaporative cooling spends water to save electricity. Closed-loop and dry cooling spend electricity to save water. Every data center picks a side of that trade.</p>
+      <p>Evaporative (open-loop) cooling removes heat by evaporating water in cooling towers; 70 to 80 percent of the water drawn is lost to the air. It is the industry standard because it is energy-efficient, cutting peak summer cooling power by roughly 25 to 35 percent compared with dry cooling. Closed-loop systems circulate sealed coolant and reject heat to outside air, using almost no water but more electricity. The gap is dramatic: Vantage reports its closed-loop Wisconsin campus will peak around 22,000 gallons per day, versus roughly 5 million gallons per day for a comparable evaporative campus. The catch is that the waterless choice shifts the burden onto the grid, and the water-heavy choice concentrates demand on the hottest days, exactly when water and grid stress peak together.</p>
+      <p class="src">Sources: <a href="https://blog.vantage-dc.com/2026/04/22/cooling-without-the-drain-how-closed-loop-systems-cut-day-to-day-water-use/" target="_blank" rel="noopener">Vantage Data Centers, April 2026</a> &middot; <a href="https://www.fwpcoa.org/content.aspx?page_id=5&club_id=859275&item_id=130961" target="_blank" rel="noopener">Florida Water and Pollution Control Operators Association</a> &middot; <a href="https://arxiv.org/pdf/2606.21760" target="_blank" rel="noopener">Peer-reviewed analysis of the water-energy tradeoff</a></p>
+    </div>
+
+    <div class="qa" id="wateruse">
+      <h2>How much water does a hyperscaler use?</h2>
+      <p class="short">A typical 100 MW hyperscale facility using evaporative cooling consumes roughly half a million gallons per day. U.S. data centers consumed about 17.4 billion gallons in 2023, on track to double or quadruple by 2028.</p>
+      <p>Lawrence Berkeley National Laboratory's 2024 report to Congress put U.S. data center direct water consumption at 17.4 billion gallons in 2023, roughly the annual water use of 160,000 households, with projections of 38 to 73 billion gallons by 2028 and hyperscale facilities accounting for about half. Google's own disclosure: its data centers withdrew 7.8 billion gallons in 2024, and 78 percent was consumed through evaporation, never returned to the local system. Two questions sharpen any water story: withdrawal versus consumption (consumed water is gone until it rains), and which cooling design the specific facility uses, since a closed-loop site can run on a few thousand gallons a day while an evaporative campus runs on millions.</p>
+      <p class="why"><b>Florida angle:</b> SB 484 created a distinct water permit process for large-scale data centers and lets regulators require reclaimed water as a condition of approval. <a href="https://www.flsenate.gov/Committees/BillSummaries/2026/html/484" target="_blank" rel="noopener">Florida Senate bill summary</a></p>
+      <p class="src">Sources: <a href="https://mostpolicyinitiative.org/science-note/data-center-water-use/" target="_blank" rel="noopener">LBNL (Shehabi et al. 2024) and Google 2024 disclosure, via MOST Policy Initiative</a> &middot; <a href="https://airsysnorthamerica.com/how-much-water-does-a-data-center-use/" target="_blank" rel="noopener">Per-facility consumption figures</a></p>
+    </div>
+
+    <div class="qa" id="whyrising">
+      <h2>If data centers now pay their own way, why are my rates still going up?</h2>
+      <p class="short">Because the new laws mostly cover new, direct infrastructure. Shared costs, regional capacity prices, and everything already in the rate base still spread across everyone.</p>
+      <p>Three reasons. First, regional capacity and transmission costs are shared by design: when PJM's auction price rises tenfold, every household in 13 states pays a slice regardless of state law. Second, the tariffs are forward-looking; costs already booked stay put. Third, the laws cover the front door, not every path. Fuel clauses, purchased-power costs, and the affiliate transfer price can still move money onto general rates. That is why utilities in states with strong rules, like Arizona's pending cases, are still seeking double-digit household increases while insisting data centers pay their own way. Both things can be true, and the gap between them is the story.</p>
+      <p class="src">Sources: <a href="https://ieefa.org/resources/projected-data-center-growth-spurs-pjm-capacity-prices-factor-10" target="_blank" rel="noopener">IEEFA on PJM cost pass-through</a> &middot; <a href="https://azcapitoltimes.com/news/2026/05/19/aps-rate-case-kicks-off-with-hours-of-protest-over-14-rate-increase/" target="_blank" rel="noopener">Arizona Capitol Times, May 2026</a></p>
+    </div>
+
+    <div class="qa" id="dc">
+      <h2>What is Washington doing, and can't Congress just pass a law?</h2>
+      <p class="short">Washington is acting through FERC, not Congress, and the reason is a 90-year-old line: federal regulators control wholesale power and transmission, states control the retail rates on your bill.</p>
+      <p>The federal arc, fast: on October 23, 2025, Energy Secretary Chris Wright used a rarely invoked authority to direct FERC to write rules for connecting large loads, generally 20 MW and up, to the interstate transmission system (Docket RM26-4-000). The docket drew more than 3,500 pages of comments. On June 18, 2026, FERC skipped the slow rulemaking route and issued show cause orders to all six regional grid operators (PJM, MISO, SPP, CAISO, ISO-NE, NYISO), forcing each to justify or reform how large loads connect, pay for network upgrades, and pay for transmission. FERC had already ordered PJM to adopt transparent co-location tariff rules in December 2025.</p>
+      <p>Why Congress does not just pass a law: it could amend the Federal Power Act, but no such bill is moving, and the Act's split is the entire battlefield. FERC's authority stops at wholesale and transmission; the retail rate on a household bill is state turf, which is why the binding cost-of-service rules are coming from Tallahassee, Austin, and Harrisburg, not Capitol Hill. State regulators are actively defending that line: NARUC and Virginia's commission formally warned FERC that federalizing load interconnection would undercut states' ability to protect retail affordability. Court challenges to whatever FERC finalizes are widely expected. The practical answer for reporters: watch FERC for interconnection and transmission cost rules, and watch state capitals for who pays on the bill.</p>
+      <p class="src">Sources: <a href="https://www.ferc.gov/news-events/news/ferc-launches-aggressive-targeted-action-speed-large-load-integration" target="_blank" rel="noopener">FERC, June 18, 2026 show cause orders</a> &middot; <a href="https://www.ferc.gov/rm26-4" target="_blank" rel="noopener">FERC Docket RM26-4-000</a> &middot; <a href="https://www.utilitydive.com/news/ferc-doe-data-center-interconnection/823360/" target="_blank" rel="noopener">Utility Dive analysis</a> &middot; <a href="https://www.americanbar.org/groups/infrastructure-regulated-industries/resources/magazine/spring-2026/jurisdictional-collision-large-loads-data-center-interconnection/" target="_blank" rel="noopener">ABA on the federal-state jurisdictional split</a></p>
+    </div>
+
+
+      </div>
+</div>
+
+<div class="cta-band">
+  <div class="wrap">
+    <div>
+      <h3>A question this page does not answer?</h3>
+      <p>Call 850.973.7687 or email mmcnees@fsu.edu. On deadline, expect a response within the hour.</p>
+    </div>
+    <a class="btn" href="/press/">Back to the press desk</a>
+  </div>
+</div>
+
+<footer>
+  <span>Dr. Mark McNees, Florida State University</span>
+  <span><a href="/press/">Press desk</a> &nbsp;&middot;&nbsp; <a href="/press/data-center-tracker.html">Nine-state tracker</a> &nbsp;&middot;&nbsp; <a href="/">markmcnees.com</a></span>
+</footer>
+
+</body>
+</html>
