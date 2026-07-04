@@ -166,6 +166,15 @@
   ol.reflist .kind.sec{color:var(--mkt);}
   .verifynote{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;color:var(--ink-soft);background:var(--accent-soft);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 5px 5px 0;margin:0 0 18px;}
 
+  /* Pull quotes (on-the-record, attributable) */
+  .pq{margin:22px 0 6px;padding:20px 26px;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;}
+  .pq blockquote{margin:0;font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-size:19px;line-height:1.45;color:var(--ink);}
+  .pq .attr{margin-top:12px;font-family:"Helvetica Neue",Arial,sans-serif;font-size:12.5px;letter-spacing:.03em;color:var(--ink-soft);}
+  .pq .attr b{color:var(--accent);font-weight:600;}
+  .pq.hero-pq{border-left-color:var(--accent);background:var(--accent-soft);margin:30px 0 8px;}
+  .pq.hero-pq blockquote{font-size:22px;line-height:1.4;}
+  .quotelabel{font-family:"Helvetica Neue",Arial,sans-serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);margin:22px 0 0;}
+
   /* SVG shared text styles via classes */
   svg text{font-family:"Helvetica Neue",Arial,sans-serif;}
   .n-title{font-weight:700;fill:var(--ink);}
@@ -202,6 +211,13 @@
   <nav class="sidebar">
     <div class="brand">Press resource</div>
     <h1>Who pays for the data center buildout</h1>
+
+    <div class="navlabel">Dr. Mark McNees</div>
+    <a href="https://markmcnees.com/"><span>Home</span></a>
+    <a href="https://markmcnees.com/#argument"><span>The Argument</span></a>
+    <a href="https://markmcnees.com/#clips"><span>Media</span></a>
+    <a href="https://markmcnees.com/#about"><span>About</span></a>
+    <a href="https://markmcnees.com/press/"><span>Press Resources</span></a>
 
     <div class="navlabel">Jump to a state</div>
     <a href="#florida"><span>Florida</span><span class="tag law">Law</span></a>
@@ -243,6 +259,11 @@
       <p><strong>The core idea.</strong> A data center that triggers hundreds of millions of dollars in grid upgrades should carry that cost itself. When the cost lands on the residential rate class instead, that is cost externalization: a private profit paid for with a public bill. Every framework below is a different attempt to stop that shift.</p>
     </div>
 
+    <div class="pq hero-pq">
+      <blockquote>"The question is not whether we build the grid for AI. It is who pays for it. A data center that triggers a billion dollars in upgrades should carry that cost, not hand it to a retiree three counties away who never asked for the load."</blockquote>
+      <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+    </div>
+
     <!-- =================================================== FLORIDA =================================================== -->
     <section class="state" id="florida">
       <div class="state-head">
@@ -250,6 +271,11 @@
         <span class="status" style="background:#e4f0e8;color:#2f6b4f;">Binding statute</span>
       </div>
       <p class="state-sub">The first state to put a binding statute behind the load-creator-pays principle. SB 484 became law on May 7, 2026 and takes effect July 1, 2026. The real test is the tariff filings that follow.</p>
+
+      <div class="pq">
+        <blockquote>"Florida did something rare. It put a binding statute behind a simple rule: the load creator pays for the load. The law is written. The real test is whether the tariff filings this fall have teeth."</blockquote>
+        <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+      </div>
 
       <div class="block-label">Stakeholder map</div>
       <div class="diagram">
@@ -353,6 +379,11 @@
         <span class="status" style="background:#eaf1f8;color:#2f5d8a;">Model tariff</span>
       </div>
       <p class="state-sub">Pennsylvania acted through its utility commission, not a signed statute. On April 30, 2026 the PUC voted 5-0 to adopt a model large-load tariff. A legislative version passed the House and stalled in the Senate. PJM capacity costs sit on top of all of it.</p>
+
+      <div class="pq">
+        <blockquote>"Pennsylvania shows the cost most people never see. The capacity charge is spread across sixty-seven million bills, and data center demand is driving it. A model tariff helps at the connection point, but the auction cost still lands on everyone."</blockquote>
+        <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+      </div>
 
       <div class="block-label">Stakeholder map</div>
       <div class="diagram">
@@ -464,6 +495,11 @@
       </div>
       <p class="state-sub">Home to the world's largest data center market. The SCC created a dedicated large-load rate class in its November 2025 Dominion order, and the Legislature layered SB 253 on top. The pending NextEra merger reshapes the whole picture.</p>
 
+      <div class="pq">
+        <blockquote>"Virginia built the rate class inside a rate case, not a new law. It moved real cost onto the largest users. But run the math past the contract term and a big share still falls back on households. A start, not a finish."</blockquote>
+        <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+      </div>
+
       <div class="block-label">Stakeholder map</div>
       <div class="diagram">
         <svg viewBox="0 0 860 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Virginia stakeholder map">
@@ -567,6 +603,11 @@
       </div>
       <p class="state-sub">A commission-led outcome with unusually strong customer protections. On April 24, 2026 the PSC unanimously approved a rewritten "very large customer" tariff for We Energies, then the utility asked to reopen part of it in June.</p>
 
+      <div class="pq">
+        <blockquote>"Wisconsin is the version other states should study. The commission did not rubber-stamp the utility's filing. It rewrote it, lowered the threshold, and made the very large customers pay the full cost of the plants built to serve them."</blockquote>
+        <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+      </div>
+
       <div class="block-label">Stakeholder map</div>
       <div class="diagram">
         <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wisconsin stakeholder map">
@@ -668,6 +709,11 @@
         <span class="status" style="background:#f6efe2;color:#8a6d2f;">Study, tariff pending</span>
       </div>
       <p class="state-sub">California is the clearest case of the stranded-asset question. SB 57 is a study law, signed in 2025, that directs the CPUC to measure cost shifts and stranded-asset risk. Newer bills would turn that into an actual tariff.</p>
+
+      <div class="pq">
+        <blockquote>"California is asking the harder question: what happens when a utility builds for demand that never shows up. If the projection is wrong, the stranded asset does not disappear. It goes on someone's bill. Measuring that risk is the first step to pricing it."</blockquote>
+        <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+      </div>
 
       <div class="block-label">Stakeholder map</div>
       <div class="diagram">
@@ -772,6 +818,11 @@
       </div>
       <p class="state-sub">North Carolina enters this map through the Dominion side of the proposed NextEra merger. The North Carolina Utilities Commission is one of three state regulators that must approve the deal, and it has recent experience conditioning a merger on customer savings.</p>
 
+      <div class="pq">
+        <blockquote>"A merger review is a rare moment of leverage. Before you approve the largest utility in the country, the question to ask is simple: who pays when this company builds for data centers, and who is protected if that demand moves."</blockquote>
+        <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+      </div>
+
       <div class="block-label">Stakeholder map</div>
       <div class="diagram">
         <svg viewBox="0 0 860 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="North Carolina stakeholder map">
@@ -838,6 +889,11 @@
         <span class="status" style="background:#f4e8f1;color:#7a2f6b;">Merger review</span>
       </div>
       <p class="state-sub">South Carolina is the third merger-review state, and the announced operational headquarters of the combined company. The Public Service Commission of South Carolina must approve the deal. NextEra has a history of merger attempts that state regulators rejected.</p>
+
+      <div class="pq">
+        <blockquote>"South Carolina holds real leverage here and has not written a data center rule yet. The merger review is the opening. The condition worth attaching is the one every state keeps circling: the load creator pays for the load."</blockquote>
+        <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+      </div>
 
       <div class="block-label">Stakeholder map</div>
       <div class="diagram">
