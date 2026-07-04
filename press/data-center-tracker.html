@@ -174,6 +174,11 @@
   .pq.hero-pq{border-left-color:var(--accent);background:var(--accent-soft);margin:30px 0 8px;}
   .pq.hero-pq blockquote{font-size:22px;line-height:1.4;}
   .quotelabel{font-family:"Helvetica Neue",Arial,sans-serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);margin:22px 0 0;}
+  .pq .pqfoot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px;}
+  .pq .attr{margin-top:0;}
+  .copyq{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--accent);background:transparent;border:1px solid var(--accent);border-radius:5px;padding:6px 13px;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap;}
+  .copyq:hover{background:var(--accent);color:#fff;}
+  .copyq.copied{background:var(--accent);color:#fff;border-color:var(--accent);}
 
   /* SVG shared text styles via classes */
   svg text{font-family:"Helvetica Neue",Arial,sans-serif;}
@@ -261,7 +266,10 @@
 
     <div class="pq hero-pq">
       <blockquote>"The question is not whether we build the grid for AI. It is who pays for it. A data center that triggers a billion dollars in upgrades should carry that cost, not hand it to a retiree three counties away who never asked for the load."</blockquote>
-      <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+        <div class="pqfoot">
+          <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+          <button class="copyq" data-quote="&quot;The question is not whether we build the grid for AI. It is who pays for it. A data center that triggers a billion dollars in upgrades should carry that cost, not hand it to a retiree three counties away who never asked for the load.&quot; Dr. Mark R. McNees, Florida State University" type="button">Copy quote</button>
+        </div>
     </div>
 
     <!-- =================================================== FLORIDA =================================================== -->
@@ -274,7 +282,10 @@
 
       <div class="pq">
         <blockquote>"Florida did something rare. It put a binding statute behind a simple rule: the load creator pays for the load. The law is written. The real test is whether the tariff filings this fall have teeth."</blockquote>
-        <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+        <div class="pqfoot">
+          <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+          <button class="copyq" data-quote="&quot;Florida did something rare. It put a binding statute behind a simple rule: the load creator pays for the load. The law is written. The real test is whether the tariff filings this fall have teeth.&quot; Dr. Mark R. McNees, Florida State University" type="button">Copy quote</button>
+        </div>
       </div>
 
       <div class="block-label">Stakeholder map</div>
@@ -382,7 +393,10 @@
 
       <div class="pq">
         <blockquote>"Pennsylvania shows the cost most people never see. The capacity charge is spread across sixty-seven million bills, and data center demand is driving it. A model tariff helps at the connection point, but the auction cost still lands on everyone."</blockquote>
-        <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+        <div class="pqfoot">
+          <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+          <button class="copyq" data-quote="&quot;Pennsylvania shows the cost most people never see. The capacity charge is spread across sixty-seven million bills, and data center demand is driving it. A model tariff helps at the connection point, but the auction cost still lands on everyone.&quot; Dr. Mark R. McNees, Florida State University" type="button">Copy quote</button>
+        </div>
       </div>
 
       <div class="block-label">Stakeholder map</div>
@@ -497,7 +511,10 @@
 
       <div class="pq">
         <blockquote>"Virginia built the rate class inside a rate case, not a new law. It moved real cost onto the largest users. But run the math past the contract term and a big share still falls back on households. A start, not a finish."</blockquote>
-        <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+        <div class="pqfoot">
+          <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+          <button class="copyq" data-quote="&quot;Virginia built the rate class inside a rate case, not a new law. It moved real cost onto the largest users. But run the math past the contract term and a big share still falls back on households. A start, not a finish.&quot; Dr. Mark R. McNees, Florida State University" type="button">Copy quote</button>
+        </div>
       </div>
 
       <div class="block-label">Stakeholder map</div>
@@ -605,7 +622,10 @@
 
       <div class="pq">
         <blockquote>"Wisconsin is the version other states should study. The commission did not rubber-stamp the utility's filing. It rewrote it, lowered the threshold, and made the very large customers pay the full cost of the plants built to serve them."</blockquote>
-        <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+        <div class="pqfoot">
+          <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+          <button class="copyq" data-quote="&quot;Wisconsin is the version other states should study. The commission did not rubber-stamp the utility's filing. It rewrote it, lowered the threshold, and made the very large customers pay the full cost of the plants built to serve them.&quot; Dr. Mark R. McNees, Florida State University" type="button">Copy quote</button>
+        </div>
       </div>
 
       <div class="block-label">Stakeholder map</div>
@@ -712,7 +732,10 @@
 
       <div class="pq">
         <blockquote>"California is asking the harder question: what happens when a utility builds for demand that never shows up. If the projection is wrong, the stranded asset does not disappear. It goes on someone's bill. Measuring that risk is the first step to pricing it."</blockquote>
-        <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+        <div class="pqfoot">
+          <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+          <button class="copyq" data-quote="&quot;California is asking the harder question: what happens when a utility builds for demand that never shows up. If the projection is wrong, the stranded asset does not disappear. It goes on someone's bill. Measuring that risk is the first step to pricing it.&quot; Dr. Mark R. McNees, Florida State University" type="button">Copy quote</button>
+        </div>
       </div>
 
       <div class="block-label">Stakeholder map</div>
@@ -820,7 +843,10 @@
 
       <div class="pq">
         <blockquote>"A merger review is a rare moment of leverage. Before you approve the largest utility in the country, the question to ask is simple: who pays when this company builds for data centers, and who is protected if that demand moves."</blockquote>
-        <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+        <div class="pqfoot">
+          <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+          <button class="copyq" data-quote="&quot;A merger review is a rare moment of leverage. Before you approve the largest utility in the country, the question to ask is simple: who pays when this company builds for data centers, and who is protected if that demand moves.&quot; Dr. Mark R. McNees, Florida State University" type="button">Copy quote</button>
+        </div>
       </div>
 
       <div class="block-label">Stakeholder map</div>
@@ -892,7 +918,10 @@
 
       <div class="pq">
         <blockquote>"South Carolina holds real leverage here and has not written a data center rule yet. The merger review is the opening. The condition worth attaching is the one every state keeps circling: the load creator pays for the load."</blockquote>
-        <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+        <div class="pqfoot">
+          <div class="attr"><b>Dr. Mark McNees</b>, Florida State University</div>
+          <button class="copyq" data-quote="&quot;South Carolina holds real leverage here and has not written a data center rule yet. The merger review is the opening. The condition worth attaching is the one every state keeps circling: the load creator pays for the load.&quot; Dr. Mark R. McNees, Florida State University" type="button">Copy quote</button>
+        </div>
       </div>
 
       <div class="block-label">Stakeholder map</div>
@@ -1044,6 +1073,40 @@
     }
     window.addEventListener('scroll', onScroll, {passive:true});
     onScroll();
+  })();
+
+  // Copy-quote buttons
+  (function(){
+    var btns = document.querySelectorAll('.copyq');
+    btns.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var text = btn.getAttribute('data-quote') || '';
+        var done = function(){
+          var original = 'Copy quote';
+          btn.textContent = 'Copied';
+          btn.classList.add('copied');
+          setTimeout(function(){
+            btn.textContent = original;
+            btn.classList.remove('copied');
+          }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, function(){ fallback(text); done(); });
+        } else {
+          fallback(text); done();
+        }
+      });
+    });
+    function fallback(text){
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      try { document.execCommand('copy'); } catch(e){}
+      document.body.removeChild(ta);
+    }
   })();
 </script>
 </body>

@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Press Resources — Dr. Mark McNees</title>
+<title>Press Resources: Dr. Mark McNees</title>
 <meta name="description" content="Press resources for reporters covering data center energy costs and ratepayer policy. Liftable quotes, downloadable graphic, bio, and direct contact for Dr. Mark McNees, FSU.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   /* =================================================================
-     DESIGN TOKENS — swap these to your exact markmcnees.com values.
+     DESIGN TOKENS, swap these to your exact markmcnees.com values.
      I matched the live site's look (serif display, warm-neutral,
      economics-first restraint). Adjust hex/fonts here only.
      ================================================================= */
@@ -167,9 +167,10 @@
     <div class="eyebrow">Press Resources</div>
     <h1>A one-stop source kit for reporters on deadline.</h1>
     <p class="lede">I cover the economics of who pays when data centers connect to the grid: utility rate structures, ratepayer cost shifting, and the state laws now reshaping who funds the build-out.</p>
-    <p class="sub">Quotes below are cleared for direct use. The graphic is free to download and run. Call or email anytime, including on deadline.</p>
+    <p class="sub">This page has quotes cleared for direct use, a downloadable graphic, fast facts, and my bio. For the full picture, the detailed state breakdown maps seven states, who pays, how the money moves, and where the accountability gaps sit, with sourced citations and quotes you can copy.</p>
     <div class="cta">
-      <a href="#quotes" class="btn solid">Quotes you can use</a>
+      <a href="/press/data-center-tracker.html" class="btn solid">Detailed state breakdown</a>
+      <a href="#quotes" class="btn ghost">Quotes you can use</a>
       <a href="#graphic" class="btn ghost">Download the graphic</a>
     </div>
   </section>
@@ -228,12 +229,12 @@
       </div>
       <div class="doors">
         <div class="door front">
-          <div class="dh">Front door — guarded</div>
+          <div class="dh">Front door: guarded</div>
           <div class="dt">Utility to data center</div>
           <div class="dd">SB 484 requires the utility to disclose what it charges the large customer. This transaction is now audited.</div>
         </div>
         <div class="door side">
-          <div class="dh">Side door — wide open</div>
+          <div class="dh">Side door: wide open</div>
           <div class="dt">Affiliate to utility</div>
           <div class="dd">The internal price the utility pays its own generator is set inside the same corporate family. SB 484 does not check it. If it runs high, the excess flows into everyone's rates.</div>
         </div>
@@ -316,7 +317,7 @@
     btn.addEventListener('click',function(){
       var q=document.getElementById(btn.dataset.q).innerText.trim();
       var a=document.getElementById('attr1').innerText.trim();
-      var text='"'+q+'"\n— '+a;
+      var text='"'+q+'" '+a;
       navigator.clipboard.writeText(text).then(function(){
         var old=btn.textContent;btn.textContent='Copied with attribution';btn.classList.add('ok');
         setTimeout(function(){btn.textContent=old;btn.classList.remove('ok');},1800);
