@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>State data center ratepayer tracker | Mark McNees</title>
+<meta name="description" content="A state-by-state reference on who pays for the grid capacity that AI data centers trigger. Stakeholder maps, money-flow systems maps, and the accountability gaps in each state.">
+<style>
+  :root{
+    --ink:#16202b;
+    --ink-soft:#48586a;
+    --paper:#f6f4ef;
+    --panel:#ffffff;
+    --line:#d8dde3;
+    --rule:#c3cbd4;
+    --reg:#2f5d8a;
+    --reg-fill:#eff4fa;
+    --mkt:#8a6d2f;
+    --mkt-fill:#fbf7ee;
+    --gap:#a8341f;
+    --gap-fill:#fbf1ee;
+    --accent:#1f5c4d;
+    --accent-soft:#e7f0ec;
+    --sidebar:#12212b;
+    --sidebar-ink:#c9d4dc;
+    --sidebar-active:#f6f4ef;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .layout{display:flex;min-height:100vh;}
+
+  /* Fixed left sidebar quick-find menu */
+  .sidebar{
+    position:fixed;top:0;left:0;bottom:0;width:264px;
+    background:var(--sidebar);color:var(--sidebar-ink);
+    padding:28px 22px;overflow-y:auto;z-index:20;
+  }
+  .sidebar .brand{
+    font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    color:#7f9aa8;font-family:"Helvetica Neue",Arial,sans-serif;margin-bottom:4px;
+  }
+  .sidebar h1{
+    font-size:20px;line-height:1.25;margin:0 0 20px;color:#fff;font-weight:600;
+  }
+  .sidebar .navlabel{
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:#6f8593;font-family:"Helvetica Neue",Arial,sans-serif;
+    margin:20px 0 8px;
+  }
+  .sidebar a{
+    display:flex;justify-content:space-between;align-items:center;
+    color:var(--sidebar-ink);text-decoration:none;
+    padding:8px 10px;border-radius:5px;font-size:15px;
+    transition:background .15s,color .15s;
+  }
+  .sidebar a:hover{background:rgba(255,255,255,.07);color:#fff;}
+  .sidebar a.active{background:var(--accent);color:#fff;}
+  .sidebar a .tag{
+    font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    padding:2px 7px;border-radius:20px;opacity:.85;
+  }
+  .tag.law{background:#2f6b4f;color:#fff;}
+  .tag.rule{background:#2f5d8a;color:#fff;}
+  .tag.study{background:#8a6d2f;color:#fff;}
+  .tag.pending{background:#7a5230;color:#fff;}
+  .tag.merger{background:#7a2f6b;color:#fff;}
+  .sidebar .foot{
+    margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);
+    font-size:12.5px;color:#8fa2ae;font-family:"Helvetica Neue",Arial,sans-serif;line-height:1.5;
+  }
+  .sidebar .foot a{display:inline;padding:0;color:#9db3c9;text-decoration:underline;}
+
+  /* Main column */
+  .main{margin-left:264px;flex:1;padding:0;min-width:0;}
+  .wrap{max-width:920px;margin:0 auto;padding:56px 40px 90px;}
+
+  .hero .kicker{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:14px;
+  }
+  .hero h2{
+    font-size:40px;line-height:1.12;margin:0 0 18px;font-weight:600;letter-spacing:-.01em;
+  }
+  .hero .lede{font-size:19px;color:var(--ink-soft);margin:0 0 10px;max-width:44em;}
+  .hero .asof{
+    font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;color:var(--ink-soft);
+    margin-top:20px;padding-top:14px;border-top:1px solid var(--rule);
+  }
+
+  .principle{
+    background:var(--accent-soft);border-left:3px solid var(--accent);
+    padding:20px 24px;margin:34px 0 10px;border-radius:0 6px 6px 0;
+  }
+  .principle p{margin:0;font-size:17px;}
+  .principle strong{color:var(--accent);}
+
+  section.state{padding:52px 0 8px;border-top:1px solid var(--rule);margin-top:44px;}
+  section.state:first-of-type{border-top:none;}
+  .state-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px;}
+  .state-head h3{font-size:30px;margin:0;font-weight:600;letter-spacing:-.01em;}
+  .state-head .status{
+    font-family:"Helvetica Neue",Arial,sans-serif;font-size:11px;letter-spacing:.07em;
+    text-transform:uppercase;padding:4px 11px;border-radius:20px;
+  }
+  .state-sub{font-size:16px;color:var(--ink-soft);margin:2px 0 24px;max-width:46em;}
+
+  .block-label{
+    font-family:"Helvetica Neue",Arial,sans-serif;font-size:11px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--ink-soft);margin:32px 0 12px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .block-label::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  .diagram{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px;margin:0 0 6px;}
+  .diagram svg{display:block;width:100%;height:auto;}
+  .cap{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12.5px;color:var(--ink-soft);margin:8px 2px 0;}
+
+  .gaps{margin:26px 0 6px;}
+  .gap-item{
+    background:var(--gap-fill);border:1px solid #e6c9c0;border-left:3px solid var(--gap);
+    border-radius:0 6px 6px 0;padding:16px 20px;margin-bottom:12px;
+  }
+  .gap-item h4{
+    margin:0 0 6px;font-size:16px;color:var(--gap);
+    font-family:"Helvetica Neue",Arial,sans-serif;font-weight:600;letter-spacing:.01em;
+  }
+  .gap-item p{margin:0;font-size:15.5px;color:var(--ink);}
+
+  .facts{margin:20px 0 6px;}
+  .facts h4{
+    font-family:"Helvetica Neue",Arial,sans-serif;font-size:11px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px;
+  }
+  .facts ul{margin:0;padding:0;list-style:none;}
+  .facts li{
+    padding:9px 0 9px 22px;border-bottom:1px solid var(--line);font-size:15.5px;position:relative;
+  }
+  .facts li:last-child{border-bottom:none;}
+  .facts li::before{content:"";position:absolute;left:2px;top:17px;width:7px;height:7px;background:var(--accent);border-radius:2px;}
+  .facts li b{font-weight:600;}
+
+  .sources{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12.5px;color:var(--ink-soft);margin-top:14px;}
+  .sources a{color:var(--reg);}
+
+  /* Citation markers and references */
+  sup.cite{font-size:10px;line-height:0;}
+  sup.cite a{color:var(--reg);text-decoration:none;font-weight:600;padding:0 1px;}
+  sup.cite a:hover{text-decoration:underline;}
+  .refs{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:26px 30px;}
+  .refs h3{margin:0 0 6px;font-size:20px;}
+  .refs .intro{font-size:14px;color:var(--ink-soft);margin:0 0 16px;}
+  ol.reflist{margin:0;padding-left:22px;font-family:"Helvetica Neue",Arial,sans-serif;}
+  ol.reflist li{font-size:12.5px;color:var(--ink);margin-bottom:12px;line-height:1.5;padding-left:4px;}
+  ol.reflist li a{color:var(--reg);word-break:break-word;}
+  ol.reflist .kind{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-left:4px;}
+  ol.reflist .kind.sec{color:var(--mkt);}
+  .verifynote{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;color:var(--ink-soft);background:var(--accent-soft);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 5px 5px 0;margin:0 0 18px;}
+
+  /* SVG shared text styles via classes */
+  svg text{font-family:"Helvetica Neue",Arial,sans-serif;}
+  .n-title{font-weight:700;fill:var(--ink);}
+  .n-sub{fill:#5a6874;}
+  .lbl{fill:#3d4a5c;}
+  .lbl-reg{fill:var(--reg);font-style:italic;}
+  .lbl-gap{fill:var(--gap);font-weight:700;}
+  .band-num{fill:#cfd6dd;font-weight:700;}
+  .band-lbl{fill:#8a95a3;letter-spacing:.08em;}
+
+  .backtop{
+    display:inline-block;margin-top:18px;font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:13px;color:var(--accent);text-decoration:none;
+  }
+  .backtop:hover{text-decoration:underline;}
+
+  .method{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:26px 30px;margin-top:46px;}
+  .method h3{margin:0 0 12px;font-size:20px;}
+  .method p{font-size:15px;color:var(--ink-soft);margin:0 0 10px;}
+
+  @media (max-width:820px){
+    .sidebar{position:static;width:auto;bottom:auto;}
+    .main{margin-left:0;}
+    .wrap{padding:34px 22px 70px;}
+    .hero h2{font-size:30px;}
+    .layout{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- ===================== FIXED LEFT SIDEBAR ===================== -->
+  <nav class="sidebar">
+    <div class="brand">Press resource</div>
+    <h1>Who pays for the data center buildout</h1>
+
+    <div class="navlabel">Jump to a state</div>
+    <a href="#florida"><span>Florida</span><span class="tag law">Law</span></a>
+    <a href="#pennsylvania"><span>Pennsylvania</span><span class="tag rule">Tariff</span></a>
+    <a href="#virginia"><span>Virginia</span><span class="tag rule">Rate class</span></a>
+    <a href="#wisconsin"><span>Wisconsin</span><span class="tag rule">Tariff</span></a>
+    <a href="#california"><span>California</span><span class="tag study">Study</span></a>
+    <a href="#northcarolina"><span>North Carolina</span><span class="tag merger">Merger</span></a>
+    <a href="#southcarolina"><span>South Carolina</span><span class="tag merger">Merger</span></a>
+
+    <div class="navlabel">Reference</div>
+    <a href="#how-it-works"><span>How the money flows</span></a>
+    <a href="#the-gap"><span>The affiliate gap</span></a>
+    <a href="#references"><span>Sources and citations</span></a>
+    <a href="#method"><span>Method</span></a>
+
+    <div class="foot">
+      Dr. Mark R. McNees<br>
+      Florida State University<br>
+      Jim Moran College of Entrepreneurship<br>
+      <a href="mailto:mmcnees@fsu.edu">mmcnees@fsu.edu</a><br>
+      850.973.7687
+    </div>
+  </nav>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="main">
+  <div class="wrap">
+
+    <header class="hero" id="top">
+      <div class="kicker">State-by-state ratepayer tracker</div>
+      <h2>Who pays for the grid capacity that data centers trigger</h2>
+      <p class="lede">Seven states are answering the same question in different ways. Each panel below shows who the players are, how the money moves, and where existing customers can still get stuck with the bill.</p>
+      <p class="lede">The organizing principle is simple. The load creator should pay for the load it creates. Everything else is mechanism.</p>
+      <div class="asof">Status verified against primary sources on July 3, 2026. Every checkable fact is numbered and cited in <a href="#references" style="color:var(--reg);">Sources and citations</a>. Dockets move quickly; re-check before republishing.</div>
+    </header>
+
+    <div class="principle" id="how-it-works">
+      <p><strong>The core idea.</strong> A data center that triggers hundreds of millions of dollars in grid upgrades should carry that cost itself. When the cost lands on the residential rate class instead, that is cost externalization: a private profit paid for with a public bill. Every framework below is a different attempt to stop that shift.</p>
+    </div>
+
+    <!-- =================================================== FLORIDA =================================================== -->
+    <section class="state" id="florida">
+      <div class="state-head">
+        <h3>Florida</h3>
+        <span class="status" style="background:#e4f0e8;color:#2f6b4f;">Binding statute</span>
+      </div>
+      <p class="state-sub">The first state to put a binding statute behind the load-creator-pays principle. SB 484 became law on May 7, 2026 and takes effect July 1, 2026. The real test is the tariff filings that follow.</p>
+
+      <div class="block-label">Stakeholder map</div>
+      <div class="diagram">
+        <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Florida stakeholder map">
+          <rect x="330" y="14" width="200" height="52" rx="6" fill="var(--reg-fill)" stroke="var(--reg)" stroke-width="1.5"/>
+          <text x="430" y="38" text-anchor="middle" class="n-title" font-size="14">Florida Legislature</text>
+          <text x="430" y="55" text-anchor="middle" class="n-sub" font-size="11">SB 484, unanimous Senate</text>
+
+          <rect x="330" y="104" width="200" height="52" rx="6" fill="var(--reg-fill)" stroke="var(--reg)" stroke-width="1.5"/>
+          <text x="430" y="128" text-anchor="middle" class="n-title" font-size="14">Florida PSC</text>
+          <text x="430" y="145" text-anchor="middle" class="n-sub" font-size="11">Approves the tariff filings</text>
+
+          <rect x="70" y="200" width="200" height="60" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.5"/>
+          <text x="170" y="224" text-anchor="middle" class="n-title" font-size="14">FPL and other IOUs</text>
+          <text x="170" y="241" text-anchor="middle" class="n-sub" font-size="11">File compliant tariffs</text>
+
+          <rect x="330" y="200" width="200" height="60" rx="6" fill="var(--gap-fill)" stroke="var(--gap)" stroke-width="2"/>
+          <text x="430" y="224" text-anchor="middle" class="n-title" font-size="14" fill="var(--gap)">Large load customer</text>
+          <text x="430" y="241" text-anchor="middle" class="n-sub" font-size="11">50 MW+. Pays full cost of service</text>
+
+          <rect x="590" y="200" width="200" height="60" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.5"/>
+          <text x="690" y="224" text-anchor="middle" class="n-title" font-size="14">Residential ratepayers</text>
+          <text x="690" y="241" text-anchor="middle" class="n-sub" font-size="11">Protected from cost shift</text>
+
+          <line x1="430" y1="66" x2="430" y2="104" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#fl-a)"/>
+          <text x="440" y="90" class="lbl" font-size="11">directs</text>
+          <line x1="380" y1="156" x2="200" y2="200" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#fl-a)"/>
+          <text x="250" y="182" class="lbl" font-size="11">sets tariff rules</text>
+          <line x1="270" y1="230" x2="330" y2="230" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#fl-a)"/>
+          <text x="278" y="222" class="lbl" font-size="11">bills</text>
+          <line x1="530" y1="230" x2="590" y2="230" stroke="#2f6b4f" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <text x="540" y="222" class="lbl" font-size="11" fill="#2f6b4f">shields</text>
+          <defs><marker id="fl-a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#3d4a5c"/></marker></defs>
+        </svg>
+      </div>
+      <p class="cap">The statute names the PSC as the firewall. Utilities file, the Commission approves against the statute, and the large load customer carries its own cost of service.</p>
+
+      <div class="block-label">How the money flows</div>
+      <div class="diagram">
+        <svg viewBox="0 0 860 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Florida money flow">
+          <text x="14" y="30" class="band-num" font-size="26">1</text>
+          <text x="46" y="26" class="band-lbl" font-size="12">GENERATION AND GRID</text>
+          <rect x="46" y="40" width="220" height="54" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="156" y="62" text-anchor="middle" class="n-title" font-size="13">Utility builds capacity</text>
+          <text x="156" y="79" text-anchor="middle" class="n-sub" font-size="11">Transmission, generation upgrades</text>
+
+          <text x="14" y="140" class="band-num" font-size="26">2</text>
+          <text x="46" y="136" class="band-lbl" font-size="12">COST ALLOCATION (SB 484)</text>
+          <rect x="46" y="150" width="330" height="54" rx="6" fill="var(--reg-fill)" stroke="var(--reg)" stroke-width="1.5"/>
+          <text x="211" y="172" text-anchor="middle" class="n-title" font-size="13">PSC tariff assigns cost to the load creator</text>
+          <text x="211" y="189" text-anchor="middle" class="n-sub" font-size="11">Minimum charges, contract terms, financial guarantees</text>
+
+          <rect x="470" y="40" width="190" height="54" rx="6" fill="var(--gap-fill)" stroke="var(--gap)" stroke-width="2"/>
+          <text x="565" y="62" text-anchor="middle" class="n-title" font-size="13" fill="var(--gap)">Data center pays</text>
+          <text x="565" y="79" text-anchor="middle" class="n-sub" font-size="11">Full cost of service</text>
+
+          <rect x="470" y="150" width="190" height="54" rx="6" fill="#eef7f1" stroke="#2f6b4f" stroke-width="1.5"/>
+          <text x="565" y="172" text-anchor="middle" class="n-title" font-size="13">Households</text>
+          <text x="565" y="189" text-anchor="middle" class="n-sub" font-size="11">Not charged for the trigger</text>
+
+          <line x1="266" y1="67" x2="470" y2="67" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#fl-b)"/>
+          <text x="300" y="59" class="lbl" font-size="11">cost of the buildout</text>
+          <line x1="376" y1="177" x2="470" y2="177" stroke="#2f6b4f" stroke-width="1.6" marker-end="url(#fl-b2)"/>
+          <text x="382" y="169" class="lbl" font-size="11" fill="#2f6b4f">protected</text>
+          <line x1="156" y1="94" x2="156" y2="150" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#fl-b)"/>
+          <defs>
+            <marker id="fl-b" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#3d4a5c"/></marker>
+            <marker id="fl-b2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#2f6b4f"/></marker>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="facts">
+        <h4>Key facts</h4>
+        <ul>
+          <li><b>Law:</b> CS/CS/SB 484, Chapter 2026-65, effective July 1, 2026 except as otherwise provided.<sup class="cite"><a href="#ref-1">1</a><a href="#ref-2">2</a></sup></li>
+          <li><b>Threshold:</b> Large load customers with anticipated monthly peak load of 50 MW or more.<sup class="cite"><a href="#ref-1">1</a></sup></li>
+          <li><b>Mechanism:</b> Utilities must file tariffs for PSC approval so large loads pay their own cost of service, and the risk of nonpayment may not be borne by the general body of ratepayers. Load splitting to dodge the threshold is barred.<sup class="cite"><a href="#ref-1">1</a></sup></li>
+          <li><b>Filing deadline:</b> Each public utility must file a tariff for PSC approval by October 1, 2026.<sup class="cite"><a href="#ref-1">1</a></sup></li>
+        </ul>
+      </div>
+
+      <div class="block-label">Where the gaps are</div>
+      <div class="gaps">
+        <div class="gap-item">
+          <h4>The affiliate transfer price</h4>
+          <p>SB 484 audits the price the utility charges the customer. It does not audit the price a regulated utility pays a generator owned by the same parent company. That transfer price sits between the two and no one reviews it directly.</p>
+        </div>
+        <div class="gap-item">
+          <h4>Load durability is not addressed</h4>
+          <p>The statute assigns cost at the point of connection. It does not require regulators to stress-test whether the projected demand is real and lasting before the buildout is approved. If demand shrinks, the stranded asset risk remains.</p>
+        </div>
+      </div>
+      <p class="sources">Sources: <a href="#ref-1">[1]</a> <a href="#ref-2">[2]</a>. <a href="#top" class="backtop">Back to top</a></p>
+    </section>
+
+    <!-- =================================================== PENNSYLVANIA =================================================== -->
+    <section class="state" id="pennsylvania">
+      <div class="state-head">
+        <h3>Pennsylvania</h3>
+        <span class="status" style="background:#eaf1f8;color:#2f5d8a;">Model tariff</span>
+      </div>
+      <p class="state-sub">Pennsylvania acted through its utility commission, not a signed statute. On April 30, 2026 the PUC voted 5-0 to adopt a model large-load tariff. A legislative version passed the House and stalled in the Senate. PJM capacity costs sit on top of all of it.</p>
+
+      <div class="block-label">Stakeholder map</div>
+      <div class="diagram">
+        <svg viewBox="0 0 860 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pennsylvania stakeholder map">
+          <rect x="40" y="14" width="200" height="56" rx="6" fill="var(--mkt-fill)" stroke="var(--mkt)" stroke-width="1.5"/>
+          <text x="140" y="36" text-anchor="middle" class="n-title" font-size="13">PJM Interconnection</text>
+          <text x="140" y="53" text-anchor="middle" class="n-sub" font-size="11">Capacity auction, FERC cap</text>
+
+          <rect x="330" y="14" width="200" height="56" rx="6" fill="var(--reg-fill)" stroke="var(--reg)" stroke-width="1.5"/>
+          <text x="430" y="36" text-anchor="middle" class="n-title" font-size="13">Pennsylvania PUC</text>
+          <text x="430" y="53" text-anchor="middle" class="n-sub" font-size="11">Model tariff, April 30 2026</text>
+
+          <rect x="620" y="14" width="200" height="56" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="720" y="36" text-anchor="middle" class="n-title" font-size="13">PA House (HB 1834)</text>
+          <text x="720" y="53" text-anchor="middle" class="n-sub" font-size="11">Passed House, Senate stall</text>
+
+          <rect x="185" y="128" width="220" height="56" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="295" y="150" text-anchor="middle" class="n-title" font-size="13">Distribution utilities</text>
+          <text x="295" y="167" text-anchor="middle" class="n-sub" font-size="11">e.g. PPL, incorporate model</text>
+
+          <rect x="470" y="128" width="220" height="56" rx="6" fill="var(--gap-fill)" stroke="var(--gap)" stroke-width="2"/>
+          <text x="580" y="150" text-anchor="middle" class="n-title" font-size="13" fill="var(--gap)">Large load, 50 MW+</text>
+          <text x="580" y="167" text-anchor="middle" class="n-sub" font-size="11">Pays interconnection upgrades</text>
+
+          <rect x="185" y="244" width="220" height="56" rx="6" fill="#eef7f1" stroke="#2f6b4f" stroke-width="1.5"/>
+          <text x="295" y="266" text-anchor="middle" class="n-title" font-size="13">Residential ratepayers</text>
+          <text x="295" y="283" text-anchor="middle" class="n-sub" font-size="11">Bills up 10-20% on capacity</text>
+
+          <rect x="470" y="244" width="220" height="56" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="580" y="266" text-anchor="middle" class="n-title" font-size="13">Consumer advocates</text>
+          <text x="580" y="283" text-anchor="middle" class="n-sub" font-size="11">PULP, intervene in filings</text>
+
+          <line x1="240" y1="42" x2="330" y2="42" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#pa-a)"/>
+          <text x="246" y="34" class="lbl" font-size="10.5">cost pressure</text>
+          <line x1="430" y1="70" x2="330" y2="128" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#pa-a)"/>
+          <text x="330" y="104" class="lbl" font-size="10.5">recommends</text>
+          <line x1="405" y1="156" x2="470" y2="156" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#pa-a)"/>
+          <text x="410" y="148" class="lbl" font-size="10.5">bills</text>
+          <line x1="295" y1="184" x2="295" y2="244" stroke="#a8341f" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <text x="305" y="218" class="lbl-gap" font-size="10.5">capacity pass-through</text>
+          <defs><marker id="pa-a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#3d4a5c"/></marker></defs>
+        </svg>
+      </div>
+      <p class="cap">Two forces stack in Pennsylvania. The PUC model tariff pushes interconnection cost onto large loads, while PJM capacity auction costs still flow through to every bill.</p>
+
+      <div class="block-label">How the money flows</div>
+      <div class="diagram">
+        <svg viewBox="0 0 860 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pennsylvania money flow">
+          <text x="14" y="30" class="band-num" font-size="26">1</text>
+          <text x="46" y="26" class="band-lbl" font-size="12">PJM CAPACITY AUCTION</text>
+          <rect x="46" y="40" width="300" height="54" rx="6" fill="var(--mkt-fill)" stroke="var(--mkt)" stroke-width="1.5"/>
+          <text x="196" y="62" text-anchor="middle" class="n-title" font-size="13">Capacity price hit the FERC cap</text>
+          <text x="196" y="79" text-anchor="middle" class="n-sub" font-size="11">$333.44 per MW-day, cleared short of need</text>
+
+          <text x="14" y="150" class="band-num" font-size="26">2</text>
+          <text x="46" y="146" class="band-lbl" font-size="12">STATE TARIFF LAYER</text>
+          <rect x="46" y="160" width="300" height="54" rx="6" fill="var(--reg-fill)" stroke="var(--reg)" stroke-width="1.5"/>
+          <text x="196" y="182" text-anchor="middle" class="n-title" font-size="13">PUC model tariff, interconnection</text>
+          <text x="196" y="199" text-anchor="middle" class="n-sub" font-size="11">Large load pays upgrades, deposits, collateral</text>
+
+          <rect x="470" y="40" width="200" height="54" rx="6" fill="#eef7f1" stroke="#2f6b4f" stroke-width="1.5"/>
+          <text x="570" y="58" text-anchor="middle" class="n-title" font-size="12.5">Everyone's bill rises</text>
+          <text x="570" y="74" text-anchor="middle" class="n-sub" font-size="11">Capacity cost is socialized</text>
+          <text x="570" y="88" text-anchor="middle" class="n-sub" font-size="11">across 67M PJM customers</text>
+
+          <rect x="470" y="160" width="200" height="54" rx="6" fill="var(--gap-fill)" stroke="var(--gap)" stroke-width="2"/>
+          <text x="570" y="182" text-anchor="middle" class="n-title" font-size="13" fill="var(--gap)">Large load pays</text>
+          <text x="570" y="199" text-anchor="middle" class="n-sub" font-size="11">Its own interconnection</text>
+
+          <line x1="346" y1="67" x2="470" y2="67" stroke="#a8341f" stroke-width="1.6" marker-end="url(#pa-b-gap)"/>
+          <text x="352" y="59" class="lbl-gap" font-size="10.5">socialized</text>
+          <line x1="346" y1="187" x2="470" y2="187" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#pa-b)"/>
+          <text x="352" y="179" class="lbl" font-size="10.5">assigned</text>
+          <defs>
+            <marker id="pa-b" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#3d4a5c"/></marker>
+            <marker id="pa-b-gap" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#a8341f"/></marker>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="facts">
+        <h4>Key facts</h4>
+        <ul>
+          <li><b>Regulatory action:</b> The PA PUC adopted a model large-load tariff framework on April 30, 2026. Utility interconnection upgrade costs are recovered directly from the large-load customer. It is guidance that utilities incorporate into their own filings.<sup class="cite"><a href="#ref-4">4</a></sup></li>
+          <li><b>Legislation:</b> HB 1834, the Data Center Act (Rep. Matzie), passed the House and moved to the Senate. It directs the PUC to create data center regulations. Related bills include HB 2150, HB 2151, and SB 939.<sup class="cite"><a href="#ref-3">3</a></sup></li>
+          <li><b>PJM pressure:</b> PJM's December 2025 auction, for the 2027/2028 delivery year, cleared at the $333.44 per MW-day FERC cap. It was the first auction in which the entire RTO fell short of the reliability requirement, with nearly all of the load-forecast increase attributable to data centers.<sup class="cite"><a href="#ref-5">5</a></sup></li>
+        </ul>
+      </div>
+
+      <div class="block-label">Where the gaps are</div>
+      <div class="gaps">
+        <div class="gap-item">
+          <h4>The model tariff is not binding</h4>
+          <p>The PUC framework is a recommendation. Protection depends on each utility filing a tariff that follows the model, and on advocates intervening if a filing falls short. A binding statute would close that discretion.</p>
+        </div>
+        <div class="gap-item">
+          <h4>Capacity cost is still socialized</h4>
+          <p>The state tariff addresses interconnection upgrades. It does not touch the PJM capacity charge, which is spread across all 67 million customers in the region. The independent market monitor tied a majority of one auction's price jump to data center demand, yet the cost lands on every bill.</p>
+        </div>
+      </div>
+      <p class="sources">Sources: <a href="#ref-3">[3]</a> <a href="#ref-4">[4]</a> <a href="#ref-5">[5]</a>. <a href="#top" class="backtop">Back to top</a></p>
+    </section>
+
+    <!-- =================================================== VIRGINIA =================================================== -->
+    <section class="state" id="virginia">
+      <div class="state-head">
+        <h3>Virginia</h3>
+        <span class="status" style="background:#eaf1f8;color:#2f5d8a;">Rate class in place</span>
+      </div>
+      <p class="state-sub">Home to the world's largest data center market. The SCC created a dedicated large-load rate class in its November 2025 Dominion order, and the Legislature layered SB 253 on top. The pending NextEra merger reshapes the whole picture.</p>
+
+      <div class="block-label">Stakeholder map</div>
+      <div class="diagram">
+        <svg viewBox="0 0 860 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Virginia stakeholder map">
+          <rect x="330" y="14" width="200" height="56" rx="6" fill="var(--reg-fill)" stroke="var(--reg)" stroke-width="1.5"/>
+          <text x="430" y="36" text-anchor="middle" class="n-title" font-size="13">Virginia SCC</text>
+          <text x="430" y="53" text-anchor="middle" class="n-sub" font-size="11">Created GS-5 rate class</text>
+
+          <rect x="40" y="120" width="210" height="56" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="145" y="142" text-anchor="middle" class="n-title" font-size="13">Dominion Energy</text>
+          <text x="145" y="159" text-anchor="middle" class="n-sub" font-size="11">Proposed the rate class</text>
+
+          <rect x="610" y="120" width="210" height="56" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="715" y="142" text-anchor="middle" class="n-title" font-size="13">VA General Assembly</text>
+          <text x="715" y="159" text-anchor="middle" class="n-sub" font-size="11">SB 253 (Lucas)</text>
+
+          <rect x="325" y="120" width="210" height="56" rx="6" fill="var(--gap-fill)" stroke="var(--gap)" stroke-width="2"/>
+          <text x="430" y="138" text-anchor="middle" class="n-title" font-size="13" fill="var(--gap)">Data centers, 25 MW+</text>
+          <text x="430" y="154" text-anchor="middle" class="n-sub" font-size="11">14-year contracts, 85/85/60</text>
+          <text x="430" y="169" text-anchor="middle" class="n-sub" font-size="11">minimum demand charges</text>
+
+          <rect x="180" y="238" width="220" height="56" rx="6" fill="#eef7f1" stroke="#2f6b4f" stroke-width="1.5"/>
+          <text x="290" y="260" text-anchor="middle" class="n-title" font-size="13">Residential ratepayers</text>
+          <text x="290" y="277" text-anchor="middle" class="n-sub" font-size="11">Bill up ~$16/mo, partial shield</text>
+
+          <rect x="460" y="238" width="220" height="56" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="570" y="260" text-anchor="middle" class="n-title" font-size="13">SELC, PEC, advocates</text>
+          <text x="570" y="277" text-anchor="middle" class="n-sub" font-size="11">Argue cost split still unfair</text>
+
+          <line x1="250" y1="148" x2="325" y2="148" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#va-a)"/>
+          <text x="256" y="140" class="lbl" font-size="10.5">proposed</text>
+          <line x1="610" y1="148" x2="535" y2="148" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#va-a)"/>
+          <text x="545" y="140" class="lbl" font-size="10.5">SB 253 adds</text>
+          <line x1="410" y1="70" x2="410" y2="120" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#va-a)"/>
+          <text x="418" y="98" class="lbl" font-size="10.5">approved</text>
+          <line x1="400" y1="176" x2="300" y2="238" stroke="#2f6b4f" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <text x="300" y="212" class="lbl" font-size="10.5" fill="#2f6b4f">partial shield</text>
+          <defs><marker id="va-a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#3d4a5c"/></marker></defs>
+        </svg>
+      </div>
+      <p class="cap">The SCC built the mechanism inside a rate case rather than through new legislation. SB 253 then gave the SCC authority to shift more capacity and distribution cost onto data centers.</p>
+
+      <div class="block-label">How the money flows</div>
+      <div class="diagram">
+        <svg viewBox="0 0 860 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Virginia money flow">
+          <text x="14" y="30" class="band-num" font-size="26">1</text>
+          <text x="46" y="26" class="band-lbl" font-size="12">GRID INVESTMENT</text>
+          <rect x="46" y="40" width="250" height="54" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="171" y="62" text-anchor="middle" class="n-title" font-size="13">Dominion builds for demand</text>
+          <text x="171" y="79" text-anchor="middle" class="n-sub" font-size="11">183% projected demand rise by 2040</text>
+
+          <text x="14" y="150" class="band-num" font-size="26">2</text>
+          <text x="46" y="146" class="band-lbl" font-size="12">GS-5 COST ALLOCATION</text>
+          <rect x="46" y="160" width="330" height="54" rx="6" fill="var(--reg-fill)" stroke="var(--reg)" stroke-width="1.5"/>
+          <text x="211" y="182" text-anchor="middle" class="n-title" font-size="13">Minimum demand charges lock in cost</text>
+          <text x="211" y="199" text-anchor="middle" class="n-sub" font-size="11">85% transmission, 85% distribution, 60% generation</text>
+
+          <rect x="470" y="40" width="200" height="54" rx="6" fill="var(--gap-fill)" stroke="var(--gap)" stroke-width="2"/>
+          <text x="570" y="62" text-anchor="middle" class="n-title" font-size="13" fill="var(--gap)">Data center pays</text>
+          <text x="570" y="79" text-anchor="middle" class="n-sub" font-size="11">Even if it uses less</text>
+
+          <rect x="470" y="160" width="200" height="54" rx="6" fill="#eef7f1" stroke="#2f6b4f" stroke-width="1.5"/>
+          <text x="570" y="182" text-anchor="middle" class="n-title" font-size="13">Households</text>
+          <text x="570" y="199" text-anchor="middle" class="n-sub" font-size="11">Still carry residual share</text>
+
+          <line x1="296" y1="67" x2="470" y2="67" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#va-b)"/>
+          <line x1="376" y1="187" x2="470" y2="187" stroke="#a8341f" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <text x="382" y="179" class="lbl-gap" font-size="10.5">residual</text>
+          <line x1="171" y1="94" x2="171" y2="160" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#va-b)"/>
+          <defs><marker id="va-b" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#3d4a5c"/></marker></defs>
+        </svg>
+      </div>
+
+      <div class="facts">
+        <h4>Key facts</h4>
+        <ul>
+          <li><b>Rate class:</b> The SCC created a new large-load rate class for data centers in its November 2025 Dominion biennial review order, with minimum demand charges of 85% for distribution and transmission and 60% for generation.<sup class="cite"><a href="#ref-6">6</a></sup></li>
+          <li><b>Contract term and threshold:</b> Reported as a 14-year contract for customers over 25 MW, effective January 2027. Confirm the exact term and threshold against the full order text before public use.<sup class="cite"><a href="#ref-6">6</a></sup></li>
+          <li><b>Legislation:</b> SB 253 (Lucas) would let the SCC shift more distribution and capacity cost onto large loads. Status and the projected residential impact should be confirmed against the current bill record before citing a specific dollar figure.</li>
+        </ul>
+      </div>
+
+      <div class="block-label">Where the gaps are</div>
+      <div class="gaps">
+        <div class="gap-item">
+          <h4>The residual still lands on households</h4>
+          <p>Advocates calculated that after the 14-year contract term, a majority of the grid-upgrade cost can still fall on individual ratepayers. The rate class narrows the shift, it does not eliminate it.</p>
+        </div>
+        <div class="gap-item">
+          <h4>The merger changes who owns the generator</h4>
+          <p>If NextEra acquires Dominion, the same parent could own both the regulated Virginia utility and unregulated generation. That raises the affiliate transfer-price question the rate class was not designed to police.</p>
+        </div>
+      </div>
+      <p class="sources">Sources: <a href="#ref-6">[6]</a>. <a href="#top" class="backtop">Back to top</a></p>
+    </section>
+
+    <!-- =================================================== WISCONSIN =================================================== -->
+    <section class="state" id="wisconsin">
+      <div class="state-head">
+        <h3>Wisconsin</h3>
+        <span class="status" style="background:#eaf1f8;color:#2f5d8a;">Tariff approved</span>
+      </div>
+      <p class="state-sub">A commission-led outcome with unusually strong customer protections. On April 24, 2026 the PSC unanimously approved a rewritten "very large customer" tariff for We Energies, then the utility asked to reopen part of it in June.</p>
+
+      <div class="block-label">Stakeholder map</div>
+      <div class="diagram">
+        <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wisconsin stakeholder map">
+          <rect x="330" y="14" width="200" height="56" rx="6" fill="var(--reg-fill)" stroke="var(--reg)" stroke-width="1.5"/>
+          <text x="430" y="36" text-anchor="middle" class="n-title" font-size="13">Wisconsin PSC</text>
+          <text x="430" y="53" text-anchor="middle" class="n-sub" font-size="11">Rewrote and approved tariff</text>
+
+          <rect x="60" y="120" width="220" height="56" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="170" y="142" text-anchor="middle" class="n-title" font-size="13">We Energies (WEC)</text>
+          <text x="170" y="159" text-anchor="middle" class="n-sub" font-size="11">Filed, later moved to reopen</text>
+
+          <rect x="325" y="120" width="210" height="56" rx="6" fill="var(--gap-fill)" stroke="var(--gap)" stroke-width="2"/>
+          <text x="430" y="138" text-anchor="middle" class="n-title" font-size="13" fill="var(--gap)">Very large customers</text>
+          <text x="430" y="154" text-anchor="middle" class="n-sub" font-size="11">100 MW+, 15-year minimum,</text>
+          <text x="430" y="169" text-anchor="middle" class="n-sub" font-size="11">pay 100% of their costs</text>
+
+          <rect x="580" y="120" width="220" height="56" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="690" y="142" text-anchor="middle" class="n-title" font-size="13">Microsoft, Vantage</text>
+          <text x="690" y="159" text-anchor="middle" class="n-sub" font-size="11">Named large loads</text>
+
+          <rect x="200" y="230" width="230" height="56" rx="6" fill="#eef7f1" stroke="#2f6b4f" stroke-width="1.5"/>
+          <text x="315" y="252" text-anchor="middle" class="n-title" font-size="13">Existing customers</text>
+          <text x="315" y="269" text-anchor="middle" class="n-sub" font-size="11">"Not a single cent" to subsidize</text>
+
+          <rect x="470" y="230" width="230" height="56" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="585" y="252" text-anchor="middle" class="n-title" font-size="13">Citizens Utility Board</text>
+          <text x="585" y="269" text-anchor="middle" class="n-sub" font-size="11">Backed credit protections</text>
+
+          <line x1="280" y1="148" x2="325" y2="148" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#wi-a)"/>
+          <line x1="580" y1="148" x2="535" y2="148" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#wi-a)"/>
+          <line x1="410" y1="70" x2="230" y2="120" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#wi-a)"/>
+          <text x="270" y="100" class="lbl" font-size="10.5">rewrote filing</text>
+          <line x1="400" y1="176" x2="330" y2="230" stroke="#2f6b4f" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <text x="322" y="208" class="lbl" font-size="10.5" fill="#2f6b4f">full shield</text>
+          <defs><marker id="wi-a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#3d4a5c"/></marker></defs>
+        </svg>
+      </div>
+      <p class="cap">The PSC did not simply approve the utility's filing. It removed a capacity-only option that would have left ordinary customers paying a quarter of new plant costs, and required full-cost recovery from the large loads.</p>
+
+      <div class="block-label">How the money flows</div>
+      <div class="diagram">
+        <svg viewBox="0 0 860 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wisconsin money flow">
+          <text x="14" y="30" class="band-num" font-size="26">1</text>
+          <text x="46" y="26" class="band-lbl" font-size="12">BESPOKE GENERATION</text>
+          <rect x="46" y="40" width="260" height="54" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="176" y="62" text-anchor="middle" class="n-title" font-size="13">New plants built for the load</text>
+          <text x="176" y="79" text-anchor="middle" class="n-sub" font-size="11">$19.3B generation plan over 5 years</text>
+
+          <text x="14" y="150" class="band-num" font-size="26">2</text>
+          <text x="46" y="146" class="band-lbl" font-size="12">FULL-COST TARIFF</text>
+          <rect x="46" y="160" width="310" height="54" rx="6" fill="var(--reg-fill)" stroke="var(--reg)" stroke-width="1.5"/>
+          <text x="201" y="182" text-anchor="middle" class="n-title" font-size="13">VLC pays 100%, plus credit collateral</text>
+          <text x="201" y="199" text-anchor="middle" class="n-sub" font-size="11">Below A- credit rating means posted guarantees</text>
+
+          <rect x="470" y="40" width="200" height="54" rx="6" fill="var(--gap-fill)" stroke="var(--gap)" stroke-width="2"/>
+          <text x="570" y="62" text-anchor="middle" class="n-title" font-size="13" fill="var(--gap)">Data center pays</text>
+          <text x="570" y="79" text-anchor="middle" class="n-sub" font-size="11">Generation and fuel, full</text>
+
+          <rect x="470" y="160" width="200" height="54" rx="6" fill="#eef7f1" stroke="#2f6b4f" stroke-width="1.5"/>
+          <text x="570" y="182" text-anchor="middle" class="n-title" font-size="13">Existing customers</text>
+          <text x="570" y="199" text-anchor="middle" class="n-sub" font-size="11">Transmission risk remains</text>
+
+          <line x1="306" y1="67" x2="470" y2="67" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#wi-b)"/>
+          <line x1="356" y1="187" x2="470" y2="187" stroke="#a8341f" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <text x="362" y="179" class="lbl-gap" font-size="10.5">transmission gap</text>
+          <line x1="176" y1="94" x2="176" y2="160" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#wi-b)"/>
+          <defs><marker id="wi-b" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#3d4a5c"/></marker></defs>
+        </svg>
+      </div>
+
+      <div class="facts">
+        <h4>Key facts</h4>
+        <ul>
+          <li><b>Order:</b> The PSC approved a rewritten We Energies very large customer tariff on April 24, 2026 (Docket 6630-TE-113).<sup class="cite"><a href="#ref-7">7</a></sup></li>
+          <li><b>Threshold lowered:</b> The Commission dropped the eligibility floor from 500 MW to 100 MW and extended the minimum term to 15 years.<sup class="cite"><a href="#ref-7">7</a></sup></li>
+          <li><b>Full cost:</b> The PSC removed the capacity-only option and required very large customers to pay the full cost of the generation serving them.<sup class="cite"><a href="#ref-7">7</a></sup></li>
+          <li><b>June development:</b> We Energies moved to reopen the case on the credit-rating requirements. Confirm the current docket status before citing.</li>
+        </ul>
+      </div>
+
+      <div class="block-label">Where the gaps are</div>
+      <div class="gaps">
+        <div class="gap-item">
+          <h4>Transmission cost timing</h4>
+          <p>Under federal law, utilities cannot bill data centers for transmission until they draw power. The PSC used a minimum billing demand charge as a stopgap, but existing customers can still front some upfront transmission cost during construction.</p>
+        </div>
+        <div class="gap-item">
+          <h4>No statewide statute</h4>
+          <p>This is a single-utility docket, not a law. Advocates note Wisconsin lacks statewide legislative guardrails, so the next utility's rate case starts the argument over again.</p>
+        </div>
+      </div>
+      <p class="sources">Sources: <a href="#ref-7">[7]</a>. <a href="#top" class="backtop">Back to top</a></p>
+    </section>
+
+    <!-- =================================================== CALIFORNIA =================================================== -->
+    <section class="state" id="california">
+      <div class="state-head">
+        <h3>California</h3>
+        <span class="status" style="background:#f6efe2;color:#8a6d2f;">Study, tariff pending</span>
+      </div>
+      <p class="state-sub">California is the clearest case of the stranded-asset question. SB 57 is a study law, signed in 2025, that directs the CPUC to measure cost shifts and stranded-asset risk. Newer bills would turn that into an actual tariff.</p>
+
+      <div class="block-label">Stakeholder map</div>
+      <div class="diagram">
+        <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="California stakeholder map">
+          <rect x="330" y="14" width="200" height="56" rx="6" fill="var(--reg-fill)" stroke="var(--reg)" stroke-width="1.5"/>
+          <text x="430" y="36" text-anchor="middle" class="n-title" font-size="13">CPUC</text>
+          <text x="430" y="53" text-anchor="middle" class="n-sub" font-size="11">Study due Jan 1, 2027</text>
+
+          <rect x="60" y="120" width="220" height="56" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="170" y="142" text-anchor="middle" class="n-title" font-size="13">CA Legislature</text>
+          <text x="170" y="159" text-anchor="middle" class="n-sub" font-size="11">SB 57 (law), SB 886/887</text>
+
+          <rect x="580" y="120" width="220" height="56" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="690" y="142" text-anchor="middle" class="n-title" font-size="13">PG&amp;E, CAISO</text>
+          <text x="690" y="159" text-anchor="middle" class="n-sub" font-size="11">$2B+ upgrades for load</text>
+
+          <rect x="325" y="120" width="210" height="56" rx="6" fill="var(--gap-fill)" stroke="var(--gap)" stroke-width="2"/>
+          <text x="430" y="138" text-anchor="middle" class="n-title" font-size="13" fill="var(--gap)">Large-load customers</text>
+          <text x="430" y="154" text-anchor="middle" class="n-sub" font-size="11">Speculative interconnection</text>
+          <text x="430" y="169" text-anchor="middle" class="n-sub" font-size="11">requests inflate forecasts</text>
+
+          <rect x="200" y="230" width="230" height="56" rx="6" fill="#eef7f1" stroke="#2f6b4f" stroke-width="1.5"/>
+          <text x="315" y="252" text-anchor="middle" class="n-title" font-size="13">Residential ratepayers</text>
+          <text x="315" y="269" text-anchor="middle" class="n-sub" font-size="11">Exposed to stranded assets</text>
+
+          <rect x="470" y="230" width="230" height="56" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="585" y="252" text-anchor="middle" class="n-title" font-size="13">Public Advocates, TURN</text>
+          <text x="585" y="269" text-anchor="middle" class="n-sub" font-size="11">Push for binding safeguards</text>
+
+          <line x1="280" y1="148" x2="325" y2="148" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#ca-a)"/>
+          <line x1="580" y1="148" x2="535" y2="148" stroke="#a8341f" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <text x="540" y="140" class="lbl-gap" font-size="10.5">speculative load</text>
+          <line x1="410" y1="70" x2="230" y2="120" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#ca-a)"/>
+          <text x="270" y="100" class="lbl" font-size="10.5">study only</text>
+          <line x1="400" y1="176" x2="330" y2="230" stroke="#a8341f" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <text x="322" y="208" class="lbl-gap" font-size="10.5">stranded risk</text>
+          <defs><marker id="ca-a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#3d4a5c"/></marker></defs>
+        </svg>
+      </div>
+      <p class="cap">California has named the problem but not yet built the binding mechanism. SB 57 measures the risk. SB 886 would create the tariff. The April 2026 CPUC rulemaking is where stranded-asset policy will actually be written.</p>
+
+      <div class="block-label">How the money flows</div>
+      <div class="diagram">
+        <svg viewBox="0 0 860 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="California money flow">
+          <text x="14" y="30" class="band-num" font-size="26">1</text>
+          <text x="46" y="26" class="band-lbl" font-size="12">SPECULATIVE DEMAND</text>
+          <rect x="46" y="40" width="280" height="54" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="186" y="62" text-anchor="middle" class="n-title" font-size="13">Developers file duplicate requests</text>
+          <text x="186" y="79" text-anchor="middle" class="n-sub" font-size="11">One site built, many applications submitted</text>
+
+          <text x="14" y="150" class="band-num" font-size="26">2</text>
+          <text x="46" y="146" class="band-lbl" font-size="12">CURRENT STATE: STUDY</text>
+          <rect x="46" y="160" width="310" height="54" rx="6" fill="var(--mkt-fill)" stroke="var(--mkt)" stroke-width="1.5"/>
+          <text x="201" y="182" text-anchor="middle" class="n-title" font-size="13">CPUC assesses cost shift, no tariff yet</text>
+          <text x="201" y="199" text-anchor="middle" class="n-sub" font-size="11">Stranded-asset accounting due Jan 2027</text>
+
+          <rect x="470" y="40" width="200" height="54" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="570" y="58" text-anchor="middle" class="n-title" font-size="12.5">Utility builds ahead</text>
+          <text x="570" y="74" text-anchor="middle" class="n-sub" font-size="11">$2B+ CAISO upgrades</text>
+          <text x="570" y="88" text-anchor="middle" class="n-sub" font-size="11">for forecast load</text>
+
+          <rect x="470" y="160" width="200" height="54" rx="6" fill="var(--gap-fill)" stroke="var(--gap)" stroke-width="2"/>
+          <text x="570" y="182" text-anchor="middle" class="n-title" font-size="13" fill="var(--gap)">If load vanishes</text>
+          <text x="570" y="199" text-anchor="middle" class="n-sub" font-size="11">Ratepayers hold the asset</text>
+
+          <line x1="326" y1="67" x2="470" y2="67" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#ca-b)"/>
+          <line x1="356" y1="187" x2="470" y2="187" stroke="#a8341f" stroke-width="1.6" stroke-dasharray="5 4"/>
+          <text x="360" y="179" class="lbl-gap" font-size="10.5">unresolved</text>
+          <line x1="186" y1="94" x2="186" y2="160" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#ca-b)"/>
+          <defs><marker id="ca-b" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#3d4a5c"/></marker></defs>
+        </svg>
+      </div>
+
+      <div class="facts">
+        <h4>Key facts</h4>
+        <ul>
+          <li><b>Law:</b> SB 57 (Padilla), chaptered October 11, 2025 (Chapter 647, Statutes of 2025). It authorizes the CPUC to assess data center cost shifts, including stranded-asset risk, with an assessment due on or before January 1, 2027.<sup class="cite"><a href="#ref-8">8</a></sup></li>
+          <li><b>Pending:</b> SB 886 and SB 887 (Padilla) would go further, with SB 886 directing a special transmission tariff for large loads. Confirm current status against the bill record before citing as enacted.</li>
+          <li><b>Rulemaking:</b> The CPUC has an open rate-design proceeding expected to take up stranded cost and large-load cost shifts. Confirm the docket and dates before public use.</li>
+        </ul>
+      </div>
+
+      <div class="block-label">Where the gaps are</div>
+      <div class="gaps">
+        <div class="gap-item">
+          <h4>Study, not yet a rule</h4>
+          <p>SB 57 measures the problem. It does not by itself assign the cost. Until the tariff bills pass or the CPUC rulemaking lands, the binding protection other states already have is not in place.</p>
+        </div>
+        <div class="gap-item">
+          <h4>The stranded-asset question is the whole point</h4>
+          <p>Speculative and duplicate interconnection requests inflate forecasts. If a utility builds against demand that never arrives, the cost of the idle asset falls on existing ratepayers. California is the state where this failure mode is most explicitly on the table.</p>
+        </div>
+      </div>
+      <p class="sources">Sources: <a href="#ref-8">[8]</a>. <a href="#top" class="backtop">Back to top</a></p>
+    </section>
+
+    <!-- =================================================== NORTH CAROLINA =================================================== -->
+    <section class="state" id="northcarolina">
+      <div class="state-head">
+        <h3>North Carolina</h3>
+        <span class="status" style="background:#f4e8f1;color:#7a2f6b;">Merger review</span>
+      </div>
+      <p class="state-sub">North Carolina enters this map through the Dominion side of the proposed NextEra merger. The North Carolina Utilities Commission is one of three state regulators that must approve the deal, and it has recent experience conditioning a merger on customer savings.</p>
+
+      <div class="block-label">Stakeholder map</div>
+      <div class="diagram">
+        <svg viewBox="0 0 860 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="North Carolina stakeholder map">
+          <rect x="330" y="14" width="220" height="56" rx="6" fill="#f4ecf2" stroke="#7a2f6b" stroke-width="1.6"/>
+          <text x="440" y="36" text-anchor="middle" class="n-title" font-size="13">NextEra + Dominion</text>
+          <text x="440" y="53" text-anchor="middle" class="n-sub" font-size="11">$67B proposed merger</text>
+
+          <rect x="60" y="120" width="230" height="56" rx="6" fill="var(--reg-fill)" stroke="var(--reg)" stroke-width="1.5"/>
+          <text x="175" y="142" text-anchor="middle" class="n-title" font-size="13">NC Utilities Commission</text>
+          <text x="175" y="159" text-anchor="middle" class="n-sub" font-size="11">Must approve the deal</text>
+
+          <rect x="590" y="120" width="230" height="56" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="705" y="142" text-anchor="middle" class="n-title" font-size="13">FERC, NRC, others</text>
+          <text x="705" y="159" text-anchor="middle" class="n-sub" font-size="11">Federal approval track</text>
+
+          <rect x="325" y="120" width="220" height="56" rx="6" fill="var(--gap-fill)" stroke="var(--gap)" stroke-width="2"/>
+          <text x="435" y="138" text-anchor="middle" class="n-title" font-size="13" fill="var(--gap)">NextEra generation arm</text>
+          <text x="435" y="154" text-anchor="middle" class="n-sub" font-size="11">Merchant + rate-based mix</text>
+          <text x="435" y="169" text-anchor="middle" class="n-sub" font-size="11">under one parent</text>
+
+          <rect x="330" y="222" width="220" height="50" rx="6" fill="#eef7f1" stroke="#2f6b4f" stroke-width="1.5"/>
+          <text x="440" y="243" text-anchor="middle" class="n-title" font-size="13">NC retail customers</text>
+          <text x="440" y="260" text-anchor="middle" class="n-sub" font-size="11">Share of $2.25B bill credits</text>
+
+          <line x1="330" y1="48" x2="290" y2="120" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#nc-a)"/>
+          <text x="286" y="92" class="lbl" font-size="10.5">files for approval</text>
+          <line x1="550" y1="48" x2="620" y2="120" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#nc-a)"/>
+          <line x1="440" y1="70" x2="435" y2="120" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#nc-a)"/>
+          <line x1="435" y1="176" x2="440" y2="222" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#nc-a)"/>
+          <text x="446" y="202" class="lbl" font-size="10.5">serves</text>
+          <defs><marker id="nc-a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#3d4a5c"/></marker></defs>
+        </svg>
+      </div>
+      <p class="cap">The North Carolina question is not a data center tariff yet. It is whether the merger review conditions the deal to protect customers, as the NCUC did in the recent Duke subsidiary merger.</p>
+
+      <div class="facts">
+        <h4>Key facts</h4>
+        <ul>
+          <li><b>Merger:</b> NextEra announced an all-stock combination with Dominion on May 18, 2026. The combined company would be more than 80% regulated across four states.<sup class="cite"><a href="#ref-9">9</a></sup></li>
+          <li><b>NC role:</b> The North Carolina Utilities Commission is one of three state regulators that must approve the deal, alongside FERC and the NRC.<sup class="cite"><a href="#ref-9">9</a></sup></li>
+          <li><b>Bill credits:</b> NextEra pledged customer bill credits for Dominion customers in Virginia, North Carolina, and South Carolina. Confirm the current dollar figure, since deal terms can change through review.<sup class="cite"><a href="#ref-9">9</a></sup></li>
+          <li><b>Status:</b> The transaction is pending, not closed, and drew a request from a U.S. senator that FERC reject it. Re-check the FERC and state dockets before citing current status.</li>
+        </ul>
+      </div>
+
+      <div class="block-label">Where the gaps are</div>
+      <div class="gaps">
+        <div class="gap-item">
+          <h4>Data center cost allocation is not the review's main event</h4>
+          <p>The merger docket centers on market power and customer savings. The specific question of how future data center load is priced can slip past a merger proceeding unless intervenors raise it directly.</p>
+        </div>
+        <div class="gap-item">
+          <h4>One parent, generation and utility together</h4>
+          <p>A combined company that owns both regulated utilities and merchant generation concentrates the affiliate transfer-price question. A U.S. senator has already urged FERC to reject the deal on market-power grounds.</p>
+        </div>
+      </div>
+      <p class="sources">Sources: <a href="#ref-9">[9]</a>. <a href="#top" class="backtop">Back to top</a></p>
+    </section>
+
+    <!-- =================================================== SOUTH CAROLINA =================================================== -->
+    <section class="state" id="southcarolina">
+      <div class="state-head">
+        <h3>South Carolina</h3>
+        <span class="status" style="background:#f4e8f1;color:#7a2f6b;">Merger review</span>
+      </div>
+      <p class="state-sub">South Carolina is the third merger-review state, and the announced operational headquarters of the combined company. The Public Service Commission of South Carolina must approve the deal. NextEra has a history of merger attempts that state regulators rejected.</p>
+
+      <div class="block-label">Stakeholder map</div>
+      <div class="diagram">
+        <svg viewBox="0 0 860 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="South Carolina stakeholder map">
+          <rect x="330" y="14" width="220" height="56" rx="6" fill="#f4ecf2" stroke="#7a2f6b" stroke-width="1.6"/>
+          <text x="440" y="36" text-anchor="middle" class="n-title" font-size="13">NextEra + Dominion</text>
+          <text x="440" y="53" text-anchor="middle" class="n-sub" font-size="11">Operational HQ in Cayce, SC</text>
+
+          <rect x="60" y="120" width="230" height="56" rx="6" fill="var(--reg-fill)" stroke="var(--reg)" stroke-width="1.5"/>
+          <text x="175" y="142" text-anchor="middle" class="n-title" font-size="13">PSC of South Carolina</text>
+          <text x="175" y="159" text-anchor="middle" class="n-sub" font-size="11">Must approve the deal</text>
+
+          <rect x="590" y="120" width="230" height="56" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="705" y="142" text-anchor="middle" class="n-title" font-size="13">NextEra track record</text>
+          <text x="705" y="159" text-anchor="middle" class="n-sub" font-size="11">Prior SC bid rejected</text>
+
+          <rect x="325" y="120" width="220" height="56" rx="6" fill="var(--gap-fill)" stroke="var(--gap)" stroke-width="2"/>
+          <text x="435" y="138" text-anchor="middle" class="n-title" font-size="13" fill="var(--gap)">Combined generation</text>
+          <text x="435" y="154" text-anchor="middle" class="n-sub" font-size="11">110 GW, more than 80%</text>
+          <text x="435" y="169" text-anchor="middle" class="n-sub" font-size="11">regulated</text>
+
+          <rect x="330" y="222" width="220" height="50" rx="6" fill="#eef7f1" stroke="#2f6b4f" stroke-width="1.5"/>
+          <text x="440" y="243" text-anchor="middle" class="n-title" font-size="13">SC retail customers</text>
+          <text x="440" y="260" text-anchor="middle" class="n-sub" font-size="11">Share of $2.25B bill credits</text>
+
+          <line x1="330" y1="48" x2="290" y2="120" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#sc-a)"/>
+          <text x="286" y="92" class="lbl" font-size="10.5">files for approval</text>
+          <line x1="550" y1="48" x2="620" y2="120" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#sc-a)"/>
+          <text x="556" y="92" class="lbl" font-size="10.5">history matters</text>
+          <line x1="440" y1="70" x2="435" y2="120" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#sc-a)"/>
+          <line x1="435" y1="176" x2="440" y2="222" stroke="#3d4a5c" stroke-width="1.6" marker-end="url(#sc-a)"/>
+          <text x="446" y="202" class="lbl" font-size="10.5">serves</text>
+          <defs><marker id="sc-a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#3d4a5c"/></marker></defs>
+        </svg>
+      </div>
+      <p class="cap">South Carolina holds real leverage. The PSC can approve, condition, or reject. NextEra has failed prior acquisition attempts in South Carolina, Texas, and Hawaii when regulators were skeptical.</p>
+
+      <div class="facts">
+        <h4>Key facts</h4>
+        <ul>
+          <li><b>Merger role:</b> The Public Service Commission of South Carolina is one of three state approvers. The combined company would place its operational headquarters in South Carolina.<sup class="cite"><a href="#ref-9">9</a></sup></li>
+          <li><b>Scale:</b> The merged utility would be more than 80% regulated across Florida, Virginia, North Carolina, and South Carolina.<sup class="cite"><a href="#ref-9">9</a></sup></li>
+          <li><b>Bill credits:</b> South Carolina customers are included in the pledged bill credits. Confirm the current figure before citing.<sup class="cite"><a href="#ref-9">9</a></sup></li>
+          <li><b>Context:</b> Coverage notes NextEra has faced skepticism on prior utility acquisitions. Verify any specific prior-deal claim before repeating it publicly.</li>
+        </ul>
+      </div>
+
+      <div class="block-label">Where the gaps are</div>
+      <div class="gaps">
+        <div class="gap-item">
+          <h4>No dedicated large-load tariff yet</h4>
+          <p>South Carolina has not enacted a Florida-style statute or a Wisconsin-style tariff. Its current lever over data center cost allocation runs through the merger review and future rate cases, not a standing rule.</p>
+        </div>
+        <div class="gap-item">
+          <h4>Concentration risk</h4>
+          <p>The same combined parent would own generation and regulated utilities across the region. Whether the affiliate transfer price gets scrutiny depends on the conditions the PSC attaches at approval.</p>
+        </div>
+      </div>
+      <p class="sources">Sources: <a href="#ref-9">[9]</a>. <a href="#top" class="backtop">Back to top</a></p>
+    </section>
+
+    <!-- =================================================== THE AFFILIATE GAP =================================================== -->
+    <section class="state" id="the-gap">
+      <div class="state-head">
+        <h3>The gap every state shares</h3>
+      </div>
+      <p class="state-sub">Read across all seven states and one gap repeats. The tariffs and rate classes audit what the data center pays the utility. They do not audit what a regulated utility pays a generator owned by the same parent company.</p>
+
+      <div class="block-label">The four price layers</div>
+      <div class="diagram">
+        <svg viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The affiliate transfer price gap">
+          <rect x="40" y="20" width="360" height="56" rx="6" fill="var(--mkt-fill)" stroke="var(--mkt)" stroke-width="1.5"/>
+          <text x="220" y="42" text-anchor="middle" class="n-title" font-size="13">1. Wholesale market (PJM, energy)</text>
+          <text x="220" y="60" text-anchor="middle" class="n-sub" font-size="11">Market-based, capacity cap approved by FERC</text>
+
+          <rect x="460" y="20" width="360" height="56" rx="6" fill="var(--reg-fill)" stroke="var(--reg)" stroke-width="1.5"/>
+          <text x="640" y="42" text-anchor="middle" class="n-title" font-size="13">4. Retail rate (customer invoice)</text>
+          <text x="640" y="60" text-anchor="middle" class="n-sub" font-size="11">State PSC regulates. The tariffs audit this</text>
+
+          <rect x="250" y="120" width="360" height="56" rx="6" fill="var(--gap-fill)" stroke="var(--gap)" stroke-width="2.4"/>
+          <text x="430" y="142" text-anchor="middle" class="n-title" font-size="14" fill="var(--gap)">The transfer price</text>
+          <text x="430" y="160" text-anchor="middle" class="n-sub" font-size="11">Regulated utility pays its own affiliated generator</text>
+
+          <rect x="150" y="220" width="240" height="52" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="270" y="242" text-anchor="middle" class="n-title" font-size="13">FERC governs the market</text>
+          <text x="270" y="259" text-anchor="middle" class="n-sub" font-size="11">Layer 1</text>
+
+          <rect x="470" y="220" width="240" height="52" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="590" y="242" text-anchor="middle" class="n-title" font-size="13">State PSC audits the bill</text>
+          <text x="590" y="259" text-anchor="middle" class="n-sub" font-size="11">Layer 4</text>
+
+          <line x1="330" y1="176" x2="290" y2="220" stroke="#a8341f" stroke-width="1.8" stroke-dasharray="6 4"/>
+          <line x1="530" y1="176" x2="580" y2="220" stroke="#a8341f" stroke-width="1.8" stroke-dasharray="6 4"/>
+          <text x="430" y="205" text-anchor="middle" class="lbl-gap" font-size="12">the seam between state and federal review</text>
+        </svg>
+      </div>
+      <p class="cap">FERC governs the wholesale market and maintains its own affiliate-transaction rules. The state commission audits the customer invoice. The open question is whether the state cost-of-service review under these new tariffs reaches the transfer price a regulated utility pays a generator owned by the same parent. The pending NextEra combination makes the question concrete: one parent could own both sides of that transaction across four states. This is the seam worth watching, not a settled claim that no one reviews the price.</p>
+    </section>
+
+    <!-- =================================================== REFERENCES =================================================== -->
+    <section class="state" id="references" style="border-top:1px solid var(--rule);">
+      <div class="state-head"><h3>Sources and citations</h3></div>
+      <div class="verifynote">Every numbered source below was retrieved and read directly on July 3, 2026. Sources marked <b>primary</b> are the enacting body itself: the statute record, the commission order or release, or the company filing. One source is marked <b>official secondary</b> where it is the regulator's own news release summarizing an order whose full text should be read before quoting exact figures. Claims that could not be traced to a primary source on that date are not stated as fact on this page; they are marked in the panels as needing confirmation.</div>
+      <ol class="reflist">
+        <li id="ref-1">The Florida Senate, Regulated Industries Committee. <i>CS/CS/SB 484 Bill Summary</i> (2026). States the October 1, 2026 utility tariff filing requirement, the July 1, 2026 effective date, the cost-of-service and nonpayment provisions, and the final votes. <a href="https://www.flsenate.gov/Committees/BillSummaries/2026/html/484">flsenate.gov/Committees/BillSummaries/2026/html/484</a><span class="kind">Primary</span></li>
+        <li id="ref-2">The Florida Senate. <i>Senate Bill 484 (2026)</i>, Chapter No. 2026-65. Effective 7/1/2026 except as otherwise provided; last action 5/8/2026. <a href="https://www.flsenate.gov/Session/Bill/2026/484">flsenate.gov/Session/Bill/2026/484</a><span class="kind">Primary</span></li>
+        <li id="ref-3">Citizens for Pennsylvania's Future (PennFuture). <i>Data Center 2026 Legislative Debrief</i>. Identifies HB 1834 (the Data Center Act, Rep. Matzie), HB 2150, HB 2151, and SB 939 as Pennsylvania's data center bills. <a href="https://pennfuture.org/post/DATA-CENTER-2026-LEGISLATION-DEBRIEF">pennfuture.org/post/DATA-CENTER-2026-LEGISLATION-DEBRIEF</a><span class="kind">Primary</span></li>
+        <li id="ref-4">Pennsylvania Public Utility Commission. Press release, April 30, 2026: PUC adopts a model large-load tariff framework; interconnection upgrade costs recovered directly from large-load customers. <a href="https://www.puc.pa.gov/press-release/2026/puc-acts-to-protect-ratepayers-guide-data-center-growth-with-new-large-load-tariff-framework-4-30-26">puc.pa.gov</a><span class="kind">Primary</span></li>
+        <li id="ref-5">PJM Interconnection (PJM Inside Lines). <i>2027/2028 Base Residual Auction results</i>, December 17, 2025. Cleared at the FERC-approved cap of $333.44/MW-day; first auction in which the entire RTO fell short of the reliability requirement; nearly 5,100 MW of the 5,250 MW load-forecast increase attributable to data center demand. <a href="https://insidelines.pjm.com/pjm-auction-procures-134479-mw-of-generation-resources/">insidelines.pjm.com</a><span class="kind">Primary</span></li>
+        <li id="ref-6">Virginia State Corporation Commission. News release on the final order in the Dominion Energy Virginia 2025 biennial review, November 2025. New large-load rate class with minimum demand charges of 85% (distribution and transmission) and 60% (generation). <a href="https://www.scc.virginia.gov/about-the-scc/newsreleases/release/scc-issues-order-on-dev-biennial-review-2025/scc-rules-in-dev-biennial-review-case.html">scc.virginia.gov</a><span class="kind sec">Official secondary</span></li>
+        <li id="ref-7">Public Service Commission of Wisconsin. Press release, April 24, 2026, Docket 6630-TE-113. Approved a rewritten We Energies very large customer tariff; lowered the eligibility threshold from 500 MW to 100 MW; extended the minimum term to 15 years; removed the capacity-only option in favor of full-cost recovery. <a href="https://psc.wi.gov/Documents/PressReleases/04.24.2026PressRelease.PDF">psc.wi.gov</a><span class="kind">Primary</span></li>
+        <li id="ref-8">California Senate Bill 57 (Padilla), 2025-2026 session. Chaptered October 11, 2025 (Chapter 647, Statutes of 2025). Authorizes the CPUC to assess data center cost shifts, including stranded-asset risk; assessment due on or before January 1, 2027. <a href="https://calmatters.digitaldemocracy.org/bills/ca_202520260sb57">calmatters.digitaldemocracy.org</a><span class="kind">Primary</span></li>
+        <li id="ref-9">NextEra Energy. Investor announcement of the NextEra-Dominion combination, May 18, 2026. All-stock transaction; combined company more than 80% regulated across four states; requires FERC, NRC, and the Virginia SCC, North Carolina Utilities Commission, and Public Service Commission of South Carolina approval. Deal terms are announcement-stage and the transaction is pending. <a href="https://newsroom.nexteraenergy.com/2026-05-18-NextEra-Energy-and-Dominion-Energy-to-Combine,-Creating-the-Worlds-Largest-Regulated-Electric-Utility-Business-and-North-Americas-Premier-Energy-Infrastructure-Platform-Benefiting-Customers">newsroom.nexteraenergy.com</a><span class="kind">Primary</span></li>
+      </ol>
+      <p class="sources"><a href="#top" class="backtop">Back to top</a></p>
+    </section>
+
+    <!-- =================================================== METHOD =================================================== -->
+    <div class="method" id="method">
+      <h3>Method</h3>
+      <p>Every checkable fact on this page carries a numbered citation to a primary source that was retrieved and read on July 3, 2026. Where a figure appears in a regulator's summary but the underlying order should be read before it is quoted exactly, the panel says so directly rather than presenting the figure as settled. Where a claim could not be traced to a primary source on that date, it is marked as needing confirmation, not stated as fact. This page carries no speculation.</p>
+      <p>The framing is deliberately economic, not environmental. The question throughout is cost causation and cost allocation: who triggers the buildout, and who pays for it. Reporters and editors are welcome to use these maps with attribution, or to reach out for a source interview.</p>
+      <p style="margin-bottom:0;">Contact: Dr. Mark R. McNees, Florida State University, <a href="mailto:mmcnees@fsu.edu" style="color:var(--reg);">mmcnees@fsu.edu</a>, 850.973.7687.</p>
+    </div>
+
+  </div>
+  </main>
+</div>
+
+<script>
+  // Scroll spy for sidebar active state
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('.sidebar a[href^="#"]'));
+    var map = {};
+    links.forEach(function(l){
+      var id = l.getAttribute('href').slice(1);
+      var sec = document.getElementById(id);
+      if(sec) map[id] = {link:l, sec:sec};
+    });
+    function onScroll(){
+      var y = window.scrollY + 120;
+      var currentId = null;
+      Object.keys(map).forEach(function(id){
+        if(map[id].sec.offsetTop <= y) currentId = id;
+      });
+      links.forEach(function(l){ l.classList.remove('active'); });
+      if(currentId && map[currentId]) map[currentId].link.classList.add('active');
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+</script>
+</body>
+</html>
