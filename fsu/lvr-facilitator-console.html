@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LVR Case — Facilitator Console</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Spline+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap');
+
+  :root{
+    --ink:#14181c;
+    --paper:#f6f3ec;
+    --paper-2:#efe9dd;
+    --line:#d8cfbe;
+    --line-2:#c3b8a1;
+    --sea:#1f5c58;      /* LVR resort deep teal */
+    --sea-bright:#2e8b83;
+    --sand:#c98a3c;     /* warm signage gold */
+    --coral:#c0553b;    /* the "danger / tension" accent */
+    --mute:#6a6459;
+    --mute-2:#8a8375;
+    --good:#3d7a4f;
+    --shadow:0 1px 0 rgba(20,24,28,.04), 0 12px 34px -18px rgba(20,24,28,.35);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(120% 80% at 50% -10%, #faf7f0 0%, var(--paper) 46%, var(--paper-2) 100%);
+    color:var(--ink);
+    font-family:'Spline Sans',system-ui,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:6rem;
+  }
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem);}
+
+  /* ---------- Masthead ---------- */
+  header.mast{
+    padding:clamp(1.6rem,4vw,2.8rem) 0 1.2rem;
+    border-bottom:1px solid var(--line);
+    margin-bottom:1.8rem;
+  }
+  .eyebrow{
+    font-family:'Spline Sans Mono',monospace;
+    font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--sea);font-weight:500;
+    display:flex;align-items:center;gap:.7rem;
+  }
+  .eyebrow::before{
+    content:"";width:26px;height:1px;background:var(--sea);display:inline-block;
+  }
+  h1.title{
+    font-family:'Fraunces',serif;
+    font-weight:900;font-optical-sizing:144;
+    font-size:clamp(2.1rem,5.4vw,3.5rem);
+    line-height:1.02;letter-spacing:-.015em;
+    margin:.5rem 0 .4rem;
+    color:var(--ink);
+  }
+  h1.title em{font-style:italic;color:var(--sea);font-weight:500;}
+  .sub{
+    font-size:1.02rem;color:var(--mute);max-width:60ch;
+  }
+  .metaline{
+    display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:1rem;
+    font-family:'Spline Sans Mono',monospace;font-size:.76rem;
+    color:var(--mute-2);letter-spacing:.02em;
+  }
+  .metaline b{color:var(--ink);font-weight:500;}
+
+  /* ---------- Controls bar ---------- */
+  .toolbar{
+    position:sticky;top:0;z-index:40;
+    background:rgba(246,243,236,.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    margin:0 0 2rem;
+  }
+  .toolbar-inner{
+    display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;
+    padding:.7rem 0;
+  }
+  .tbtn{
+    font-family:'Spline Sans Mono',monospace;
+    font-size:.74rem;letter-spacing:.04em;
+    border:1px solid var(--line-2);
+    background:var(--paper);
+    color:var(--ink);
+    padding:.5rem .85rem;border-radius:7px;cursor:pointer;
+    transition:all .16s ease;
+    display:inline-flex;align-items:center;gap:.45rem;
+  }
+  .tbtn:hover{border-color:var(--sea);color:var(--sea);}
+  .tbtn.active{background:var(--sea);color:#fff;border-color:var(--sea);}
+  .tbtn .dot{width:7px;height:7px;border-radius:50%;background:var(--sand);}
+  .tbtn.active .dot{background:#fff;}
+  .clock{
+    margin-left:auto;font-family:'Spline Sans Mono',monospace;
+    font-size:.78rem;color:var(--mute);
+    display:flex;align-items:center;gap:.5rem;
+  }
+  .clock b{color:var(--sea);font-weight:600;font-size:1rem;}
+
+  /* ---------- Section shells ---------- */
+  section{margin-bottom:2.4rem;scroll-margin-top:72px;}
+  .shell{
+    background:#fffdf8;
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .shell-head{
+    padding:1.1rem 1.4rem;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#fffdf8,#faf6ee);
+    display:flex;align-items:baseline;gap:.9rem;
+  }
+  .shell-num{
+    font-family:'Spline Sans Mono',monospace;font-size:.78rem;
+    color:var(--sand);letter-spacing:.1em;font-weight:500;
+    padding-top:.15rem;
+  }
+  .shell-title{
+    font-family:'Fraunces',serif;font-weight:600;
+    font-size:1.28rem;letter-spacing:-.01em;
+  }
+  .shell-body{padding:1.4rem;}
+
+  /* ---------- The Answer Key (hidden section) ---------- */
+  .answerkey{display:none;}
+  .answerkey.show{display:block;}
+  .keycard{
+    border:1px solid var(--line);border-left:3px solid var(--sea);
+    background:#fbfaf5;border-radius:8px;padding:1.1rem 1.25rem;margin-bottom:1rem;
+  }
+  .keycard h4{
+    margin:0 0 .5rem;font-family:'Fraunces',serif;font-weight:600;font-size:1.08rem;
+    color:var(--sea);
+  }
+  .keycard p{margin:.4rem 0;color:#2c3238;font-size:.96rem;}
+  .keycard .stress{color:var(--coral);font-weight:500;}
+  .pillar-row{display:flex;gap:.8rem;flex-wrap:wrap;margin:.7rem 0 .2rem;}
+  .pillar{
+    flex:1 1 150px;border:1px solid var(--line);border-radius:8px;padding:.7rem .8rem;
+    background:#fff;
+  }
+  .pillar .p-k{font-family:'Spline Sans Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sand);}
+  .pillar .p-v{font-size:.9rem;margin-top:.25rem;color:#2c3238;}
+
+  .bigidea{
+    background:linear-gradient(135deg,#1f5c58,#2e8b83);
+    color:#eafaf7;border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.3rem;
+  }
+  .bigidea .lbl{font-family:'Spline Sans Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;opacity:.8;}
+  .bigidea h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;margin:.4rem 0 .5rem;line-height:1.15;color:#fff;}
+  .bigidea p{margin:.5rem 0 0;font-size:1rem;opacity:.95;}
+  .bigidea em{color:#ffe0b8;font-style:normal;font-weight:500;}
+
+  /* ---------- Question Map (branching) ---------- */
+  .path-intro{
+    font-size:.95rem;color:var(--mute);margin-bottom:1.4rem;max-width:70ch;
+  }
+  .stage-rail{
+    display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.6rem;
+  }
+  .rail-node{
+    font-family:'Spline Sans Mono',monospace;font-size:.7rem;letter-spacing:.03em;
+    padding:.35rem .6rem;border-radius:20px;border:1px solid var(--line-2);
+    color:var(--mute);background:var(--paper);
+  }
+  .rail-node.done{border-color:var(--good);color:var(--good);}
+  .rail-node.current{background:var(--sea);color:#fff;border-color:var(--sea);}
+
+  .node{
+    display:none;
+    animation:rise .35s cubic-bezier(.2,.7,.3,1);
+  }
+  .node.active{display:block;}
+  @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+
+  .node-tag{
+    font-family:'Spline Sans Mono',monospace;font-size:.72rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--sand);margin-bottom:.5rem;
+    display:flex;align-items:center;gap:.6rem;
+  }
+  .node-tag .phase{color:var(--sea);}
+  .ask{
+    font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.3rem,3vw,1.7rem);
+    line-height:1.22;letter-spacing:-.01em;margin:.2rem 0 1rem;
+  }
+  .listen{
+    border-left:3px solid var(--sand);padding:.15rem 0 .15rem 1rem;margin:0 0 1.3rem;
+    color:var(--mute);font-size:.94rem;
+  }
+  .listen b{color:var(--ink);font-weight:600;font-family:'Spline Sans Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.25rem;}
+
+  .branch-lbl{
+    font-family:'Spline Sans Mono',monospace;font-size:.72rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--mute-2);margin:1.2rem 0 .7rem;
+  }
+  .choices{display:grid;gap:.7rem;}
+  .choice{
+    text-align:left;width:100%;cursor:pointer;
+    border:1px solid var(--line-2);border-radius:10px;
+    background:#fffdf8;padding:.95rem 1.1rem;
+    transition:all .16s ease;
+    display:flex;gap:.9rem;align-items:flex-start;
+    font-family:inherit;
+  }
+  .choice:hover{border-color:var(--sea);background:#fff;transform:translateY(-1px);box-shadow:0 6px 20px -12px rgba(31,92,88,.5);}
+  .choice .glyph{
+    flex:none;width:26px;height:26px;border-radius:7px;
+    background:var(--paper-2);color:var(--sea);
+    display:grid;place-items:center;font-family:'Spline Sans Mono',monospace;
+    font-size:.8rem;font-weight:500;margin-top:.05rem;
+  }
+  .choice:hover .glyph{background:var(--sea);color:#fff;}
+  .choice .ctext{flex:1;}
+  .choice .said{font-weight:500;font-size:.98rem;color:var(--ink);}
+  .choice .move{font-size:.83rem;color:var(--mute);margin-top:.2rem;}
+  .choice.push .glyph{background:#f4dcd3;color:var(--coral);}
+  .choice.push:hover .glyph{background:var(--coral);color:#fff;}
+  .choice.land .glyph{background:#d6ead9;color:var(--good);}
+  .choice.land:hover{border-color:var(--good);box-shadow:0 6px 20px -12px rgba(61,122,79,.5);}
+  .choice.land:hover .glyph{background:var(--good);color:#fff;}
+
+  .navrow{display:flex;gap:.6rem;margin-top:1.5rem;flex-wrap:wrap;}
+  .navbtn{
+    font-family:'Spline Sans Mono',monospace;font-size:.74rem;letter-spacing:.04em;
+    border:1px solid var(--line-2);background:var(--paper);color:var(--ink);
+    padding:.5rem .9rem;border-radius:7px;cursor:pointer;transition:all .16s;
+  }
+  .navbtn:hover{border-color:var(--sea);color:var(--sea);}
+  .navbtn.ghost{opacity:.6;}
+
+  .landing{
+    background:#f2f8f3;border:1px solid #cfe4d3;border-radius:10px;
+    padding:1rem 1.2rem;margin-top:1.2rem;
+  }
+  .landing .l-h{font-family:'Spline Sans Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--good);margin-bottom:.35rem;}
+  .landing p{margin:0;font-size:.95rem;color:#25412c;}
+
+  .pushbox{
+    background:#fbf1ee;border:1px solid #e8cabe;border-radius:10px;
+    padding:1rem 1.2rem;margin-top:1.2rem;
+  }
+  .pushbox .l-h{font-family:'Spline Sans Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);margin-bottom:.35rem;}
+  .pushbox p{margin:0;font-size:.95rem;color:#5a2b1e;}
+
+  /* ---------- Quick-fire bank ---------- */
+  .bank{display:grid;gap:.6rem;}
+  .qf{
+    border:1px solid var(--line);border-radius:9px;padding:.85rem 1rem;background:#fffdf8;
+    display:flex;gap:.8rem;
+  }
+  .qf .qn{font-family:'Spline Sans Mono',monospace;color:var(--sand);font-size:.8rem;flex:none;padding-top:.1rem;}
+  .qf .qbody{font-size:.95rem;}
+  .qf .qbody .qq{font-weight:500;}
+  .qf .qbody .qwhy{color:var(--mute);font-size:.85rem;margin-top:.2rem;}
+
+  footer{
+    margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--line);
+    font-family:'Spline Sans Mono',monospace;font-size:.74rem;color:var(--mute-2);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;
+  }
+
+  .hide{display:none !important;}
+
+  @media (max-width:640px){
+    .shell-body{padding:1.1rem;}
+    .clock{width:100%;margin:.4rem 0 0;}
+  }
+
+  @media print{
+    .toolbar,.navrow,.choice .glyph{display:none;}
+    .node{display:block !important;page-break-inside:avoid;}
+    .answerkey{display:block !important;}
+    body{background:#fff;}
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap toolbar-inner">
+    <button class="tbtn active" id="tab-path" onclick="showView('path')"><span class="dot"></span>Question map</button>
+    <button class="tbtn" id="tab-key" onclick="showView('key')"><span class="dot"></span>Answer key</button>
+    <button class="tbtn" id="tab-bank" onclick="showView('bank')"><span class="dot"></span>Backup questions</button>
+    <div class="clock">
+      <span id="timerLabel">session</span>
+      <b id="timer">0:00</b>
+      <button class="tbtn" style="padding:.35rem .6rem" onclick="toggleTimer()" id="timerBtn">start</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">ENT 5516 &nbsp;·&nbsp; Facilitator console</div>
+    <h1 class="title">Legacy Vacation Resorts:<br><em>the gap that isn't a communication gap</em></h1>
+    <p class="sub">A discovery path for tonight's seminar. You are not delivering the answer. You are asking the question that makes a student say it, then pushing until the room owns it. Tap what they actually said; the console routes you to the next move.</p>
+    <div class="metaline">
+      <span><b>Built for</b> 75–120 min</span>
+      <span><b>Format</b> branching Socratic</span>
+      <span><b>Students</b> acting as Meyers' consultants</span>
+      <span><b>Destination</b> reframe: embodiment, not communication</span>
+    </div>
+  </header>
+
+  <!-- =================== QUESTION MAP =================== -->
+  <div id="view-path">
+
+    <p class="path-intro">The path has five stages. Each stage ends only when the room reaches the realization in green. If they resist, the red branches are how you press. You can jump stages with the rail below, but the power is in sequence: each realization is the setup for the next question.</p>
+
+    <div class="stage-rail" id="rail"></div>
+
+    <div class="shell">
+      <div class="shell-body" id="nodeMount"></div>
+    </div>
+  </div>
+
+  <!-- =================== ANSWER KEY =================== -->
+  <div id="view-key" class="answerkey">
+    <section>
+      <div class="bigidea">
+        <div class="lbl">The world-class answer · read this before you facilitate</div>
+        <h3>LVR does not have a communication gap. It has an embodiment gap. The fix is not a campaign; it is a redesign of the two experiences LVR already runs at scale.</h3>
+        <p>The team's paper (and most of the room) will treat the 90% number as an <em>awareness</em> problem and reach for a <em>campaign</em>: training, signage, videos, an awareness target of 80%. That is the obvious answer, and it is the trap. A campaign bolts messaging onto the side of the business. It will move the awareness number and leave the business outcome flat, because <em>knowing</em> LVR is a B Corp is not what creates value. <em>Experiencing</em> it is.</p>
+      </div>
+
+      <div class="keycard">
+        <h4>Why the campaign answer fails on its own terms</h4>
+        <p><b>The 90% stat is a symptom, not the disease.</b> Employees can't articulate B Corp because it lives in policy documents and a certification score, not in the design of their daily work. You cannot communicate your way out of a structural absence. If the meaning isn't built into the job, a poster won't put it there — it will wear off the moment the campaign budget ends. That is exactly Lewin's failed refreeze: you can't refreeze what was never actually changed at the level of behavior.</p>
+        <p><b>Guests are the sharper case.</b> Meyers' own constraint — <span class="stress">"we don't want guests to feel they were being taught a lesson"</span> — is not a tactical footnote. It is telling you the entire "raise guest awareness to 25%" goal is the wrong goal. A guest who <em>notices they're being educated</em> is having a worse vacation. The world-class move is to make the B Corp experience <em>invisible as a lesson and visible as a better stay</em>: the outcome you want from guests is behavioral (they rebook, they book direct, they opt in), and awareness is at most a lagging byproduct, never the target.</p>
+      </div>
+
+      <div class="keycard">
+        <h4>The reframe, stated cleanly</h4>
+        <p>LVR already runs two experiences at enormous scale: <b>270 employees living a workday</b> and <b>300,000 guests living a stay.</b> Those are the assets. The job is not to add a communication layer on top of them — it is to redesign those two experiences so B Corp is <em>structurally embedded</em> in them. Change the work and the stay; awareness takes care of itself.</p>
+        <div class="pillar-row">
+          <div class="pillar"><div class="p-k">Employee side</div><div class="p-v">Stop training people <em>about</em> B Corp. Give every role a B Corp decision they own — a housekeeper's plastic-elimination call, a front-desk carbon-offset offer, a real volunteer-time budget. Meaning comes from agency, not from a mini-course.</div></div>
+          <div class="pillar"><div class="p-k">Guest side</div><div class="p-v">Never lecture. Design the stay so the sustainable choice is the <em>default and the nicer one</em> (the reusable bottle is genuinely better; the direct-booking carbon offset is framed as a perk). Guests feel a superior stay, not a lesson.</div></div>
+          <div class="pillar"><div class="p-k">Metric shift</div><div class="p-v">Kill "80% awareness" as the headline. Replace with behavior: employee-initiated B Corp actions per month, guest opt-in / direct-booking / repeat-booking rate, retention delta. Awareness becomes diagnostic, never the goal.</div></div>
+        </div>
+      </div>
+
+      <div class="keycard">
+        <h4>Why this is still a Lewin/Kotter answer, done correctly</h4>
+        <p>This isn't abandoning the theory the team chose — it's applying it with more rigor than they did. <b>Lewin:</b> the real unfreeze isn't "tell them louder," it's disrupting the belief that B Corp is a certificate the company holds rather than a way each person works. You unfreeze by changing the job, so the new behavior is the thing that refreezes. <b>Kotter:</b> the 2019 executive departure was a <em>guiding-coalition</em> failure (step 2). Every downstream step fails until the coalition is rebuilt at the frontline, not the C-suite — which is exactly why role-level ownership, not top-down messaging, is the unlock.</p>
+      </div>
+
+      <div class="keycard">
+        <h4>The three tests a world-class plan passes that the team's plan doesn't</h4>
+        <p><b>1. The "campaign-ends" test.</b> If you cut the budget in 12 months, does the B Corp meaning survive? Embedded-in-the-job survives; a poster campaign doesn't.</p>
+        <p><b>2. The "guest never notices the lesson" test.</b> Can a guest have the full B Corp benefit and never once feel taught? Only if it's designed into the stay, not announced.</p>
+        <p><b>3. The "$300K" test.</b> Can you defend the spend to a hostile board on the revenue line — via retention, direct-booking margin, repeat rate — not just the values line? Behavior metrics let you; awareness metrics don't.</p>
+      </div>
+
+      <div class="keycard" style="border-left-color:var(--coral)">
+        <h4>What to do if the room can't get there</h4>
+        <p>If after pressing they still can't break from the campaign frame, don't hand them the answer — hand them the <b>test</b>. Ask question F ("if the budget ends in a year, what's left?") and let the silence work. The reframe is more valuable discovered late than delivered early. Landing 70% of the way there with the room's own words beats a clean answer they didn't build.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- =================== BACKUP BANK =================== -->
+  <div id="view-bank" class="answerkey">
+    <section>
+      <div class="shell">
+        <div class="shell-head"><span class="shell-num">EXTRA</span><span class="shell-title">Backup questions to drop in anywhere</span></div>
+        <div class="shell-body">
+          <div class="bank" id="bankMount"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</div>
+
+<footer class="wrap">
+  <span>ENT 5516 · LVR case · facilitator console</span>
+  <span>Tap answers to branch · Answer key + print via toolbar</span>
+</footer>
+
+<script>
+/* ---------------- View switching ---------------- */
+function showView(v){
+  document.getElementById('view-path').classList.toggle('hide', v!=='path');
+  document.getElementById('view-key').classList.toggle('show', v==='key');
+  document.getElementById('view-key').classList.toggle('hide', v!=='key');
+  document.getElementById('view-bank').classList.toggle('show', v==='bank');
+  document.getElementById('view-bank').classList.toggle('hide', v!=='bank');
+  document.getElementById('tab-path').classList.toggle('active', v==='path');
+  document.getElementById('tab-key').classList.toggle('active', v==='key');
+  document.getElementById('tab-bank').classList.toggle('active', v==='bank');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ---------------- Timer ---------------- */
+let t=0, running=false, iv=null;
+function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+function toggleTimer(){
+  running=!running;
+  document.getElementById('timerBtn').textContent = running?'pause':'start';
+  if(running){iv=setInterval(()=>{t++;document.getElementById('timer').textContent=fmt(t);},1000);}
+  else clearInterval(iv);
+}
+
+/* ---------------- The branching tree ----------------
+   Each node: tag(stage label), phase, ask, listen(for),
+   choices[] -> {said, move, to, tone:'push'|'land'|'', note}
+   Stages map to the rail.
+--------------------------------------------------------*/
+const STAGES = ["1 · Open","2 · Crack the frame","3 · Guest test","4 · Metric flip","5 · Land it"];
+
+const NODES = {
+
+  start:{
+    stage:0, phase:"OPENING",
+    tag:"Set the room",
+    ask:"You're Meyers' consultants. He's paid you to close the 90% gap. Before you pitch anything — what exactly is the problem you were hired to solve?",
+    listen:"Almost everyone answers \"a communication / awareness problem.\" That's the frame you want them to state confidently, out loud, so you can crack it later. Let them commit.",
+    choices:[
+      {said:"\"It's a communication / awareness gap — people don't know.\"", move:"They took the bait. Lock it in, then start pressure.", to:"a1", tone:""},
+      {said:"\"It's a culture problem, not just messaging.\"", move:"Sharp room. Skip ahead — they're already past the obvious frame.", to:"a2", tone:"land"},
+      {said:"\"The problem is guests AND employees, two different problems.\"", move:"Good instinct. Hold it — route to the split.", to:"a1", tone:""}
+    ]
+  },
+
+  a1:{
+    stage:1, phase:"CRACK THE FRAME",
+    tag:"Test the campaign reflex",
+    ask:"So if it's an awareness gap, the fix is to raise awareness. Walk me through your campaign — training, signage, videos. Say the awareness target out loud. What number?",
+    listen:"They'll say 80% (the paper does). Let them fully describe the campaign. You're getting them to build the thing you're about to knock down. Do NOT critique yet.",
+    choices:[
+      {said:"\"Get employee awareness to ~80%, guests to ~25%.\"", move:"Perfect. Now spring the trap.", to:"a3", tone:""},
+      {said:"\"Awareness is the wrong target — it's about behavior.\"", move:"They jumped the gap themselves. Reward it, go deep.", to:"a2", tone:"land"},
+      {said:"\"Training and signage, but I'm not sure of a number.\"", move:"Push them to commit to a metric — then spring the trap.", to:"a3", tone:"push"}
+    ]
+  },
+
+  a2:{
+    stage:1, phase:"CRACK THE FRAME",
+    tag:"Reward the leap, then deepen",
+    ask:"You said it's not really awareness. Then name it precisely: what is actually missing at LVR that a survey measured as \"90% can't articulate it\"?",
+    listen:"You want: the meaning isn't built into anything they DO. It lives in a certificate and a score. Guide toward \"it's not in the work / not in the stay.\"",
+    choices:[
+      {said:"\"It's not built into their daily work — it's just policy.\"", move:"That's the crack. Drive it open.", to:"b1", tone:"land"},
+      {said:"\"People don't feel ownership of it.\"", move:"Close. Push toward WHERE ownership would live.", to:"b1", tone:"push"},
+      {said:"\"They were never really unfrozen (Lewin).\"", move:"Theory-strong. Connect it to structure.", to:"b1", tone:"land"}
+    ]
+  },
+
+  a3:{
+    stage:1, phase:"CRACK THE FRAME",
+    tag:"Spring the trap",
+    ask:"Say your campaign works perfectly. Awareness hits 80%. Every employee can define \"B Corp.\" Now — did guest satisfaction move? Did retention move? Did revenue move? If not, did you solve the problem, or just the survey?",
+    listen:"This is the hinge of the whole session. You're separating the vanity metric (can they define it) from the business outcome. Watch for the moment someone realizes knowing ≠ value.",
+    choices:[
+      {said:"\"…Knowing it doesn't actually create the value.\"", move:"THE CRACK. This is the pivot. Go.", to:"b1", tone:"land"},
+      {said:"\"Awareness should still help retention / loyalty.\"", move:"Make them prove the mechanism — it'll break.", to:"a4", tone:"push"},
+      {said:"\"It'd move if the training changes behavior, not just knowledge.\"", move:"They said behavior. Grab that word and pull.", to:"b1", tone:"land"}
+    ]
+  },
+
+  a4:{
+    stage:1, phase:"CRACK THE FRAME",
+    tag:"Break the awareness→value chain",
+    ask:"Trace it for me. Employee learns what B Corp means → therefore what changes on their shift tomorrow? Guest learns LVR is a B Corp → therefore they do what, exactly?",
+    listen:"When they try to trace it, the chain snaps: awareness alone changes nothing unless it changes an action. That failure IS the insight. Let them hit the wall.",
+    choices:[
+      {said:"\"…nothing changes unless it changes what they DO.\"", move:"Exactly the wall you wanted. Pivot now.", to:"b1", tone:"land"},
+      {said:"They insist awareness = pride = retention.", move:"Grant it partly — then ask what pride is built ON.", to:"b1", tone:"push"}
+    ]
+  },
+
+  b1:{
+    stage:1, phase:"CRACK THE FRAME",
+    tag:"Name the real problem",
+    ask:"So let's rename the problem. If it's not that they don't KNOW, it's that B Corp isn't built into anything they experience — what would you call that gap, in one phrase?",
+    listen:"You're fishing for \"embodiment gap\" / \"it's not lived\" / \"it's not in the work or the stay.\" Any phrasing that locates the gap in EXPERIENCE, not information. Write their phrase on the board.",
+    choices:[
+      {said:"\"An embodiment gap — it isn't lived, only certified.\"", move:"Land it hard. That's the reframe in their words.", to:"c1", tone:"land"},
+      {said:"\"It's not designed into the job or the stay.\"", move:"Perfect — that's the reframe. Move to the guest test.", to:"c1", tone:"land"},
+      {said:"Room is stuck, still circling \"communicate better.\"", move:"Use the budget-ends test to force it.", to:"stuck1", tone:"push"}
+    ]
+  },
+
+  stuck1:{
+    stage:1, phase:"RECOVERY",
+    tag:"Force the break",
+    ask:"Okay. Your campaign runs for 12 months, then the budget is cut. Six months later, what's left at LVR? What survives when the posters come down?",
+    listen:"The honest answer is \"not much\" — which proves messaging isn't structural. Anything that survives is something built INTO the work. That's your bridge to the reframe.",
+    choices:[
+      {said:"\"Not much survives — so it has to be built in.\"", move:"There it is. Now name the gap.", to:"c1", tone:"land"},
+      {said:"\"The training sticks.\"", move:"Ask: does knowledge stick, or habit? Habit needs structure.", to:"c1", tone:"push"}
+    ]
+  },
+
+  c1:{
+    stage:2, phase:"THE GUEST TEST",
+    tag:"Weaponize Meyers' own constraint",
+    ask:"Meyers gave you a hard line: guests must never \"feel they were being taught a lesson.\" Your plan has a 25% guest-awareness target. Aren't those in direct conflict? To raise awareness you have to tell them — which is the lesson he forbade.",
+    listen:"You want the room to feel the contradiction physically. The awareness goal and the no-lecture rule can't both be satisfied by a campaign. Something has to give — and it should be the awareness goal.",
+    choices:[
+      {said:"\"Right — so the guest-awareness target is the wrong goal.\"", move:"Yes. Now what replaces it?", to:"c2", tone:"land"},
+      {said:"\"We can raise awareness subtly, without lecturing.\"", move:"Press: subtle awareness is still the wrong TARGET. Redirect.", to:"c2", tone:"push"},
+      {said:"\"Maybe some guests should be taught and some not.\"", move:"Interesting — segment it, then ask what the non-taught majority experience.", to:"c2", tone:""}
+    ]
+  },
+
+  c2:{
+    stage:2, phase:"THE GUEST TEST",
+    tag:"Design the stay, not the message",
+    ask:"If you can't teach them, what CAN you do? A guest checks in, sleeps, showers, checks out. Where in that stay does B Corp become real to them without a single word of instruction?",
+    listen:"Fish for: the sustainable option is the DEFAULT and genuinely the nicer one. Reusable bottle that's actually better. Direct-book offset framed as a perk. B Corp felt as a better stay, never announced.",
+    choices:[
+      {said:"\"Make the sustainable choice the default AND the better one.\"", move:"That's the guest half of the reframe. Lock it.", to:"c3", tone:"land"},
+      {said:"\"Put it in the experience, not on a sign.\"", move:"Yes — push for one concrete example to make it real.", to:"c3", tone:"push"},
+      {said:"Still reaching for signage / room videos.", move:"Ask: does a sign change the stay, or just narrate it?", to:"c2b", tone:"push"}
+    ]
+  },
+
+  c2b:{
+    stage:2, phase:"THE GUEST TEST",
+    tag:"Signage is narration, not experience",
+    ask:"A sign by the EV charger explaining why it matters — is that changing the guest's experience, or just narrating a thing that's already there? What would change the experience itself?",
+    listen:"Get them to see: signage describes; design changes. The move is to alter what the guest actually does or receives, so the value is felt, not read.",
+    choices:[
+      {said:"\"Design changes the experience; a sign only describes it.\"", move:"Good. Now they've got the guest half.", to:"c3", tone:"land"},
+      {said:"\"Signs still help a little.\"", move:"Grant it as garnish, not strategy. Move on.", to:"c3", tone:""}
+    ]
+  },
+
+  c3:{
+    stage:2, phase:"THE GUEST TEST",
+    tag:"Mirror it to employees",
+    ask:"Do the same for the 270 employees. If you're NOT going to train them about B Corp, how does a housekeeper or front-desk agent live it on their shift? What do they get to DO?",
+    listen:"Fish for AGENCY: give each role a real B Corp decision they own — a plastic-elimination call, a carbon-offset offer, an actual volunteer-hours budget. Meaning comes from ownership, not a mini-course.",
+    choices:[
+      {said:"\"Give each role a real B Corp decision they own.\"", move:"That's the employee half. Both halves are now on the board.", to:"d1", tone:"land"},
+      {said:"\"Involve them in it, not just inform them.\"", move:"Push from 'involve' to 'own a decision.' Then advance.", to:"d1", tone:"push"},
+      {said:"\"Still need some baseline training first.\"", move:"Fine — but training serves the decision, not the poster. Reframe and advance.", to:"d1", tone:""}
+    ]
+  },
+
+  d1:{
+    stage:3, phase:"THE METRIC FLIP",
+    tag:"Kill the vanity metric",
+    ask:"Back to measurement. If the goal is no longer \"80% can define B Corp,\" what do you measure instead? What number tells Meyers this is actually working?",
+    listen:"Fish for BEHAVIOR metrics: employee-initiated B Corp actions/month, guest opt-in rate, direct-booking rate, repeat-booking rate, retention delta. Awareness drops to a diagnostic, never the headline.",
+    choices:[
+      {said:"\"Behavior — actions taken, opt-ins, rebooking, retention.\"", move:"That's the flip. Awareness is now a symptom, not a target.", to:"d2", tone:"land"},
+      {said:"\"Keep awareness but add outcome metrics too.\"", move:"Ask which one they'd report to the board first. Force the ranking.", to:"d2", tone:"push"},
+      {said:"\"Guest satisfaction and NPS.\"", move:"Good lagging indicators — push them for a LEADING behavior metric too.", to:"d2", tone:""}
+    ]
+  },
+
+  d2:{
+    stage:3, phase:"THE METRIC FLIP",
+    tag:"The $300K test",
+    ask:"A hostile board member says the $300K living-wage spend is charity you can't afford. Using your NEW metrics, defend it on the revenue line — not the values line. Can you?",
+    listen:"Behavior metrics (retention → lower turnover cost; direct-booking → margin; repeat rate → LTV) let them defend the spend financially. Awareness metrics can't. This proves WHY the metric flip matters.",
+    choices:[
+      {said:"\"Retention, direct-booking margin, repeat rate — yes, financially.\"", move:"They just proved the reframe pays. Go to the landing.", to:"e1", tone:"land"},
+      {said:"\"It's a values investment, hard to quantify.\"", move:"Push: the new metrics EXIST to quantify it. Try again.", to:"d2b", tone:"push"}
+    ]
+  },
+
+  d2b:{
+    stage:3, phase:"THE METRIC FLIP",
+    tag:"Connect spend to behavior",
+    ask:"100% staff retention through COVID — what did that SAVE LVR in turnover, rehiring, training, lost service quality? Now: is the living wage a cost, or the thing that bought that retention?",
+    listen:"The living wage IS the retention mechanism. That's the revenue-line defense. Once they see cost = investment with a measurable return, the metric flip is proven.",
+    choices:[
+      {said:"\"The wage bought the retention — it's an investment with a return.\"", move:"Now they can defend it. Land the whole thing.", to:"e1", tone:"land"}
+    ]
+  },
+
+  e1:{
+    stage:4, phase:"LAND IT",
+    tag:"Force the synthesis",
+    ask:"Put it together in one sentence. What did Meyers actually hire you to do — and how is it different from what he THOUGHT he hired you to do?",
+    listen:"Target: \"He thought he hired us to communicate B Corp. He actually needs us to build it into the work and the stay so it's lived, not announced — and measured by behavior, not awareness.\" That sentence in their words = you've won.",
+    choices:[
+      {said:"They deliver the reframe in their own words.", move:"Done. Reinforce and close on the durability test.", to:"e2", tone:"land"},
+      {said:"They've got pieces but not the sentence.", move:"Assemble it with them, one clause at a time.", to:"e2", tone:"push"}
+    ]
+  },
+
+  e2:{
+    stage:4, phase:"LAND IT",
+    tag:"The durability close",
+    ask:"Final test for your plan. The budget ends in 12 months. A new executive arrives who's skeptical, like 2019. Does your solution survive both? Why?",
+    listen:"An embedded solution survives budget cuts (it's in the job, not the campaign) and survives a hostile exec (it's structural + shows revenue results). This is the difference between their paper's plan and a world-class one. Close here.",
+    choices:[
+      {said:"\"Yes — because it's built into the work and shows financial results.\"", move:"That's the win. Reframe discovered, tested, owned by the room.", to:"done", tone:"land"},
+      {said:"\"Only partly.\"", move:"Name the weak joint together — that's tonight's takeaway.", to:"done", tone:""}
+    ]
+  },
+
+  done:{
+    stage:4, phase:"CLOSE",
+    tag:"You're there",
+    ask:"The room built the reframe themselves: LVR's gap is embodiment, not communication; the fix redesigns the work and the stay; success is behavior, not awareness.",
+    listen:"Close by naming what just happened: they walked in with the paper's campaign answer and walked out with a consultant-grade reframe — and they generated it. Point them to the answer key if you want to compare against the 'world-class' version.",
+    choices:[
+      {said:"Restart the path", move:"Back to the opening question.", to:"start", tone:""},
+      {said:"Open the answer key", move:"Compare the room's reframe to the world-class version.", to:"__key", tone:"land"}
+    ]
+  }
+
+};
+
+/* ---------------- Render ---------------- */
+let current="start";
+let history=[];
+
+function renderRail(){
+  const rail=document.getElementById('rail');
+  const activeStage = NODES[current].stage;
+  rail.innerHTML = STAGES.map((s,i)=>{
+    let cls='rail-node';
+    if(i<activeStage) cls+=' done';
+    if(i===activeStage) cls+=' current';
+    return `<span class="${cls}">${s}</span>`;
+  }).join('');
+}
+
+function renderNode(){
+  const n=NODES[current];
+  renderRail();
+  const m=document.getElementById('nodeMount');
+
+  let toneClass = n.phase==='RECOVERY'||current==='stuck1'||current==='c2b'||current==='d2b' ? '' : '';
+
+  let landingBox = '';
+  if(current==='done'){
+    landingBox = `<div class="landing"><div class="l-h">Where the room landed</div><p>Embodiment, not communication. Redesign the work and the stay. Measure behavior, not awareness. They said it — you just asked the questions.</p></div>`;
+  }
+
+  const choices = n.choices.map((c,i)=>{
+    const glyph = c.tone==='land' ? '✓' : c.tone==='push' ? '↗' : String.fromCharCode(65+i);
+    const cls = 'choice' + (c.tone==='land'?' land':'') + (c.tone==='push'?' push':'');
+    return `<button class="${cls}" onclick="go('${c.to}')">
+      <span class="glyph">${glyph}</span>
+      <span class="ctext"><span class="said">${c.said}</span><span class="move">${c.move}</span></span>
+    </button>`;
+  }).join('');
+
+  m.innerHTML = `
+    <div class="node active">
+      <div class="node-tag"><span class="phase">${n.phase}</span> · ${n.tag}</div>
+      <div class="ask">${n.ask}</div>
+      <div class="listen"><b>Listen for</b>${n.listen}</div>
+      <div class="branch-lbl">Tap what the room actually said →</div>
+      <div class="choices">${choices}</div>
+      ${landingBox}
+      <div class="navrow">
+        ${history.length?`<button class="navbtn" onclick="back()">← back</button>`:''}
+        <button class="navbtn ghost" onclick="go('start')">restart path</button>
+      </div>
+    </div>`;
+  window.scrollTo({top:document.querySelector('.stage-rail').offsetTop-70,behavior:'smooth'});
+}
+
+function go(to){
+  if(to==='__key'){showView('key');return;}
+  history.push(current);
+  current=to;
+  renderNode();
+}
+function back(){
+  if(history.length){current=history.pop();renderNode();}
+}
+
+/* ---------------- Backup bank ---------------- */
+const BANK = [
+  {q:"The paper cites a stat — ~25% of customers know LVR is a B Corp — sourced to a report about a different company (andCo). As acting consultants, what's your duty when a number propping up your recommendation turns out not to be about your client?",
+   why:"Consulting integrity + the specific research error in their draft. Great for a team that leaned on that stat."},
+  {q:"Is a one-time change plan even the right instrument? B Corp re-certifies every 3 years with rising standards. What does LVR need that isn't a 'plan' at all?",
+   why:"Pushes past the assignment's framing toward a standing capability, not a project."},
+  {q:"Could the correct guest metric be something guests never consciously notice?",
+   why:"Directly tests whether they've internalized the no-lecture reframe."},
+  {q:"If employees understood B Corp perfectly and still didn't care because it doesn't touch their work — is that a communication failure or a relevance failure?",
+   why:"Alternate route into the embodiment reframe if the awareness-trap branch stalls."},
+  {q:"The 2019 executive left over this. In Kotter terms, which step failed — and which later steps are impossible until you fix it?",
+   why:"Rewards precise theory use; sets up coalition-at-the-frontline point."},
+  {q:"What's the difference between a housekeeper who's been TOLD about B Corp and one who OWNS a B Corp decision on her cart? Which one shows up in the survey as 'gets it'?",
+   why:"Makes the agency-vs-information distinction concrete and human."},
+  {q:"A second executive opposes the plan next year. Does your solution survive them? What in your design makes it exec-proof?",
+   why:"Durability / risk. Separates a campaign from a structural change."},
+  {q:"You have $300K. Spend it on the best B Corp awareness campaign money can buy, OR on redesigning one guest touchpoint and one employee role. Defend your allocation.",
+   why:"Forces the campaign-vs-embodiment choice into a budget decision they can't dodge."}
+];
+document.getElementById('bankMount').innerHTML = BANK.map((b,i)=>`
+  <div class="qf"><span class="qn">${String(i+1).padStart(2,'0')}</span>
+  <span class="qbody"><span class="qq">${b.q}</span><span class="qwhy">${b.why}</span></span></div>`).join('');
+
+/* init */
+renderNode();
+</script>
+</body>
+</html>
