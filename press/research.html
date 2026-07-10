@@ -88,6 +88,24 @@
     color:var(--muted);
     margin-top:12px;
   }
+  .pullquote .copyq{
+    display:inline-block;
+    margin-top:16px;
+    background:none;
+    border:1px solid var(--line);
+    border-radius:5px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.02em;
+    color:var(--accent);
+    padding:6px 13px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:background .15s,color .15s,border-color .15s;
+  }
+  .pullquote .copyq:hover{background:var(--panel);}
+  .pullquote .copyq.ok{color:#fff;background:var(--accent);border-color:var(--accent);}
   h2{
     font-size:24px;
     margin:44px 0 6px;
@@ -158,8 +176,9 @@
   <p class="anchor">I am trying to follow the research wherever it leads. My argument is not that data center demand pushes prices up or down. It is a principle that holds either way: <span class="lead">companies should not be allowed to externalize costs while internalizing profits.</span> Cost means total cost: economic, environmental, social, and quality of life. Data centers and utilities are today's example. The principle is the point.</p>
 
   <figure class="pullquote">
-    <blockquote>"Both sides in this debate reach for the number that flatters their case. I am less interested in whether the average went up or down than in a question the average cannot answer: when a data center triggers a billion dollars in new capacity, who pays for it. That question survives every study."</blockquote>
+    <blockquote id="rq1">"Both sides in this debate reach for the number that flatters their case. I am less interested in whether the average went up or down than in a question the average cannot answer: when a data center triggers a billion dollars in new capacity, who pays for it. That question survives every study."</blockquote>
     <figcaption>Dr. Mark McNees, Florida State University</figcaption>
+    <button class="copyq" data-q="rq1">Copy with attribution</button>
   </figure>
 
   <p>This page is where I track credible studies as they come out, whatever they find. When the research is strong, I say so. When it complicates my thinking, I say that too. The goal is an honest read, not a scoreboard.</p>
@@ -229,5 +248,27 @@
   <p><a href="#top">Back to top</a></p>
 
 </div>
+
+<script>
+  // Copy the pull-quote with attribution. Self-contained (Option A page).
+  // House style: attribution on its own line, comma-separated, NO em dash.
+  (function(){
+    var ATTR = "Dr. Mark McNees, Florida State University";
+    document.querySelectorAll('.copyq').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var el = document.getElementById(btn.dataset.q);
+        if(!el) return;
+        var q = el.innerText.trim().replace(/^[“"]|[”"]$/g,'').trim();
+        var text = '"' + q + '"\n' + ATTR;
+        navigator.clipboard.writeText(text).then(function(){
+          var old = btn.textContent;
+          btn.textContent = 'Copied';
+          btn.classList.add('ok');
+          setTimeout(function(){ btn.textContent = old; btn.classList.remove('ok'); }, 1800);
+        });
+      });
+    });
+  })();
+</script>
 </body>
 </html>
