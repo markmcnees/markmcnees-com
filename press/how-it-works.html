@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Plain-language explanations of the mechanics behind data center energy policy. Curtailment, cost allocation, and why the studies do not answer the question. Every fact sourced.">
+<title>How it works | Mark McNees</title>
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --muted:#555;
+    --line:#e2e0da;
+    --bg:#ffffff;
+    --panel:#f7f6f2;
+    --accent:#8a1c1c;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:Georgia,"Times New Roman",serif;
+    line-height:1.6;
+    font-size:18px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:32px 22px 80px;}
+  .eyebrow{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 18px;
+  }
+  nav.top{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:14px;
+    margin:0 0 26px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--line);
+  }
+  nav.top a{color:var(--ink);text-decoration:none;margin-right:16px;}
+  nav.top a:hover{text-decoration:underline;}
+  nav.top a.on{color:var(--accent);font-weight:600;}
+  h1{
+    font-size:34px;
+    line-height:1.15;
+    margin:0 0 10px;
+    font-weight:normal;
+  }
+  .byline{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:15px;
+    color:var(--muted);
+    margin:0 0 26px;
+  }
+  h2{
+    font-size:24px;
+    margin:44px 0 6px;
+    font-weight:normal;
+    padding-top:22px;
+    border-top:2px solid var(--ink);
+  }
+  h3{
+    font-size:17px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    letter-spacing:.02em;
+    margin:26px 0 6px;
+  }
+  p{margin:0 0 16px;}
+  .example{
+    background:var(--panel);
+    border-left:3px solid var(--accent);
+    padding:16px 20px;
+    margin:24px 0;
+    font-size:16px;
+  }
+  .example p{margin:0 0 12px;}
+  .example p:last-child{margin-bottom:0;}
+  .srclist{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:14px;
+    color:var(--muted);
+    padding-left:20px;
+    margin:8px 0 0;
+  }
+  .srclist li{margin:0 0 12px;line-height:1.5;}
+  .srclist a{color:var(--accent);word-break:break-word;}
+  .note{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    color:var(--muted);
+    border-top:1px solid var(--line);
+    margin-top:40px;
+    padding-top:18px;
+  }
+  a{color:var(--accent);}
+  .contact{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:14px;
+    color:var(--muted);
+    margin-top:8px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap" id="top">
+
+  <p class="eyebrow">Press resource &middot; How it works</p>
+
+  <nav class="top">
+    <a href="https://markmcnees.com/">Home</a>
+    <a href="https://markmcnees.com/#argument">The Argument</a>
+    <a href="https://markmcnees.com/press/">Press Resources</a>
+    <a href="https://markmcnees.com/press/data-center-tracker.html">State Tracker</a>
+    <a href="https://markmcnees.com/press/faq.html">Reporter FAQ</a>
+    <a href="https://markmcnees.com/press/how-it-works.html" class="on">How it works</a>
+  </nav>
+
+  <h1>How it works</h1>
+  <p class="byline">Dr. Mark McNees &middot; Florida State University &middot; Jim Moran College of Entrepreneurship</p>
+
+  <p>Reporters covering this beat keep running into the same problem. The policy fights are decided on mechanics that nobody explains, and the people who understand the mechanics have every reason not to explain them plainly.</p>
+
+  <p>This page explains them plainly. Each piece answers one question. Every fact links to a primary source.</p>
+
+  <p>If you need something explained that is not here, email <a href="mailto:mmcnees@fsu.edu">mmcnees@fsu.edu</a>.</p>
+
+  <h2 id="curtailment">Why curtailment matters more than price caps</h2>
+
+  <p>A grid has to match supply and demand every second. When demand outruns supply, there are two ways out: build more supply, or cut demand.</p>
+
+  <p>Cutting demand is called curtailment. It is the fast option. It costs nothing to deploy and it works immediately.</p>
+
+  <p>Building supply is the slow option. A new gas plant takes years, and gas turbine wait times now run as long as seven.</p>
+
+  <p>Every grid needs both. One of the two biggest grids in America just gave up the fast one.</p>
+
+  <h3>The trade</h3>
+
+  <p>When a data center wants to connect to a grid that does not have firm capacity to serve it, there is an obvious deal available. The grid says: we will connect you now, without making you wait years for new generation to be built. In exchange, when the system gets tight, you are the first one we turn down.</p>
+
+  <p>Speed for flexibility. The data center gets to open. The grid keeps a release valve.</p>
+
+  <p>In PJM, the framework for that deal was called Connect and Manage. In Texas, the equivalent obligation is written into SB 6.</p>
+
+  <h3>What Texas did</h3>
+
+  <p>Texas took the deal. SB 6, signed June 20, 2025, requires large loads interconnecting after December 31, 2025 to accept curtailment during grid emergencies.</p>
+
+  <p>When ERCOT is stressed, it has a lever. It can turn data centers down.</p>
+
+  <h3>What PJM did</h3>
+
+  <p>On June 30, 2026, PJM stakeholders rejected every Connect and Manage option on the table. Data centers connect. PJM cannot curtail them.</p>
+
+  <p>In place of a release valve, PJM has one tool: a backstop capacity procurement, capped at 555 dollars per megawatt-day. The most recent capacity auction cleared at 329 dollars.</p>
+
+  <p>PJM will buy its way out.</p>
+
+  <h3>Why that is a problem</h3>
+
+  <p>Buying capacity does not create capacity. It creates a contract.</p>
+
+  <p>Somebody still has to build the power plant. PJM says its supply shortfall is roughly two years out. Power plants do not get built in two years.</p>
+
+  <p>PJM has committed to paying a premium for megawatts that may not physically exist when it needs them, and it has given up the tool that works immediately.</p>
+
+  <p>If the shortfall arrives and the megawatts are not there, PJM still has to balance the grid. It will shed load. Not the data centers, because it no longer can.</p>
+
+  <p>It arrives as reliability risk. And that risk now falls on the customers who cannot be turned down.</p>
+
+  <h3>The part nobody is saying</h3>
+
+  <p>The proposal PJM stakeholders endorsed was written by the Data Center Coalition, together with Dominion, Exelon, Duke, PPL and others. It bills the large loads driving the need for the cost of the procurement, rather than spreading it across all ratepayers.</p>
+
+  <p>That is the load-creator-pays principle. Proposed by the load creators.</p>
+
+  <p>The industry is not fighting cost allocation. It accepted it.</p>
+
+  <p>What it would not accept was curtailment.</p>
+
+  <p>The reason is not complicated. Paying is a line item. Curtailment is a constraint on the business. A data center that can be turned off cannot promise its customers uninterrupted uptime. The cost is survivable. The constraint is not.</p>
+
+  <p>So the industry paid to get out of the constraint. That is a rational trade for a data center company.</p>
+
+  <p>There is one more thing worth putting next to that vote. On March 4, 2026, seven leading technology companies signed the White House Ratepayer Protection Pledge. Its fifth commitment: companies will coordinate with grid operators to contribute to a more reliable grid and, whenever possible, make available their backup generation resources at times of scarcity to prevent blackouts and power shortages in their communities.</p>
+
+  <p>The pledge is voluntary, and the PJM vote was taken by a stakeholder body, not by the signatories acting directly. But the two are pointed in opposite directions, and nobody has asked about it.</p>
+
+  <h2 id="cost-allocation">Why spreading a cost lowers the average, and why that is not an answer</h2>
+
+  <p>In June 2026, three EPRI researchers published a working paper titled "Have Data Centers Raised Your Electric Bill? Causal Evidence from the United States." Studying 2015 to 2024, they found that data center capacity growth caused average residential electricity rates to fall. For the average residential customer, who lived in a state where data center capacity grew 160 percent from 2019 to 2024, rates fell about 6 percent.</p>
+
+  <p>The paper is careful and it is being cited by people who have not read it.</p>
+
+  <h3>The mechanic</h3>
+
+  <p>Most of what you pay for electricity is not fuel. It is fixed cost. Poles, wires, substations, transformers, power plants already built. That infrastructure costs the same whether it moves a lot of electricity or a little.</p>
+
+  <p>Your rate is roughly that fixed cost divided by total electricity sold.</p>
+
+  <p>So if a very large customer arrives and buys a great deal of electricity, and no new infrastructure has to be built to serve them, the denominator grows and the numerator does not. The rate falls. For everyone.</p>
+
+  <p>That is not a surprising result. That is division.</p>
+
+  <h3>The condition in the paper</h3>
+
+  <p>The authors state it directly. The effect holds "provided the bump does not violate capacity constraints."</p>
+
+  <p>Ryan Hledik at Brattle, who has studied this, puts it in plainer terms. The states that saw price decreases were states that already had room on the grid to take new customers without needing to make big investments in new infrastructure. His example is North Dakota, which had excess coal, gas, and wind capacity sitting idle.</p>
+
+  <p>That is the finding. Data centers lowered rates where nothing new had to be built.</p>
+
+  <p>Hledik is equally direct about the other case. If a system does not have that headroom, it is possible the data center drives prices up. He names where that is starting: the mid-Atlantic and parts of the Midwest, the territory PJM oversees.</p>
+
+  <p>The study period ends in 2024. It describes a grid with spare room, before the current buildout. In Texas, ERCOT is now tracking more than 438,000 megawatts of large-load interconnection requests, and 89 percent of them are data centers. In PJM, capacity prices have risen nearly tenfold since 2024. That capacity is not idle. It is being built.</p>
+
+  <h3>What the authors actually recommend</h3>
+
+  <p>This is the part that has gone unquoted, and it is in the paper's own discussion section.</p>
+
+  <p>On supply constraints, the authors write that price increases "can be avoided entirely by delaying interconnection or allocating the inflated incremental cost of grid expansion to rates paid by data centers."</p>
+
+  <p>That is the load-creator-pays principle, recommended by EPRI.</p>
+
+  <p>They go further. On the durability of demand: if anticipated load from data centers materially exceeds realized consumption, "utilities risk overbuilding capacity whose fixed costs would be spread across fewer kWhs, reversing the mechanism we identify."</p>
+
+  <p>The mechanism runs backward if the demand does not show up.</p>
+
+  <p>The authors name the states already acting: Kansas, Michigan, and Delaware, which have pursued minimum bills or long-term contracts from new large loads.</p>
+
+  <p>The study is not a defense of the status quo. It is an argument for cost allocation, and the people citing it as a rebuttal have not read past the abstract.</p>
+
+  <h3>The question the study does not ask</h3>
+
+  <p>Here is the part that matters, and it holds whether the study is right or wrong.</p>
+
+  <p>The study measures the average rate. It does not measure who paid for the capacity.</p>
+
+  <p>Those are different questions.</p>
+
+  <div class="example">
+    <p>In May 2025, the California grid operator approved a cluster of transmission network upgrades in the South Bay Area, largely intended to serve 2.5 gigawatts of concentrated data center and electrification load growth between 2026 and 2039. The cost exceeds two billion dollars.</p>
+    <p>Under FERC ratemaking rules, the costs of major transmission network upgrades are socialized across all ratepayers within the grid operator's territory.</p>
+    <p>That is not an accusation. It is the finding of California's own Public Advocates Office, the state agency that represents ratepayers.</p>
+    <p>Every ratepayer in the territory pays. The load that triggered the upgrade sits in one place.</p>
+    <p>And if those data centers buy enough electricity, the average rate across the territory could still fall. The study would record a rate decrease. The study would be correct.</p>
+    <p>Two billion dollars would still have been paid by people who did not ask for it.</p>
+  </div>
+
+  <p>Spreading a cost across more customers lowers the average. That is arithmetic. It does not tell you who should have paid.</p>
+
+  <h3>The pledge and the policy</h3>
+
+  <p>On March 4, 2026, seven leading technology companies signed the White House Ratepayer Protection Pledge. Its second commitment: companies will pay for all new power delivery infrastructure upgrades required to service their data centers, including adequate network upgrade costs to ensure that these expenses are not passed on to the ordinary household.</p>
+
+  <p>Its third commitment goes further. Companies will pay for the power and related infrastructure brought online to service their data centers, whether they use the electricity or not.</p>
+
+  <p>The industry has already agreed, in writing, to the principle and to the stranded-cost risk that comes with it.</p>
+
+  <p>Ari Peskoe, who directs the Electricity Law Initiative at Harvard Law School, has written that utilities are undercutting that commitment by rolling billions of dollars in data-center-driven transmission upgrades into rates everyone pays, and justifying it with a FERC transmission pricing policy written in 1994.</p>
+
+  <p>The industry agreed to pay. The federal policy still lets the cost be socialized.</p>
+
+  <p>That gap is what the states are filling.</p>
+
+  <p>Florida SB 484 requires utilities to file large-load cost-allocation tariffs with the Public Service Commission by October 1, 2026.</p>
+
+  <p>Oregon's PUC approved Schedule 96 on May 7, 2026, effective June 10. It establishes a dedicated large-load rate class, requires customers to cover 100 percent of distribution network upgrades needed to serve their projects, and sets minimum demand charges at 90 percent of contracted capacity even if less is used. Contract terms run 10 years, rising to 30 for loads of 220 MW or more.</p>
+
+  <p>Pennsylvania's PUC adopted a model large-load tariff on April 30, 2026. In March, PPL Electric settled a rate case creating a new large-load class with minimum load guarantees, exit fees, and security equal to the cost of upgrades needed to serve each customer. The settlement language is blunt: without appropriate protections, current large load growth poses a risk of stranded assets, unrecovered costs, and cross-subsidization from other ratepayers.</p>
+
+  <p>The number in that settlement worth knowing: PPL has about 20 gigawatts of contracted large loads against a 7.8 gigawatt peak. The company is preparing to more than double its system demand in five to six years. It took over a century to reach that peak the first time.</p>
+
+  <p>Whoever wants the increased power should pay for the increased power. That holds if rates fall. It holds if rates rise. It holds if the data center never gets built.</p>
+
+  <h2>Sources</h2>
+  <ul class="srclist">
+    <li>Watten, Bistline, and Blanford, "Have Data Centers Raised Your Electric Bill? Causal Evidence from the United States," arXiv:2606.19777, June 18, 2026. <a href="https://arxiv.org/pdf/2606.19777">https://arxiv.org/pdf/2606.19777</a></li>
+    <li>Utility Dive, "PJM stakeholders advance data center backstop procurement plan," July 2, 2026. <a href="https://www.utilitydive.com/news/pjm-backstop-procurement-connect-manage-data-centers/824317/">https://www.utilitydive.com/news/pjm-backstop-procurement-connect-manage-data-centers/824317/</a></li>
+    <li>Texas SB 6, 89th Legislature, signed June 20, 2025. <a href="https://capitol.texas.gov/billlookup/History.aspx?LegSess=89R&amp;Bill=SB6">https://capitol.texas.gov/billlookup/History.aspx?LegSess=89R&amp;Bill=SB6</a></li>
+    <li>Florida SB 484, Chapter 2026-65. <a href="https://www.flsenate.gov/Session/Bill/2026/484">https://www.flsenate.gov/Session/Bill/2026/484</a> and <a href="http://laws.flrules.org/2026/65">http://laws.flrules.org/2026/65</a></li>
+    <li>California Public Advocates Office, "How Will Data Center Growth Impact California Ratepayers?" October 28, 2025. <a href="https://www.publicadvocates.cpuc.ca.gov/press-room/commentary/251027-how-will-data-center-growth-impact-california-ratepayers">https://www.publicadvocates.cpuc.ca.gov/press-room/commentary/251027-how-will-data-center-growth-impact-california-ratepayers</a></li>
+    <li>White House Ratepayer Protection Pledge, March 4, 2026. <a href="https://www.whitehouse.gov/releases/2026/03/ratepayer-protection-pledge/">https://www.whitehouse.gov/releases/2026/03/ratepayer-protection-pledge/</a> and <a href="https://www.whitehouse.gov/presidential-actions/2026/03/ratepayer-protection-pledge-proclamation/">https://www.whitehouse.gov/presidential-actions/2026/03/ratepayer-protection-pledge-proclamation/</a></li>
+    <li>Ari Peskoe, "An outdated FERC policy is undermining the White House's ratepayer protection pledge," Utility Dive, April 15, 2026. <a href="https://www.utilitydive.com/news/ferc-transmission-policy-white-house-ratepayer-protection-peskoe/815438/">https://www.utilitydive.com/news/ferc-transmission-policy-white-house-ratepayer-protection-peskoe/815438/</a></li>
+    <li>Utility Dive, "PPL Electric reaches $275M rate case settlement, including data center tariff," March 16, 2026. <a href="https://www.utilitydive.com/news/ppl-electric-rate-case-settlement-data-center-tariff/814760/">https://www.utilitydive.com/news/ppl-electric-rate-case-settlement-data-center-tariff/814760/</a></li>
+    <li>Utility Dive, "Oregon PUC approves PGE's large-load tariff framework for data centers," May 28, 2026. <a href="https://www.utilitydive.com/news/oregon-puc-approves-pges-large-load-tariff-framework-for-data-centers/821361/">https://www.utilitydive.com/news/oregon-puc-approves-pges-large-load-tariff-framework-for-data-centers/821361/</a></li>
+    <li>Marketplace, "Data centers lowered electric bills in some places, for now," July 10, 2026. <a href="https://www.marketplace.org/story/2026/07/10/data-centers-lowered-electric-bills-in-some-places-for-now">https://www.marketplace.org/story/2026/07/10/data-centers-lowered-electric-bills-in-some-places-for-now</a></li>
+  </ul>
+
+  <p class="note">
+    Every fact on this page links to a primary source, verified before publishing. The framing is deliberately economic. The question throughout is cost causation and cost allocation: who triggers the buildout, and who pays for it. Reporters and editors are welcome to reach out for a source interview.<br><br>
+    <span class="contact">Contact: Dr. Mark R. McNees, Florida State University, mmcnees@fsu.edu, 850.973.7687</span>
+  </p>
+
+  <p><a href="#top">Back to top</a></p>
+
+</div>
+</body>
+</html>

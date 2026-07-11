@@ -253,6 +253,16 @@
     .hero h2{font-size:30px;}
     .layout{flex-direction:column;}
   }
+  details.term{display:inline;}
+  details.term>summary{display:inline;cursor:pointer;border-bottom:1px dotted var(--reg);color:var(--reg);list-style:none;}
+  details.term>summary::-webkit-details-marker{display:none;}
+  details.term>summary::marker{content:"";}
+  details.term .def{
+    display:block;margin:8px 0 2px;padding:10px 14px;
+    background:var(--paper);border-left:3px solid var(--reg);
+    font-size:14px;line-height:1.5;color:var(--ink);
+  }
+  details.term .def a{color:var(--reg);}
 </style>
 </head>
 <body>
@@ -269,6 +279,7 @@
     <a href="https://markmcnees.com/#clips"><span>Media</span></a>
     <a href="https://markmcnees.com/#about"><span>About</span></a>
     <a href="https://markmcnees.com/press/"><span>Press Resources</span></a>
+    <a href="https://markmcnees.com/press/how-it-works.html"><span>How it works</span></a>
 
     <div class="navlabel">Jump to a state</div>
     <a href="#florida"><span>Florida</span><span class="tag law">Law</span></a>
@@ -460,7 +471,7 @@
         <h3>Texas</h3>
         <span class="status" style="background:#e7efe7;color:#1f5c34;">Law</span>
       </div>
-      <p class="state-sub">Texas moved a year before Florida and asked a different first question: not who pays for the grid, but whether the load asking to connect is real. SB 6, signed June 20, 2025 and effective immediately, rebuilt how large loads interconnect in ERCOT, with financial commitments up front and a mandatory curtailment switch for grid emergencies.</p>
+      <p class="state-sub">Texas moved a year before Florida and asked a different first question: not who pays for the grid, but whether the load asking to connect is real. SB 6, signed June 20, 2025 and effective immediately, rebuilt how large loads interconnect in ERCOT, with financial commitments up front and a mandatory <details class="term"><summary>curtailment</summary><span class="def">Cutting electricity demand instead of adding supply. It is the fast, cheap tool a grid uses when demand outruns generation. Whether a large load can be curtailed, and who gets curtailed first, is one of the central fights in data center policy. <a href="/press/how-it-works.html#curtailment">Why curtailment matters more than price caps &rarr;</a></span></details> switch for grid emergencies.</p>
 
       <div class="pq">
         <blockquote id="tq9">"Texas answered a different question first. Before asking who pays, SB 6 asks whether the load is real. A six-figure study fee and full interconnection cost responsibility is how you clear phantom projects out of the queue."</blockquote>
@@ -539,7 +550,7 @@
         <h3>Pennsylvania</h3>
         <span class="status" style="background:#eaf1f8;color:#2f5d8a;">Model tariff</span>
       </div>
-      <p class="state-sub">Pennsylvania acted through its utility commission, not a signed statute. On April 30, 2026 the PUC voted 5-0 to adopt a model large-load tariff. A legislative version passed the House and stalled in the Senate. PJM capacity costs sit on top of all of it.</p>
+      <p class="state-sub">Pennsylvania acted through its utility commission, not a signed statute. On April 30, 2026 the PUC voted 5-0 to adopt a model <details class="term"><summary>large-load tariff</summary><span class="def">A separate rate class for very large electricity customers, usually data centers. It sets what they pay, what infrastructure costs they cover, and what happens if they leave early. Eleven states now have one or are building one. <a href="/press/how-it-works.html#cost-allocation">How spreading a cost changes who pays &rarr;</a></span></details>. A legislative version passed the House and stalled in the Senate. PJM capacity costs sit on top of all of it.</p>
 
       <div class="pq">
         <blockquote id="tq3">"Pennsylvania shows the cost most people never see. The capacity charge is spread across sixty-seven million bills, and data center demand is driving it. A model tariff helps at the connection point, but the auction cost still lands on everyone."</blockquote>
