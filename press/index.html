@@ -395,7 +395,7 @@
     btn.addEventListener('click', function(){
       var q=document.getElementById(btn.dataset.q).innerText.trim();
       var a=document.getElementById('attr1').innerText.trim();
-      var text='"'+q+'"\n— '+a;
+      var text='"'+q+'"\n'+a;
       navigator.clipboard.writeText(text).then(function(){
         var old=btn.textContent;
         btn.textContent='Copied';btn.classList.add('ok');
