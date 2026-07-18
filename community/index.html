@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Before your community decides, a data center resource for local officials and residents</title>
+<meta name="description" content="Questions to ask before approving an AI data center in your community. What a county vote settles, what it does not, and why large data center loads do not fit the old economic development math. Written for commissioners, planning staff, and residents.">
+<link rel="canonical" href="https://markmcnees.com/community/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://markmcnees.com/community/">
+<meta property="og:title" content="Before your community decides, a data center resource for local officials and residents">
+<meta property="og:description" content="Questions to ask before approving an AI data center in your community. What a county vote settles, what it does not, and why large data center loads do not fit the old economic development math.">
+<meta property="og:site_name" content="Dr. Mark McNees">
+<meta property="og:image" content="https://markmcnees.com/images/headshot.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Before your community decides, a data center resource for local officials and residents">
+<meta name="twitter:description" content="Questions to ask before approving an AI data center in your community, and what a county vote settles versus what it does not.">
+<meta name="twitter:image" content="https://markmcnees.com/images/headshot.png">
+<meta name="author" content="Mark McNees">
+<meta name="keywords" content="AI data center, county commission, zoning approval, large load tariff, ratepayer costs, economic development, planning staff, data center questions">
+<style>
+  :root{
+    --ink:#1a1a17;
+    --paper:#ffffff;
+    --wash:#f6f4ef;
+    --line:#e2ddd2;
+    --accent:#C4972A;
+    --accent-soft:#e8f0ea;
+    --green:#173f34;
+    --hot:#9c3a1c;
+    --muted:#6a6458;
+    --font-display:"Cormorant Garamond",Georgia,serif;
+    --font-body:"DM Sans",-apple-system,sans-serif;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font-body);color:var(--ink);background:var(--paper);line-height:1.6;}
+  a{color:var(--accent);}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  header.bar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 28px;border-bottom:1px solid var(--line);
+    position:sticky;top:0;background:var(--paper);z-index:50;
+  }
+  .bar .name{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--ink);text-decoration:none;}
+  .bar nav a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px;}
+  .bar nav a.on{color:var(--accent);font-weight:600;}
+  @media(max-width:720px){.bar nav a{margin-left:14px;font-size:13px;}}
+
+  .strip{
+    background:var(--green);color:#e9efe9;font-size:13px;letter-spacing:.02em;
+    padding:9px 28px;display:flex;gap:20px;flex-wrap:wrap;align-items:center;
+  }
+  .strip b{color:#fff;font-weight:600;}
+  .strip a{color:#f0d99a;}
+
+  .hero{padding:56px 0 44px;}
+  .kick{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px;}
+  h1{font-family:var(--font-display);font-size:clamp(34px,4.6vw,52px);line-height:1.08;font-weight:700;max-width:20ch;}
+  .brief{max-width:64ch;margin-top:22px;font-size:17.5px;}
+  .brief p+p{margin-top:10px;}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;}
+  .btn{display:inline-block;font-size:14.5px;font-weight:600;padding:12px 22px;border-radius:4px;text-decoration:none;border:1.5px solid var(--accent);}
+  .btn.solid{background:var(--accent);color:#fff;}
+  .btn.ghost{color:var(--accent);background:transparent;}
+
+  section{padding:52px 0;}
+  section.wash{background:var(--wash);}
+  .eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px;}
+  h2{font-family:var(--font-display);font-size:clamp(26px,3.2vw,36px);font-weight:700;margin-bottom:8px;}
+  h3{font-family:var(--font-display);font-size:23px;line-height:1.25;font-weight:700;}
+  .lede{color:var(--muted);max-width:62ch;margin-bottom:26px;font-size:15.5px;}
+  .body p{max-width:66ch;font-size:16px;}
+  .body p+p{margin-top:14px;}
+  .body h3{margin-top:28px;margin-bottom:8px;}
+
+  /* posture note */
+  .posture{
+    background:var(--accent-soft);border-left:3px solid var(--green);
+    padding:20px 24px;border-radius:0 6px 6px 0;max-width:70ch;
+  }
+  .posture p{font-size:15.5px;}
+  .posture p+p{margin-top:10px;}
+
+  /* question clusters */
+  .cluster{border-top:1px solid var(--line);padding:26px 0 4px;}
+  .cluster:last-of-type{border-bottom:1px solid var(--line);padding-bottom:26px;}
+  .cluster .tag{
+    font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--green);margin-bottom:12px;
+  }
+  .q{margin-bottom:22px;max-width:70ch;}
+  .q .ask{font-family:var(--font-display);font-size:20px;line-height:1.3;font-weight:700;margin-bottom:6px;}
+  .q .why{font-size:15px;}
+  .q .tell{
+    margin-top:8px;font-size:14px;color:var(--muted);
+    border-left:3px solid var(--accent);padding-left:12px;
+  }
+  .q .tell b{color:var(--ink);font-weight:600;}
+
+  /* split box */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px;}
+  @media(max-width:760px){.split{grid-template-columns:1fr;}}
+  .halfcard{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:22px 24px;}
+  .halfcard .h{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--green);margin-bottom:8px;}
+  .halfcard h4{font-family:var(--font-display);font-size:19px;font-weight:700;margin-bottom:8px;}
+  .halfcard p{font-size:14.5px;}
+  .halfcard ul{margin:8px 0 0 18px;font-size:14.5px;}
+  .halfcard li{margin-bottom:5px;}
+
+  /* not claiming */
+  .bounds{
+    background:var(--green);color:#e9efe9;border-radius:10px;padding:28px 32px;margin-top:26px;max-width:72ch;
+  }
+  .bounds .h{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#8fd0b2;margin-bottom:10px;}
+  .bounds p{font-size:15.5px;}
+  .bounds p+p{margin-top:10px;}
+  .bounds b{color:#fff;}
+
+  .method{
+    background:var(--paper);border:1px solid var(--line);border-radius:6px;
+    padding:16px 20px;font-size:14.5px;color:var(--muted);max-width:66ch;margin-top:18px;
+  }
+
+  ol.srcs{margin-left:20px;font-size:14.5px;max-width:72ch;}
+  ol.srcs li{margin-bottom:10px;}
+  ol.srcs a{word-break:break-word;}
+
+  .cgrid{display:grid;grid-template-columns:300px 1fr;gap:36px;align-items:start;}
+  @media(max-width:760px){.cgrid{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:24px;}
+  .card .row{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14.5px;}
+  .card .row:last-child{border-bottom:0;}
+  .card .k{color:var(--muted);width:92px;flex:0 0 auto;}
+  .card .v a{font-weight:600;}
+  .bio p{font-size:15.5px;max-width:66ch;}
+  .bio p+p{margin-top:10px;}
+
+  footer{border-top:1px solid var(--line);padding:26px 28px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  @media print{
+    header.bar,.strip,.cta,footer{display:none;}
+    section{padding:18px 0;}
+    body{font-size:12pt;}
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Before your community decides, a data center resource for local officials and residents",
+  "description": "Questions to ask before approving an AI data center in your community, what a county vote settles, what it does not, and why large data center loads do not fit the old economic development math.",
+  "author": { "@type": "Person", "name": "Mark McNees", "url": "https://markmcnees.com" },
+  "publisher": { "@type": "Person", "name": "Mark McNees", "url": "https://markmcnees.com" },
+  "dateModified": "2026-07-18",
+  "mainEntityOfPage": "https://markmcnees.com/community/"
+}
+</script>
+</head>
+<body>
+
+<header class="bar">
+  <a class="name" href="/">Dr. Mark McNees</a>
+  <nav>
+    <a href="/#argument">The Argument</a>
+    <a href="/community/" class="on">Community</a>
+    <a href="/press/">Press</a>
+    <a href="/bio/">About</a>
+    <a href="/published-work/">Published Work</a>
+  </nav>
+</header>
+
+<div class="strip">
+  <span><b>Public resource.</b> Facts verified against primary sources. Last verified July 18, 2026.</span>
+  <span>Free to print, forward, and read into the record.</span>
+</div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="kick">For local officials and residents</div>
+    <h1>Before your community decides on a data center.</h1>
+    <div class="brief">
+      <p>Communities across the country are being asked to approve large data centers, often on short timelines and with limited information. The projects are unfamiliar, the numbers are large, and the questions that matter most are not always the ones on the agenda.</p>
+      <p>This page is a starting point. It sets out what to ask, what a local vote actually settles, and why these projects do not fit the economic development math most communities have used for decades.</p>
+    </div>
+    <div class="cta">
+      <a class="btn solid" href="#questions">The questions to ask</a>
+      <a class="btn ghost" href="#jurisdiction">What your vote settles</a>
+      <a class="btn ghost" href="#calculus">Why the old math strains</a>
+    </div>
+  </div>
+</div>
+
+<section class="wash" id="about">
+  <div class="wrap">
+    <div class="eyebrow">What this is</div>
+    <h2>A neutral starting point, not a recommendation</h2>
+    <div class="posture" style="margin-top:18px;">
+      <p>This page does not argue that your community should approve a data center, and it does not argue that your community should reject one. That decision belongs to the people who live there and the officials they elect.</p>
+      <p>What it does is lay out the economics clearly enough that the decision can be made with open eyes. A community that approves a project after asking these questions is in a stronger position than one that approves without asking. So is a community that declines.</p>
+      <p>It is written for county commissioners and planning staff who have to evaluate an application, and for residents who want to understand what is in front of their board. It is not legal advice, and it does not address any specific pending project.</p>
+    </div>
+  </div>
+</section>
+
+<section id="questions">
+  <div class="wrap">
+    <div class="eyebrow">The core resource</div>
+    <h2>Questions to ask before you approve an AI data center</h2>
+    <p class="lede">Thirteen questions, grouped by subject. Each one includes why it matters and what an incomplete answer sounds like. The second part matters as much as the first, because most of these questions get answered in a way that sounds responsive without being specific.</p>
+
+    <div class="cluster">
+      <div class="tag">The load</div>
+
+      <div class="q">
+        <div class="ask">1. How much electricity will this facility use at full buildout, not at opening?</div>
+        <div class="why">Data center campuses are frequently built in phases. The figure in the initial presentation may describe the first building rather than the finished site. The number that matters for grid planning is the one at completion.</div>
+        <div class="tell"><b>An incomplete answer sounds like:</b> a single figure with no phase attached, or a range with no upper bound stated.</div>
+      </div>
+
+      <div class="q">
+        <div class="ask">2. Who verified that number, and what happens if the load turns out larger?</div>
+        <div class="why">Projected demand is supplied by the applicant. Ask whether the utility has independently reviewed it, and what the approval requires if actual demand exceeds the projection.</div>
+        <div class="tell"><b>An incomplete answer sounds like:</b> the applicant confirming its own figure, with no independent review named.</div>
+      </div>
+
+      <div class="q">
+        <div class="ask">3. How does this load compare to the total current electricity use of your county?</div>
+        <div class="why">This single comparison does more to clarify scale than any other. A load equal to a meaningful share of an entire county's existing demand is a different kind of project than a large warehouse, and should be evaluated as one.</div>
+        <div class="tell"><b>An incomplete answer sounds like:</b> a comparison to national or state figures instead of local ones.</div>
+      </div>
+    </div>
+
+    <div class="cluster">
+      <div class="tag">Who pays for the power</div>
+
+      <div class="q">
+        <div class="ask">4. What new generation, transmission, or distribution capacity does this load require?</div>
+        <div class="why">A large load does not simply use existing spare capacity. It often triggers construction: new lines, substations, upgrades, sometimes generation. Those are separate costs from the electricity itself.</div>
+        <div class="tell"><b>An incomplete answer sounds like:</b> an assurance that the grid can handle it, with no specific infrastructure named.</div>
+      </div>
+
+      <div class="q">
+        <div class="ask">5. Who pays for that capacity, in writing?</div>
+        <div class="why">This is the central question on this page. The cost of new capacity is either borne by the company whose demand triggered it or spread across all customers on the system. Both are possible. The answer is set by the utility tariff, not by the applicant's intentions.</div>
+        <div class="tell"><b>An incomplete answer sounds like:</b> a statement that the company will pay its fair share, without a citation to the tariff provision that defines it.</div>
+      </div>
+
+      <div class="q">
+        <div class="ask">6. What is your state's large-load tariff, and has it been approved yet?</div>
+        <div class="why">Many states are writing rules right now that determine how the cost of serving very large customers is allocated. Whether your state has a finished rule, a pending one, or none at all changes what protections exist when the project connects.</div>
+        <div class="tell"><b>An incomplete answer sounds like:</b> a reference to state regulation in general, without naming the specific tariff, docket, or statute.</div>
+      </div>
+
+      <div class="q">
+        <div class="ask">7. If the facility closes, downsizes, or renegotiates, who is left holding the cost of infrastructure built to serve it?</div>
+        <div class="why">Grid infrastructure lasts for decades. Service contracts are shorter. If capacity is built for a customer that later leaves or renegotiates, the cost of that asset does not disappear. Ask where it lands under your state's current rules.</div>
+        <div class="tell"><b>An incomplete answer sounds like:</b> an assurance that the company intends to stay, which describes intent rather than obligation.</div>
+      </div>
+    </div>
+
+    <div class="cluster">
+      <div class="tag">The commitment</div>
+
+      <div class="q">
+        <div class="ask">8. How long is the electricity contract, and what is the company actually obligated to pay?</div>
+        <div class="why">Ask specifically about minimum-payment or take-or-pay terms, which require payment for a set amount of capacity whether or not it is used. The length of that obligation, and its size relative to the infrastructure being built, is the heart of the risk allocation.</div>
+        <div class="tell"><b>An incomplete answer sounds like:</b> a contract length with no minimum-payment percentage attached.</div>
+      </div>
+
+      <div class="q">
+        <div class="ask">9. What in this agreement binds a future owner?</div>
+        <div class="why">Data center facilities change hands, and the operator at the hearing may not be the operator in ten years. Ask which commitments transfer with the property and which are personal to the current applicant.</div>
+        <div class="tell"><b>An incomplete answer sounds like:</b> a description of the current company's track record rather than the terms that survive a sale.</div>
+      </div>
+    </div>
+
+    <div class="cluster">
+      <div class="tag">Water, land, and noise</div>
+
+      <div class="q">
+        <div class="ask">10. How much water will the cooling system use, from what source, and what happens in a drought?</div>
+        <div class="why">Cooling methods vary widely in water intensity, and the choice is a design decision that can be asked about directly. Where the water comes from, and who has priority when supply is short, are separate questions from how much is used.</div>
+        <div class="tell"><b>An incomplete answer sounds like:</b> a description of the technology as efficient, with no volume figure and no source named.</div>
+      </div>
+
+      <div class="q">
+        <div class="ask">11. What are the noise levels at the property line, and who measures them after it is built?</div>
+        <div class="why">Cooling equipment runs continuously. Ask for modeled levels at the nearest homes rather than at the equipment, and ask what the enforcement mechanism is if the built facility exceeds the projection.</div>
+        <div class="tell"><b>An incomplete answer sounds like:</b> a decibel figure with no measurement location and no post-construction verification requirement.</div>
+      </div>
+    </div>
+
+    <div class="cluster">
+      <div class="tag">The jobs and the tax math</div>
+
+      <div class="q">
+        <div class="ask">12. How many permanent jobs, as distinct from construction jobs, and at what wages?</div>
+        <div class="why">Construction employment is real but temporary. Permanent operations staffing at data centers is generally modest relative to the capital involved. Both figures are worth having, clearly separated.</div>
+        <div class="tell"><b>An incomplete answer sounds like:</b> a combined employment figure that does not separate construction from operations.</div>
+      </div>
+
+      <div class="q">
+        <div class="ask">13. What tax abatements or exemptions apply, and what does the revenue projection look like without them?</div>
+        <div class="why">Projected tax revenue is often presented before abatements are applied. Ask for the net figure, the schedule on which abatements phase out, and what the county is committing to in services and infrastructure against it.</div>
+        <div class="tell"><b>An incomplete answer sounds like:</b> a gross revenue projection with the abatement schedule discussed separately or not at all.</div>
+      </div>
+    </div>
+
+    <div class="method">
+      Some of these questions your county can answer on its own. Others are decided at the state level, by the public utility commission rather than the county commission. The next section explains which is which, and why it matters that the two get separated.
+    </div>
+  </div>
+</section>
+
+<section class="wash" id="jurisdiction">
+  <div class="wrap">
+    <div class="eyebrow">Two different decisions</div>
+    <h2>What your county vote settles, and what it does not</h2>
+    <p class="lede">This distinction is the most common source of confusion in local data center debates, and it changes what a community should do after a vote in either direction.</p>
+
+    <div class="split">
+      <div class="halfcard">
+        <div class="h">Decided locally</div>
+        <h4>Where a project can go</h4>
+        <p>Your county commission and planning board control land use. That includes:</p>
+        <ul>
+          <li>Whether the use is permitted on the site</li>
+          <li>Zoning classification and any rezoning</li>
+          <li>Setbacks, height, buffers, and site design</li>
+          <li>Noise and lighting conditions</li>
+          <li>Local development agreements and negotiated conditions</li>
+          <li>Moratoria on new applications</li>
+        </ul>
+      </div>
+      <div class="halfcard">
+        <div class="h">Decided at the state level</div>
+        <h4>Who pays for the electricity</h4>
+        <p>Your state's public utility commission controls cost allocation. That includes:</p>
+        <ul>
+          <li>How the cost of new capacity is assigned</li>
+          <li>What rate class a very large customer falls into</li>
+          <li>Minimum contract and payment terms in the tariff</li>
+          <li>What happens to costs if a large customer leaves</li>
+          <li>Whether existing customers are protected from cost shifting</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="body" style="margin-top:26px;">
+      <p>A community that votes down a project has settled the first column and not the second. A community that votes one through has done the same. In both cases the cost question is decided elsewhere, by a different body, on a different timeline.</p>
+      <p>This matters practically. A county that spends its energy exclusively on the zoning fight, and none on the utility commission proceeding, has engaged only half the question that affects household bills. Public utility commission dockets are open to public comment, and comments from local governments carry weight there. In most states that participation window is a specific, findable date.</p>
+      <p>Communities that want to affect the cost side often have more influence in the utility proceeding than in the zoning hearing, and far fewer people show up to it.</p>
+    </div>
+  </div>
+</section>
+
+<section id="calculus">
+  <div class="wrap">
+    <div class="eyebrow">The structural piece</div>
+    <h2>Why large data center loads strain the old economic development math</h2>
+    <p class="lede">Communities are evaluating these projects with a framework built for a different kind of employer. The framework is not wrong. It was built on assumptions that these projects fit imperfectly.</p>
+
+    <div class="body">
+      <h3>What the old calculus assumed</h3>
+      <p>For most of the last century, recruiting a large facility to a community followed a familiar logic. A manufacturer or processor would arrive, hire locally in significant numbers, and become physically rooted in the place. Its equipment was heavy, its workforce was trained on site, and its supply relationships were local. Moving was expensive and slow.</p>
+      <p>The utility math followed from that. When the plant required new grid capacity, the cost of building it was recovered over decades, spread across a customer base that the plant itself helped to grow. The employees became ratepayers. The suppliers became ratepayers. Growth in the base absorbed the cost of serving the new load, and the arrangement worked because the load stayed.</p>
+
+      <h3>Where the fit gets imperfect</h3>
+      <p>Large data center loads differ from that model in three ways that matter for the arithmetic.</p>
+      <p><b>Scale relative to the local base.</b> A single large campus can require a meaningful fraction of the electricity an entire county currently uses. When the new load is that large relative to the existing base, the cost of serving it cannot be quietly absorbed by ordinary growth. It is large enough to be visible in rates.</p>
+      <p><b>Employment relative to capital.</b> These are capital-intensive rather than labor-intensive facilities. That is not a criticism, it is a description of the technology. But it means the second half of the old bargain, in which the facility's workforce expands the local ratepayer base, arrives at a smaller scale than the electricity demand would historically have implied.</p>
+      <p><b>Rootedness is contractual rather than physical.</b> This is the part most different from the old model. A steel mill was held in place by its own weight. A computing load is held in place by a contract. Contracts have terms, renewal dates, and renegotiation clauses. The commitment can be strong, and often is, but it is a legal commitment with a defined length rather than a physical fact with an indefinite one.</p>
+
+      <h3>What that changes about the question</h3>
+      <p>Grid infrastructure is financed on a thirty to forty year horizon. Service agreements are typically shorter. In the old model that mismatch was manageable because the load was not going anywhere and the customer base was growing underneath it.</p>
+      <p>When the load is very large relative to the base, and its continued presence rests on contract terms, the mismatch becomes a question that has to be answered on purpose rather than absorbed by default. The question is not whether these facilities should be built. It is who carries the cost of the infrastructure built to serve them, and under what circumstances that allocation changes.</p>
+      <p>Under most existing cost recovery rules, written before any of this, the default answer when a served load departs is that remaining ratepayers absorb the cost. That default was reasonable for the world it was written in. Whether it remains the right answer is the question now in front of utility commissions in a number of states, and it is a question with more than one legitimate answer.</p>
+    </div>
+
+    <div class="bounds">
+      <div class="h">What this argument does not claim</div>
+      <p><b>It is not a forecast.</b> Nothing here predicts that the data center buildout will fail, slow, or prove smaller than expected. That is a question about the future of an industry, and this page takes no position on it.</p>
+      <p><b>It is not a claim that utilities are overbuilding.</b> Whether current construction plans turn out to be right-sized is a separate empirical question that will be settled by events.</p>
+      <p><b>It is a question about allocation.</b> The argument is narrower than it may first appear: the rules that determine who bears the cost were written for a different kind of customer, and they should be examined deliberately rather than applied by default. That examination is worth doing whether the buildout proves larger or smaller than anyone expects.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wash" id="states">
+  <div class="wrap">
+    <div class="eyebrow">The wider pattern</div>
+    <h2>Your community is not deciding this alone</h2>
+    <div class="body">
+      <p>Legislatures and utility commissions in a number of states are actively rewriting how the cost of serving very large electricity customers is allocated. Some have enacted rules. Others have opened proceedings, imposed pauses, or ordered studies. The approaches differ, and the differences are instructive for a community trying to understand its own state's posture.</p>
+      <p>A state-by-state reference, with each entry linked to its primary source, is maintained on the tracker page.</p>
+    </div>
+    <div class="method">
+      <b>How the count works.</b> Eleven states with enacted large-load tariffs or statutory frameworks. States with open proceedings, moratoria, or study orders are noted separately. Counts published elsewhere sometimes differ because they combine these two categories, or because they count utility service territories rather than states.
+    </div>
+    <div class="cta">
+      <a class="btn solid" href="/press/data-center-tracker.html">State-by-state tracker</a>
+      <a class="btn ghost" href="/press/research.html">Following the research</a>
+    </div>
+  </div>
+</section>
+
+<section id="sources">
+  <div class="wrap">
+    <div class="eyebrow">Sources</div>
+    <h2>Where to verify this yourself</h2>
+    <p class="lede">Every factual claim on this page can be checked against a public source. Start with your own state, since the rules that govern your community's decision are set there.</p>
+    <ol class="srcs">
+      <li><b>Your state's public utility commission docket system.</b> Nearly every state commission publishes filings, orders, and comment deadlines online, searchable by docket number. This is where large-load tariffs are proposed, contested, and approved.</li>
+      <li><b>Your state's office of public counsel or consumer advocate.</b> Most states have an office charged with representing residential ratepayers in utility proceedings. Their filings are often the clearest available summary of what a proposed tariff would do to household bills.</li>
+      <li><b>Lawrence Berkeley National Laboratory,</b> for peer-reviewed analysis of data center electricity demand. <a href="https://www.lbl.gov/">lbl.gov</a></li>
+      <li><b>The Electric Power Research Institute,</b> for utility-side technical analysis of large load integration. <a href="https://www.epri.com/">epri.com</a></li>
+      <li><b>Your regional grid operator,</b> for capacity and transmission planning data covering your area.</li>
+      <li><b>The state-by-state tracker</b> maintained on this site, with each entry linked to its underlying statute, order, or filing. <a href="/press/data-center-tracker.html">markmcnees.com/press/data-center-tracker.html</a></li>
+    </ol>
+    <div class="method">
+      Corrections are welcome and are made promptly. If something on this page is wrong or has changed, please say so using the contact information below.
+    </div>
+  </div>
+</section>
+
+<section class="wash" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h2>Available as a resource</h2>
+    <div class="cgrid" style="margin-top:18px;">
+      <div class="card">
+        <div class="row"><div class="k">Email</div><div class="v"><a href="mailto:mmcnees@fsu.edu">mmcnees@fsu.edu</a></div></div>
+        <div class="row"><div class="k">Phone</div><div class="v"><a href="tel:+18509737687">850.973.7687</a></div></div>
+        <div class="row"><div class="k">Time zone</div><div class="v">Eastern (Tallahassee, FL)</div></div>
+        <div class="row"><div class="k">This page</div><div class="v">Free to print, forward, or read into a public record</div></div>
+      </div>
+      <div class="bio">
+        <p>Dr. Mark R. McNees directs the MS in Social and Sustainable Enterprises at Florida State University's Jim Moran College of Entrepreneurship, where he is Sustainability Entrepreneur in Residence. His work covers the economics of who pays when data centers connect to the grid: utility rate structures, ratepayer cost shifting, and the state laws now reshaping who funds the buildout.</p>
+        <p>He tracks large-load tariff dockets across eleven states and has been quoted in national outlets on data center electricity costs. He holds a doctorate in organizational leadership from George Fox University and a graduate certificate in innovation and entrepreneurship from Harvard University.</p>
+        <p>Local officials, planning staff, and community groups are welcome to make contact with questions about the material on this page. Views expressed here are his own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Dr. Mark McNees, Tallahassee, Florida</span>
+  <span>Last verified July 18, 2026</span>
+</footer>
+
+</body>
+</html>
