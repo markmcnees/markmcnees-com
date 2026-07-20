@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="press-page">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +16,7 @@
 <meta name="twitter:description" content="Plain-language explanations of the mechanics behind data center energy policy. Curtailment, cost allocation, and why the studies do not answer the question. Every fact sourced.">
 <meta name="twitter:image" content="https://markmcnees.com/images/headshot.png">
 <meta name="author" content="Mark McNees">
+<link rel="stylesheet" href="/css/nav.css">
 <title>How it works | Mark McNees</title>
 <style>
   :root{
@@ -46,16 +47,6 @@
     color:var(--muted);
     margin:0 0 18px;
   }
-  nav.top{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    font-size:14px;
-    margin:0 0 26px;
-    padding-bottom:18px;
-    border-bottom:1px solid var(--line);
-  }
-  nav.top a{color:var(--ink);text-decoration:none;margin-right:16px;}
-  nav.top a:hover{text-decoration:underline;}
-  nav.top a.on{color:var(--accent);font-weight:600;}
   h1{
     font-size:34px;
     line-height:1.15;
@@ -129,18 +120,40 @@
 </script>
 </head>
 <body>
+
+<!-- SITE NAV -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-name">Dr. Mark McNees</a>
+    <button class="site-nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNavMenu">
+      <span class="site-nav-burger"></span>
+    </button>
+    <nav class="site-nav-menu" id="siteNavMenu" aria-label="Primary">
+      <a href="/#argument">The Argument</a>
+      <a href="/speaker/">Speaking</a>
+      <a href="/published-work/">Published Work</a>
+      <a href="/press/" class="on">Press</a>
+      <a href="/bio/">About</a>
+      <a href="/#contact" class="site-nav-cta">Book a Talk</a>
+    </nav>
+  </div>
+</header>
+<div class="site-nav-spacer" aria-hidden="true"></div>
+
+<!-- PRESS SUB-NAV -->
+<nav class="press-nav" aria-label="Press section">
+  <div class="press-nav-inner">
+    <a href="/press/">Press desk</a>
+    <a href="/press/faq.html">Reporter FAQ</a>
+    <a href="/press/data-center-tracker.html">State tracker</a>
+    <a href="/press/research.html">Following the research</a>
+    <a href="/press/how-it-works.html" class="on">How it works</a>
+  </div>
+</nav>
+
 <div class="wrap" id="top">
 
   <p class="eyebrow">Press resource &middot; How it works</p>
-
-  <nav class="top">
-    <a href="https://markmcnees.com/">Home</a>
-    <a href="https://markmcnees.com/#argument">The Argument</a>
-    <a href="https://markmcnees.com/press/">Press Resources</a>
-    <a href="https://markmcnees.com/press/data-center-tracker.html">State Tracker</a>
-    <a href="https://markmcnees.com/press/faq.html">Reporter FAQ</a>
-    <a href="https://markmcnees.com/press/how-it-works.html" class="on">How it works</a>
-  </nav>
 
   <h1>How it works</h1>
   <p class="byline">Dr. Mark McNees &middot; Florida State University &middot; Jim Moran College of Entrepreneurship</p>
@@ -322,5 +335,35 @@
   <p><a href="#top">Back to top</a></p>
 
 </div>
+
+<script>
+(function () {
+  var toggle = document.querySelector('.site-nav-toggle');
+  var menu = document.getElementById('siteNavMenu');
+  if (!toggle || !menu) return;
+  function setOpen(open) {
+    menu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      var first = menu.querySelector('a');
+      if (first) first.focus();
+    } else {
+      toggle.focus();
+    }
+  }
+  toggle.addEventListener('click', function () {
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+    }
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') setOpen(false);
+  });
+})();
+</script>
+
 </body>
 </html>
