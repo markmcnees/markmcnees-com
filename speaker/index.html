@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/nav.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -44,63 +45,7 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.4rem 4rem;
-    background: rgba(12,21,36,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--cream);
-    text-decoration: none;
-  }
-
-  .nav-links { display: flex; gap: 2.4rem; align-items: center; }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--cream); }
-
-  .nav-cta {
-    display: inline-block;
-    border: 1px solid var(--gold);
-    color: var(--gold) !important;
-    padding: 0.5rem 1.4rem;
-    border-radius: 2px;
-    font-size: 0.78rem !important;
-    letter-spacing: 0.12em !important;
-    text-transform: uppercase;
-    transition: background 0.2s, color 0.2s !important;
-  }
-  .nav-cta:hover { background: var(--gold); color: var(--navy) !important; }
-
   /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 0 4rem;
-    padding-top: 5rem;
-    gap: 4rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
   .hero-text { max-width: 540px; }
 
   .hero-eyebrow {
@@ -206,13 +151,6 @@
   }
 
   /* ── LOGOS / MEDIA BAR ── */
-  #media-bar {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 2rem 4rem;
-    background: var(--navy-mid);
-  }
-
   .media-bar-inner {
     max-width: 1100px;
     margin: 0 auto;
@@ -375,8 +313,6 @@
   .reel-cta a:hover { color: var(--gold-lt); }
 
   /* ── THE ARGUMENT ── */
-  #argument { background: var(--navy-mid); }
-
   .argument-grid {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
@@ -668,13 +604,9 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    nav { padding: 1.2rem 2rem; }
-    .nav-links { gap: 1.4rem; }
-    #hero { grid-template-columns: 1fr; padding: 2rem; padding-top: 7rem; gap: 3rem; }
     .hero-photo { order: -1; }
     .hero-photo img { max-width: 320px; height: 400px; }
     section { padding: 4rem 2rem; }
-    #media-bar { padding: 1.8rem 2rem; }
     .argument-grid,
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
     .topics-grid { grid-template-columns: 1fr; }
@@ -687,22 +619,26 @@
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="/" class="nav-name">Dr. Mark McNees</a>
-  <div class="nav-links">
-    <a href="#reel">Reel</a>
-    <a href="/#argument">The Argument</a>
-    <a href="#speaking">Speaking</a>
-    <a href="#media">Media</a>
-    <a href="/#about">About</a>
-    <a href="/speaker/">Speaker</a>
-    <a href="/bio/">Bio</a>
-    <a href="#contact" class="nav-cta">Book a Talk</a>
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-name">Dr. Mark McNees</a>
+    <button class="site-nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNavMenu">
+      <span class="site-nav-burger"></span>
+    </button>
+    <nav class="site-nav-menu" id="siteNavMenu" aria-label="Primary">
+      <a href="/#argument">The Argument</a>
+      <a href="/speaker/" class="on">Speaking</a>
+      <a href="/published-work/">Published Work</a>
+      <a href="/press/">Press</a>
+      <a href="/bio/">About</a>
+      <a href="/#contact" class="site-nav-cta">Book a Talk</a>
+    </nav>
   </div>
-</nav>
+</header>
+<div class="site-nav-spacer" aria-hidden="true"></div>
 
 <!-- SPEAKER REEL -->
-<section id="reel" style="padding-top:7.5rem;">
+<section id="reel" style="padding-top:4.5rem;">
   <div class="section-inner">
     <p class="section-label">Speaker reel</p>
     <h1 class="section-heading">Who pays for the cost of growth</h1>
@@ -761,6 +697,35 @@
     <a href="#contact">Book a Talk</a>
   </div>
 </footer>
+
+<script>
+(function () {
+  var toggle = document.querySelector('.site-nav-toggle');
+  var menu = document.getElementById('siteNavMenu');
+  if (!toggle || !menu) return;
+  function setOpen(open) {
+    menu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      var first = menu.querySelector('a');
+      if (first) first.focus();
+    } else {
+      toggle.focus();
+    }
+  }
+  toggle.addEventListener('click', function () {
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+    }
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') setOpen(false);
+  });
+})();
+</script>
 
 </body>
 </html>

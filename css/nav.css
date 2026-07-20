@@ -1,0 +1,129 @@
+/* Shared site navigation, two tiers. Self-contained: no dependence on
+   per-page CSS variables, so it renders identically on every page. Visual
+   treatment pulled from the Pattern A nav on speaker/index.html. */
+
+:root {
+  --nav-navy:   #0C1524;
+  --nav-cream:  #F0EEE8;
+  --nav-muted:  #8A8680;
+  --nav-gold:   #C4972A;
+  --nav-border: rgba(196,151,42,0.18);
+  --site-nav-h: 62px;
+  --press-nav-h: 44px;
+}
+
+/* Anchor landing offset, so in-page jumps clear the pinned chrome.
+   Base = fixed site nav. Press pages also clear the sticky sub-nav; they carry
+   class="press-page" on <html>, which is the working mechanism (no :has()
+   dependency). The :has() rule is progressive enhancement only. Lives here so
+   pages need no per-page CSS, just the class plus the nav markup. */
+html { scroll-padding-top: calc(var(--site-nav-h) + 0.5rem); }
+html.press-page { scroll-padding-top: calc(var(--site-nav-h) + var(--press-nav-h) + 0.5rem); }
+html:has(.press-nav) { scroll-padding-top: calc(var(--site-nav-h) + var(--press-nav-h) + 0.5rem); }
+
+/* ---------- Tier 1: site nav ---------- */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(12,21,36,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--nav-border);
+}
+/* Reserves flow space for the fixed site nav. Ships as part of the standard
+   nav block on every page, so no page needs its own clearance rule. */
+.site-nav-spacer { height: var(--site-nav-h); }
+.site-nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: var(--site-nav-h);
+  padding: 0 4rem;
+}
+.site-nav-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--nav-cream); text-decoration: none; white-space: nowrap;
+}
+.site-nav-menu { display: flex; align-items: center; gap: 2.4rem; }
+.site-nav-menu a {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  color: var(--nav-muted); text-decoration: none;
+  font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.site-nav-menu a:hover { color: var(--nav-cream); }
+.site-nav-menu a.on { color: var(--nav-cream); }
+
+.site-nav-cta {
+  display: inline-block;
+  border: 1px solid var(--nav-gold);
+  color: var(--nav-gold) !important;
+  padding: 0.5rem 1.4rem; border-radius: 2px;
+  font-size: 0.78rem !important; letter-spacing: 0.12em !important;
+  transition: background 0.2s, color 0.2s !important;
+}
+.site-nav-cta:hover { background: var(--nav-gold); color: var(--nav-navy) !important; }
+
+/* hamburger toggle, hidden until mobile */
+.site-nav-toggle {
+  display: none;
+  background: none; border: 0; cursor: pointer;
+  width: 40px; height: 40px; padding: 8px;
+}
+.site-nav-burger { position: relative; display: block; }
+.site-nav-burger,
+.site-nav-burger::before,
+.site-nav-burger::after {
+  content: ''; height: 2px; width: 24px; background: var(--nav-cream);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.site-nav-burger::before { position: absolute; top: -7px; left: 0; }
+.site-nav-burger::after  { position: absolute; top: 7px;  left: 0; }
+.site-nav-toggle[aria-expanded="true"] .site-nav-burger { background: transparent; }
+.site-nav-toggle[aria-expanded="true"] .site-nav-burger::before { top: 0; transform: rotate(45deg); }
+.site-nav-toggle[aria-expanded="true"] .site-nav-burger::after  { top: 0; transform: rotate(-45deg); }
+
+/* ---------- Tier 2: press sub-nav ---------- */
+.press-nav {
+  position: sticky; top: var(--site-nav-h); z-index: 90;
+  background: var(--nav-navy);
+  border-bottom: 1px solid var(--nav-border);
+}
+.press-nav-inner {
+  display: flex; align-items: center; gap: 1.8rem;
+  padding: 0.7rem 4rem;
+  max-width: 1200px; margin: 0 auto;
+}
+.press-nav a {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  color: var(--nav-muted); text-decoration: none; white-space: nowrap;
+  font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.press-nav a:hover { color: var(--nav-cream); }
+.press-nav a.on { color: var(--nav-gold); }
+
+/* ---------- Mobile, below 720px ---------- */
+@media (max-width: 720px) {
+  .site-nav-inner { padding: 0 1.4rem; }
+  .site-nav-toggle { display: block; }
+  .site-nav-menu {
+    display: none;
+    position: absolute; top: var(--site-nav-h); left: 0; right: 0;
+    flex-direction: column; align-items: flex-start; gap: 1.4rem;
+    padding: 1.6rem 1.4rem 2rem;
+    background: rgba(12,21,36,0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--nav-border);
+  }
+  .site-nav-menu.open { display: flex; }
+  .site-nav-cta { margin-top: 0.4rem; }
+
+  /* sub-nav becomes a horizontal scroll strip, never a second hamburger */
+  .press-nav-inner {
+    padding: 0.7rem 1.4rem;
+    flex-wrap: nowrap; overflow-x: auto;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  }
+  .press-nav-inner::-webkit-scrollbar { display: none; }
+}

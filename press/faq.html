@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="press-page">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +17,7 @@
 <meta name="twitter:description" content="Plain-English answers to the questions reporters ask about AI data centers, electricity costs, and who pays. Every answer sourced.">
 <meta name="twitter:image" content="https://markmcnees.com/images/headshot.png">
 <meta name="author" content="Mark McNees">
+<link rel="stylesheet" href="/css/nav.css">
 <style>
   :root{
     --ink:#1a1a17;
@@ -37,16 +38,6 @@
   body{font-family:var(--font-body);color:var(--ink);background:var(--paper);line-height:1.65;}
   a{color:var(--accent);}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
-
-  header.bar{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:18px 28px;border-bottom:1px solid var(--line);
-    position:sticky;top:0;background:var(--paper);z-index:50;
-  }
-  .bar .name{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--ink);text-decoration:none;}
-  .bar nav a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:22px;}
-  .bar nav a.on{color:var(--accent);font-weight:600;}
-  @media(max-width:720px){.bar nav a{margin-left:14px;font-size:13px;}}
 
   .strip{
     background:var(--green);color:#e9efe9;font-size:13px;letter-spacing:.02em;
@@ -112,19 +103,35 @@
 </head>
 <body>
 
-<header class="bar">
-  <a class="name" href="/">Dr. Mark McNees</a>
-  <nav>
-    <a href="/#argument">The Argument</a>
-    <a href="/bio/">About</a>
-    <a href="/community/">Community</a>
-    <a href="/press/">Press Resources</a>
+<!-- SITE NAV -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-name">Dr. Mark McNees</a>
+    <button class="site-nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNavMenu">
+      <span class="site-nav-burger"></span>
+    </button>
+    <nav class="site-nav-menu" id="siteNavMenu" aria-label="Primary">
+      <a href="/#argument">The Argument</a>
+      <a href="/speaker/">Speaking</a>
+      <a href="/published-work/">Published Work</a>
+      <a href="/press/" class="on">Press</a>
+      <a href="/bio/">About</a>
+      <a href="/#contact" class="site-nav-cta">Book a Talk</a>
+    </nav>
+  </div>
+</header>
+<div class="site-nav-spacer" aria-hidden="true"></div>
+
+<!-- PRESS SUB-NAV -->
+<nav class="press-nav" aria-label="Press section">
+  <div class="press-nav-inner">
+    <a href="/press/">Press desk</a>
     <a href="/press/faq.html" class="on">Reporter FAQ</a>
-    <a href="/press/data-center-tracker.html">State Tracker</a>
+    <a href="/press/data-center-tracker.html">State tracker</a>
     <a href="/press/research.html">Following the research</a>
     <a href="/press/how-it-works.html">How it works</a>
-  </nav>
-</header>
+  </div>
+</nav>
 
 <div class="strip">
   <span class="dot"></span>
@@ -326,6 +333,35 @@
   <span>Dr. Mark McNees, Florida State University</span>
   <span><a href="/press/">Press desk</a> &nbsp;&middot;&nbsp; <a href="/press/data-center-tracker.html">Eleven-state tracker</a> &nbsp;&middot;&nbsp; <a href="/">markmcnees.com</a></span>
 </footer>
+
+<script>
+(function () {
+  var toggle = document.querySelector('.site-nav-toggle');
+  var menu = document.getElementById('siteNavMenu');
+  if (!toggle || !menu) return;
+  function setOpen(open) {
+    menu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      var first = menu.querySelector('a');
+      if (first) first.focus();
+    } else {
+      toggle.focus();
+    }
+  }
+  toggle.addEventListener('click', function () {
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+    }
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') setOpen(false);
+  });
+})();
+</script>
 
 </body>
 </html>
