@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/nav.css">
 <title>Published Work, Dr. Mark McNees</title>
 <meta name="description" content="The complete archive of Dr. Mark McNees's published op-eds and commentary on energy economics, utility rate structures, and corporate cost accountability, newest first.">
 <link rel="canonical" href="https://markmcnees.com/published-work/">
@@ -44,17 +45,6 @@
   body{font-family:var(--font-body);color:var(--ink);background:var(--paper);line-height:1.6;}
   a{color:var(--accent);}
 
-  /* ---- top bar ---- */
-  header.bar{
-    border-bottom:1px solid var(--line);
-    position:sticky;top:0;background:rgba(255,255,255,.95);
-    backdrop-filter:saturate(120%) blur(6px);z-index:10;
-  }
-  .bar .wrap{max-width:var(--maxw);margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-  .bar .name{font-family:var(--font-display);font-size:19px;font-weight:700;text-decoration:none;color:var(--ink);}
-  .bar nav a{margin-left:20px;font-size:14px;text-decoration:none;color:var(--muted);}
-  .bar nav a:hover{color:var(--accent);}
-  .bar nav a.back{color:var(--accent);font-weight:600;}
 
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
 
@@ -95,19 +85,24 @@
 </head>
 <body>
 
-<header class="bar">
-  <div class="wrap">
-    <a href="/" class="name">Dr. Mark McNees</a>
-    <nav>
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-name">Dr. Mark McNees</a>
+    <button class="site-nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNavMenu">
+      <span class="site-nav-burger"></span>
+    </button>
+    <nav class="site-nav-menu" id="siteNavMenu" aria-label="Primary">
       <a href="/#argument">The Argument</a>
-      <a href="/#clips">Media</a>
-      <a href="/#about">About</a>
-      <a href="/published-work/" class="back">Published Work</a>
-      <a href="/community/">Community</a>
-      <a href="/press/">Press Resources</a>
+      <a href="/speaker/">Speaking</a>
+      <a href="/published-work/" class="on">Published Work</a>
+      <a href="/press/">Press</a>
+      <a href="/bio/">About</a>
+      <a href="/#contact" class="site-nav-cta">Book a Talk</a>
     </nav>
   </div>
 </header>
+<div class="site-nav-spacer" aria-hidden="true"></div>
 
 <div class="wrap">
   <section class="hero">
@@ -203,5 +198,35 @@
       .catch(fallback);
   })();
 </script>
+
+<script>
+(function () {
+  var toggle = document.querySelector('.site-nav-toggle');
+  var menu = document.getElementById('siteNavMenu');
+  if (!toggle || !menu) return;
+  function setOpen(open) {
+    menu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      var first = menu.querySelector('a');
+      if (first) first.focus();
+    } else {
+      toggle.focus();
+    }
+  }
+  toggle.addEventListener('click', function () {
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+    }
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') setOpen(false);
+  });
+})();
+</script>
+
 </body>
 </html>
