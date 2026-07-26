@@ -1,0 +1,3 @@
+# Treat PDFs as binary so Git never applies EOL (LF<->CRLF) conversion,
+# which would corrupt the file bytes. Also gives proper binary diff handling.
+*.pdf binary
