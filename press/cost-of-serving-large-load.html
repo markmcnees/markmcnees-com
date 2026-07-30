@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="press-page">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A worked estimate of what customers pay when a utility builds capacity to serve 600 megawatts of new firm load, with every input, source, and assumption stated.">
+<link rel="canonical" href="https://markmcnees.com/press/cost-of-serving-large-load.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://markmcnees.com/press/cost-of-serving-large-load.html">
+<meta property="og:title" content="What it costs to serve 600 megawatts, and who pays | Mark McNees">
+<meta property="og:description" content="A worked estimate of what customers pay when a utility builds capacity to serve 600 megawatts of new firm load, with every input, source, and assumption stated.">
+<meta property="og:site_name" content="Dr. Mark McNees">
+<meta property="og:image" content="https://markmcnees.com/images/headshot.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What it costs to serve 600 megawatts, and who pays | Mark McNees">
+<meta name="twitter:description" content="A worked estimate of what customers pay when a utility builds capacity to serve 600 megawatts of new firm load, with every input, source, and assumption stated.">
+<meta name="twitter:image" content="https://markmcnees.com/images/headshot.png">
+<meta name="author" content="Mark McNees">
+<link rel="stylesheet" href="/css/nav.css">
+<title>What it costs to serve 600 megawatts, and who pays | Mark McNees</title>
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --muted:#555;
+    --line:#e2e0da;
+    --bg:#ffffff;
+    --panel:#f7f6f2;
+    --accent:#8a1c1c;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:Georgia,"Times New Roman",serif;
+    line-height:1.6;
+    font-size:18px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:32px 22px 80px;}
+  .eyebrow{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 18px;
+  }
+  h1{
+    font-size:34px;
+    line-height:1.15;
+    margin:0 0 10px;
+    font-weight:normal;
+  }
+  .byline{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:15px;
+    color:var(--muted);
+    margin:0 0 26px;
+  }
+  .verified{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    color:var(--muted);
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:10px 14px;
+    margin:0 0 30px;
+  }
+  .anchor{
+    font-size:20px;
+    line-height:1.5;
+    margin:0 0 14px;
+  }
+  .anchor .lead{font-weight:bold;}
+  h2{
+    font-size:24px;
+    margin:44px 0 6px;
+    font-weight:normal;
+    padding-top:22px;
+    border-top:2px solid var(--ink);
+  }
+  .entry-date{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 18px;
+  }
+  h3{
+    font-size:17px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    letter-spacing:.02em;
+    margin:26px 0 6px;
+  }
+  p{margin:0 0 16px;}
+  .sources{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:14px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:14px 16px;
+    margin:22px 0 0;
+  }
+  .sources strong{display:block;margin-bottom:6px;}
+  .sources a{color:var(--accent);}
+  .note{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    color:var(--muted);
+    border-top:1px solid var(--line);
+    margin-top:40px;
+    padding-top:18px;
+  }
+  a{color:var(--accent);}
+  .contact{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:14px;
+    color:var(--muted);
+    margin-top:8px;
+  }
+  /* Tables. No table markup existed anywhere in the repo to copy, so these rules are built from
+     this page's own variables and the same sans-serif treatment the .sources and .note panels use. */
+  .tablewrap{overflow-x:auto;margin:20px 0 6px;}
+  table.data{
+    width:100%;
+    border-collapse:collapse;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:14px;
+  }
+  table.data caption{
+    text-align:left;
+    font-size:13px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--muted);
+    padding-bottom:8px;
+  }
+  table.data th,table.data td{
+    text-align:left;
+    vertical-align:top;
+    padding:9px 12px 9px 0;
+    border-bottom:1px solid var(--line);
+  }
+  table.data thead th{
+    font-size:12px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:600;
+    border-bottom:1px solid var(--ink);
+  }
+  table.data tbody th{font-weight:600;color:var(--ink);}
+  table.data td.num{white-space:nowrap;}
+  table.data tr.central td,table.data tr.central th{background:var(--panel);}
+  table.data .sub{display:block;color:var(--muted);font-size:13px;margin-top:4px;}
+  .calc{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:14px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:14px 16px;
+    margin:20px 0;
+    line-height:1.7;
+  }
+  .calc .total{display:block;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-weight:600;color:var(--ink);}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What it costs to serve 600 megawatts, and who pays",
+  "author": { "@type": "Person", "name": "Mark McNees", "url": "https://markmcnees.com" },
+  "publisher": { "@type": "Person", "name": "Mark McNees", "url": "https://markmcnees.com" },
+  "dateModified": "2026-07-30",
+  "mainEntityOfPage": "https://markmcnees.com/press/cost-of-serving-large-load.html"
+}
+</script>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-name">Dr. Mark McNees</a>
+    <button class="site-nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNavMenu">
+      <span class="site-nav-burger"></span>
+    </button>
+    <nav class="site-nav-menu" id="siteNavMenu" aria-label="Primary">
+      <a href="/#argument">The Argument</a>
+      <a href="/speaker/">Speaking</a>
+      <a href="/published-work/">Published Work</a>
+      <a href="/community/">Community Guide</a>
+      <a href="/press/" class="on">Press</a>
+      <a href="/bio/">About</a>
+      <a href="/#contact" class="site-nav-cta">Book a Talk</a>
+    </nav>
+  </div>
+</header>
+<div class="site-nav-spacer" aria-hidden="true"></div>
+
+<!-- PRESS SUB-NAV -->
+<nav class="press-nav" aria-label="Press section">
+  <div class="press-nav-inner">
+    <a href="/press/">Press desk</a>
+    <a href="/press/faq.html">Reporter FAQ</a>
+    <a href="/press/data-center-tracker.html">State tracker</a>
+    <a href="/press/research.html">Following the research</a>
+    <a href="/press/cost-of-serving-large-load.html" class="on">How the cost is calculated</a>
+    <a href="/press/how-it-works.html">How it works</a>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+  <p class="eyebrow">Press resource &middot; How the cost is calculated</p>
+
+  <h1>What it costs to serve 600 megawatts, and who pays</h1>
+  <p class="byline">A worked estimate, with sources and assumptions stated<br>Dr. Mark McNees &middot; Florida State University &middot; Jim Moran College of Entrepreneurship</p>
+
+  <p class="verified"><strong>Working press resource.</strong> This page is analysis, not a sourced finding. Sourced inputs are separated from assumptions throughout, and every assumption is replaceable. Last verified July 30, 2026. On deadline: 850.973.7687</p>
+
+  <p class="anchor">Public debate about data center electricity costs runs on numbers almost nobody shows their work for. This page shows mine. It estimates what customers pay when a utility builds capacity to serve 600 megawatts of new firm load, states every input and its source, separates the sourced figures from the assumptions, and gives <span class="lead">a range rather than a single number.</span></p>
+
+  <p>It is analysis, not a sourced finding. Anyone who can improve an input is invited to. Contact details are at the bottom.</p>
+
+  <h2>The distinction that drives everything</h2>
+  <p class="entry-date">Section one</p>
+
+  <p>Two different numbers get called "the cost," and confusing them is why estimates in this debate vary by an order of magnitude.</p>
+
+  <h3>Capital cost</h3>
+  <p>What the utility spends to build. For 600 megawatts of new firm load, it lands in the low single-digit billions.</p>
+
+  <h3>Revenue requirement</h3>
+  <p>What customers pay across the life of the asset. It is depreciation, plus operations and maintenance, plus the authorized return on the undepreciated investment, every year for decades. It runs several times the capital cost.</p>
+
+  <p>Utility profit comes from rate base, not from electricity sold. A utility earns an authorized annual return on what it builds and puts in the ground. Over 35 years that return compounds into the largest single component of what customers pay.</p>
+
+  <p>Any figure quoted in this debate should say which of the two it is. This page reports both.</p>
+
+  <h2>What is being estimated</h2>
+  <p class="entry-date">Section two</p>
+
+  <p><strong>Scope:</strong> 600 megawatts of new firm load served by a Florida investor-owned utility.</p>
+
+  <h3>Why 600 megawatts</h3>
+  <p>It is the figure the developer of the proposed Loxahatchee campus in Palm Beach County stated publicly. Project manager Ernie Cox described the project as proposed at 600 megawatts across five buildings. Palm Beach County commissioners voted 5 to 1 on July 15, 2026 to deny the expansion without prejudice. The estimate here is therefore counterfactual: what would customers have paid had it been approved. It also serves as a general case, because 600 megawatts is the scale now being proposed across multiple states.</p>
+
+  <h3>Included</h3>
+  <p>Generation capacity, transmission, substation and interconnection facilities, and the revenue requirement on that investment.</p>
+
+  <h3>Excluded</h3>
+  <p>The data center itself. Buildings, cooling, and computing hardware are the developer's capital, not ratepayer capital, and run to far larger sums. This page is only about the grid.</p>
+
+  <p>Fuel is also excluded. Fuel is normally recovered directly from the customer who consumes it and is not a ratepayer exposure.</p>
+
+  <h2>Sourced inputs</h2>
+  <p class="entry-date">Section three</p>
+
+  <p>Each of these comes from a filing. Cite the filing, not this page.</p>
+
+  <div class="tablewrap">
+    <table class="data">
+      <caption>Inputs traceable to a filing</caption>
+      <thead>
+        <tr><th scope="col">Input</th><th scope="col">Value</th><th scope="col">Source</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">New firm load</th>
+          <td class="num">600 MW</td>
+          <td>Developer statement, PBA Holdings project manager Ernie Cox, July 2026.</td>
+        </tr>
+        <tr>
+          <th scope="row">Authorized return on common equity</th>
+          <td class="num">11.70 percent</td>
+          <td>Florida Power &amp; Light Earnings Surveillance Report filed with the Florida Public Service Commission, April 15, 2026, reporting the return on common equity authorized under Docket No. 20250011-EI, Order No. PSC-2026-0022-S-EI.
+            <span class="sub">FPL's 2025 Rate Settlement filing describes a midpoint ROE of 11.9 percent. The surveillance report states the authorized figure as 11.70 percent. This page uses 11.70 percent. Readers verifying should go to the order.</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Equity share of capital structure</th>
+          <td class="num">59.6 percent</td>
+          <td>FPL 2025 Rate Settlement, Docket No. 20250011-EI.</td>
+        </tr>
+        <tr>
+          <th scope="row">Long-term cost of debt</th>
+          <td class="num">4.64 percent</td>
+          <td>FPL petition, February 28, 2025, 2026 projected test year.</td>
+        </tr>
+        <tr>
+          <th scope="row">Composite income tax rate</th>
+          <td class="num">25.35 percent</td>
+          <td>21 percent federal plus 5.5 percent Florida statutory.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Cross-check.</strong> FPL calculated its own total 2026 weighted average cost of capital at 7.63 percent. The pre-tax figure used here is higher because a revenue requirement calculation grosses up the equity return for income tax.</p>
+
+  <h2>Assumptions, stated separately</h2>
+  <p class="entry-date">Section four</p>
+
+  <p>These are not sourced. They are reasoned choices, and each is a place where a better number would improve the estimate.</p>
+
+  <h3>Generation capital cost: 1,400 dollars per kilowatt installed</h3>
+  <p>Within the published range for combined-cycle gas. Firm renewables paired with storage would be higher. This is the single largest driver, and the range in section seven is built around it.</p>
+
+  <h3>Planning reserve margin: 20 percent</h3>
+  <p>Capacity is built above peak load. Should be verified against the serving utility's resource plan.</p>
+
+  <h3>Book life, operations, and depreciation</h3>
+  <p>Book life of 35 years. Fixed operations and maintenance at 2.5 percent of capital annually. Straight line depreciation.</p>
+
+  <h3>What this model does not include</h3>
+  <p>Stated in the interest of naming its limits: accumulated deferred income taxes, which reduce rate base and would lower the result; property taxes and insurance, which would raise it; construction-period carrying costs; and cost escalation. It is an order-of-magnitude estimate, not a filing-grade revenue requirement study.</p>
+
+  <h2>The arithmetic</h2>
+  <p class="entry-date">Section five</p>
+
+  <div class="calc">
+    Capacity built: 600 MW &times; 1.20 reserve margin = 720 MW<br>
+    Generation capital: 720 MW &times; 1,000 &times; $1,400/kW = $1.008 billion<br>
+    Transmission and interconnection: see section six<br>
+    Total capital cost: approximately $1.17 billion<br><br>
+    Pre-tax weighted average cost of capital:<br>
+    (11.70% &times; 59.6% / (1 &minus; 25.35%)) + (4.64% &times; 40.4%) = 11.22%<br><br>
+    Annual revenue requirement, year one:<br>
+    depreciation + (rate base &times; 11.22%) + fixed O&amp;M
+    <span class="total">Total revenue requirement across 35 years: approximately $4.6 billion<br>Of which utility return: approximately $2.4 billion</span>
+  </div>
+
+  <p>Rate base declines each year as the asset depreciates, so the annual revenue requirement is highest in year one and falls from there. The totals above are the sum across all 35 years.</p>
+
+  <h2>What I could not determine</h2>
+  <p class="entry-date">Section six</p>
+
+  <p>This is the part that matters most, and it is not a limitation of the method. It is the finding.</p>
+
+  <p>Two inputs cannot be established from public information: transmission miles required, and the cost of substation and interconnection facilities. Both come from an interconnection study. Those studies, and the agreements built on them, are commonly held confidential.</p>
+
+  <p>This is not a small gap. Siting matters enormously here. The Loxahatchee parcel sits directly east of FPL's West County Energy Center, a 3,750-megawatt plant. The developer argued the site is one of the most connected pieces of electrical infrastructure in Florida, and on transmission cost that argument has force. Proximity to existing generation genuinely reduces delivery cost.</p>
+
+  <p>It does not reduce generation cost. West County's capacity is already committed to serving existing customers. Adding 600 megawatts of new firm load requires new generation somewhere on the system regardless of how close the customer sits to an existing plant. Adjacency solves delivery. It does not solve supply.</p>
+
+  <p>The estimate above credits the adjacency, assuming minimal new transmission. A less favorably sited project would cost more.</p>
+
+  <h2>The range</h2>
+  <p class="entry-date">Section seven</p>
+
+  <p>A single number invites argument. Here is the range and what drives it.</p>
+
+  <div class="tablewrap">
+    <table class="data">
+      <caption>Generation capital cost per kilowatt, holding everything else constant</caption>
+      <thead>
+        <tr><th scope="col">Generation capital cost</th><th scope="col">Capital cost</th><th scope="col">Customers pay</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">$1,100/kW</th><td class="num">$0.96 billion</td><td class="num">$3.7 billion</td></tr>
+        <tr class="central"><th scope="row">$1,400/kW <span class="sub">central case</span></th><td class="num">$1.17 billion</td><td class="num">$4.6 billion</td></tr>
+        <tr><th scope="row">$1,800/kW</th><td class="num">$1.46 billion</td><td class="num">$5.7 billion</td></tr>
+        <tr><th scope="row">$2,200/kW</th><td class="num">$1.75 billion</td><td class="num">$6.8 billion</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Stated as a range: roughly four to seven billion dollars over 30 to 40 years, with the central case near four and a half billion. The two inputs that move it most are the generation technology assumed and the authorized return on equity.</p>
+
+  <h2>What this is not</h2>
+  <p class="entry-date">Section eight</p>
+
+  <p>This is not a forecast that the load fails to materialize. This is not a claim that utilities will overbuild. This is not a claim that ratepayers will bear the full amount.</p>
+
+  <p>A large-load tariff is designed to recover cost from the customer that causes it. Contributions in aid of construction, minimum demand charges, incremental generation charges, and take-or-pay provisions all reduce what falls to other customers. Where a tariff is fully subscribed and performs as written, exposure to other ratepayers approaches zero. That is the purpose of Florida's SB 484.</p>
+
+  <p>The narrower and defensible claim is this. The figures above are the size of the obligation. No tariff currently in place is written at 100 percent, and nothing in Florida's statute answers who carries the remainder if a load leaves, renegotiates, or litigates rather than pays. Under ordinary cost recovery, the default answer is the general body of ratepayers.</p>
+
+  <h2>Corrections invited</h2>
+  <p class="entry-date">Section nine</p>
+
+  <p>If you have better inputs, particularly an interconnection study, an executed large-load agreement, or a current generation cost figure, I want them. Every assumption above is replaceable with a sourced number, and the estimate improves when it is.</p>
+
+  <p>The working model is available to reporters, regulators, and researchers on request.</p>
+
+  <div class="sources">
+    <strong>Contact</strong>
+    Dr. Mark McNees<br>
+    <a href="mailto:mmcnees@fsu.edu">mmcnees@fsu.edu</a><br>
+    <a href="tel:+18509737687">850.973.7687</a>
+  </div>
+
+  <p class="note">
+    Version 1.0. Published July 2026. Last verified July 30, 2026. Revisions to this page will be logged here with the date and what changed.<br><br>
+    This page separates sourced inputs from assumptions on purpose. The sourced figures in section three are traceable to filings and should be cited to those filings. Everything in section four is a reasoned choice, not a finding, and section six states plainly what could not be determined from public information. Reporters and editors are welcome to reach out for a source interview.<br><br>
+    <span class="contact">Contact: Dr. Mark R. McNees, Florida State University, mmcnees@fsu.edu, 850.973.7687</span>
+  </p>
+
+  <p><a href="#top">Back to top</a></p>
+
+</div>
+
+<script>
+(function () {
+  var toggle = document.querySelector('.site-nav-toggle');
+  var menu = document.getElementById('siteNavMenu');
+  if (!toggle || !menu) return;
+  function setOpen(open) {
+    menu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      var first = menu.querySelector('a');
+      if (first) first.focus();
+    } else {
+      toggle.focus();
+    }
+  }
+  toggle.addEventListener('click', function () {
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+    }
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') setOpen(false);
+  });
+})();
+</script>
+
+</body>
+</html>
