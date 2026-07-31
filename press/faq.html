@@ -63,6 +63,30 @@
   .toc a:hover{color:var(--accent);}
   @media(max-width:640px){.toc ol{columns:1;}}
 
+  /* Canonical descriptor block. Built from this page's own variables and the .toc panel treatment.
+     The copy control is modelled on the button.copyq pattern in research.html, restyled to this
+     page's palette, but it copies raw text with no quote marks and no appended attribution, because
+     a descriptor is itself the attribution. */
+  .descriptor{background:var(--wash);border:1px solid var(--line);border-radius:8px;padding:22px 24px;margin:28px 0 8px;}
+  .descriptor .t{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px;}
+  .descriptor h2{font-family:var(--font-display);font-size:clamp(21px,2.6vw,26px);font-weight:700;line-height:1.25;margin-bottom:10px;}
+  .descriptor .dlede{font-size:14.5px;color:var(--muted);max-width:66ch;margin-bottom:18px;}
+  .descriptor .dvar{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin-bottom:12px;}
+  .descriptor .dlabel{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px;}
+  .descriptor .dtext{font-size:15.5px;max-width:68ch;}
+  .descriptor h3{font-family:var(--font-display);font-size:19px;font-weight:700;margin:22px 0 8px;}
+  .descriptor .dbody{font-size:14.5px;max-width:68ch;}
+  .descriptor .dbody p+p{margin-top:10px;}
+  .descriptor .dbody .hard{color:var(--hot);font-weight:600;}
+  .descriptor .dcontact{font-size:14.5px;color:var(--muted);margin-top:6px;}
+  .copyq{
+    display:inline-block;margin-top:10px;background:none;border:1px solid var(--line);border-radius:4px;
+    font-family:var(--font-body);font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--accent);
+    padding:6px 13px;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s,border-color .15s;
+  }
+  .copyq:hover{background:var(--wash);}
+  .copyq.ok{color:#fff;background:var(--green);border-color:var(--green);}
+
   .faq{padding:14px 0 60px;}
   .qa{border-top:1px solid var(--line);padding:30px 0;}
   .qa:last-of-type{border-bottom:1px solid var(--line);}
@@ -137,7 +161,7 @@
 
 <div class="strip">
   <span class="dot"></span>
-  <span><b>Reporter FAQ.</b> Plain-English answers, every one sourced. Last verified July 29, 2026.</span>
+  <span><b>Reporter FAQ.</b> Plain-English answers, every one sourced. Last verified July 30, 2026.</span>
   <span>On deadline: <a href="tel:+18509737687">850.973.7687</a></span>
 </div>
 
@@ -146,6 +170,55 @@
     <div class="kick">The vocabulary of the story</div>
     <h1>Data centers and your electric bill: the questions reporters ask</h1>
     <p class="lede">Each answer opens with the one-sentence version, then the detail, then the source. If your question is not here, call. It will probably end up on this page.</p>
+
+    <section class="descriptor" id="identify">
+      <div class="t">For reporters on deadline</div>
+      <h2>How to identify me</h2>
+      <p class="dlede">Copy these verbatim. Three lengths, for print, for broadcast, and for a byline. If you need something shorter than what is here, email me rather than trimming it, because the part usually cut is the part that matters.</p>
+
+      <div class="dvar">
+        <div class="dlabel">Full, for print and online</div>
+        <p class="dtext" id="desc-full">Dr. Mark McNees, Director of the MS in Social and Sustainable Enterprises at Florida State University's Jim Moran College of Entrepreneurship, who has researched data center cost allocation across twelve states.</p>
+        <button class="copyq" data-copy="desc-full">Copy this descriptor</button>
+      </div>
+
+      <div class="dvar">
+        <div class="dlabel">Short, for broadcast and voiceover</div>
+        <p class="dtext" id="desc-short">Dr. Mark McNees, who directs the MS in Social and Sustainable Enterprises at Florida State University and has researched data center cost allocation across twelve states.</p>
+        <button class="copyq" data-copy="desc-short">Copy this descriptor</button>
+      </div>
+
+      <div class="dvar">
+        <div class="dlabel">Byline, for op-eds and commentary</div>
+        <p class="dtext" id="desc-byline">Dr. Mark McNees is Director of the MS in Social and Sustainable Enterprises at Florida State University's Jim Moran College of Entrepreneurship and Managing Consultant at The McNees Group.</p>
+        <button class="copyq" data-copy="desc-byline">Copy this descriptor</button>
+      </div>
+
+      <h3>Title alone</h3>
+      <div class="dbody">
+        <p>Director, MS in Social and Sustainable Enterprises<br>
+        Sustainability Entrepreneur in Residence<br>
+        Jim Moran College of Entrepreneurship, Florida State University</p>
+      </div>
+
+      <h3>What I speak to</h3>
+      <div class="dbody">
+        <p><b>Cost allocation.</b> Who pays for the grid capacity that large electrical loads require, how state commissions decide it, and what the tariffs and statutes actually do.</p>
+        <p><b>Utility regulation and ratepayer impact.</b> Rate cases, large-load tariffs, and state legislative action on data center cost recovery.</p>
+        <p>I am a business professor and cost allocation researcher. I am not an economist and not a lawyer, and I will refer legal and economic questions to people who are.</p>
+      </div>
+
+      <h3>Common errors, please avoid</h3>
+      <div class="dbody">
+        <p><span class="hard">Not "Director of the Jim Moran College of Entrepreneurship."</span> That is the Dean. I direct one graduate program inside the college.</p>
+        <p><span class="hard">Not "researched data centers."</span> I research data center cost allocation. The distinction matters, because the subject is who pays rather than the facilities themselves.</p>
+        <p><span class="hard">Not "eleven states."</span> Twelve, as of July 2026. The tracker at <a href="/press/data-center-tracker.html">markmcnees.com/press/data-center-tracker.html</a> is the current count and is maintained.</p>
+        <p>"Professor" is fine as a shorthand if space is tight, though the full title is preferred.</p>
+      </div>
+
+      <h3>Contact</h3>
+      <p class="dcontact"><a href="mailto:mmcnees@fsu.edu">mmcnees@fsu.edu</a> &nbsp;&middot;&nbsp; <a href="tel:+18509737687">850.973.7687</a><br>Available for interviews on deadline.</p>
+    </section>
 
     <div class="toc">
       <div class="t">Jump to a question</div>
@@ -335,6 +408,26 @@
   <span>Dr. Mark McNees, Florida State University</span>
   <span><a href="/press/">Press desk</a> &nbsp;&middot;&nbsp; <a href="/press/data-center-tracker.html">Twelve-state tracker</a> &nbsp;&middot;&nbsp; <a href="/">markmcnees.com</a></span>
 </footer>
+
+<script>
+  // Copy one descriptor variant verbatim. Modelled on the button.copyq control in research.html, but
+  // that one wraps the text in quotes and appends an attribution line. A descriptor is already the
+  // attribution, so this copies the raw text and nothing else.
+  (function(){
+    document.querySelectorAll('.copyq').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var el = document.getElementById(btn.dataset.copy);
+        if(!el) return;
+        navigator.clipboard.writeText(el.innerText.trim()).then(function(){
+          var old = btn.textContent;
+          btn.textContent = 'Copied';
+          btn.classList.add('ok');
+          setTimeout(function(){ btn.textContent = old; btn.classList.remove('ok'); }, 1800);
+        });
+      });
+    });
+  })();
+</script>
 
 <script>
 (function () {
