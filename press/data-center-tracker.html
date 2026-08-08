@@ -60,7 +60,7 @@
     font-size:13px;letter-spacing:.14em;text-transform:uppercase;
     color:#7f9aa8;font-family:"Helvetica Neue",Arial,sans-serif;margin-bottom:4px;
   }
-  .sidebar h1{
+  .sidebar h1, .sidebar .sidetitle{
     font-size:20px;line-height:1.25;margin:0 0 20px;color:#fff;font-weight:600;
   }
   .sidebar .navlabel{
@@ -101,7 +101,7 @@
     font-size:12px;letter-spacing:.16em;text-transform:uppercase;
     color:var(--accent);margin-bottom:14px;
   }
-  .hero h2{
+  .hero h2, .hero h1{
     font-size:40px;line-height:1.12;margin:0 0 18px;font-weight:600;letter-spacing:-.01em;
   }
   .hero .lede{font-size:19px;color:var(--ink-soft);margin:0 0 10px;max-width:44em;}
@@ -263,7 +263,7 @@
     .sidebar{position:static;width:auto;bottom:auto;}
     .main{margin-left:0;}
     .wrap{padding:34px 22px 70px;}
-    .hero h2{font-size:30px;}
+    .hero h2, .hero h1{font-size:30px;}
     .layout{flex-direction:column;}
   }
   details.term{display:inline;}
@@ -328,7 +328,7 @@
   <!-- ===================== FIXED LEFT SIDEBAR ===================== -->
   <nav class="sidebar">
     <div class="brand">Press resource &middot; 13 states</div>
-    <h1>Who pays for the data center buildout</h1>
+    <div class="sidetitle">Who pays for the data center buildout</div>
 
     <div class="navlabel">Jump to a state</div>
     <a href="#florida"><span>Florida</span><span class="tag law">Law</span></a>
@@ -373,7 +373,7 @@
 
     <header class="hero" id="top">
       <div class="kicker">National ratepayer tracker, thirteen states</div>
-      <h2>Who pays for the grid capacity that data centers trigger</h2>
+      <h1>Who pays for the grid capacity that data centers trigger</h1>
       <p class="lede">This is the deep reference: state-by-state stakeholder maps, money-flow diagrams, key facts, and the gaps, all with numbered citations. For story angles, quotes cleared for use, and verified stats on one page, start at the <a href="/press/" style="color:var(--reg);">press desk</a>.</p>
       <p class="lede">Texas, Florida, and New Jersey passed binding statutes. Ten other states are answering the same question through tariffs, rate cases, studies, investigations, and merger reviews. The organizing principle is simple. The load creator should pay for the load it creates. Everything else is mechanism.</p>
       <div class="asof">Status verified on August 7, 2026. Every checkable fact is numbered and cited in <a href="#references" style="color:var(--reg);">Sources and citations</a>, and each reference is marked primary or secondary. Dockets move quickly; re-check before republishing.</div>
