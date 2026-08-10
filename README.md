@@ -67,3 +67,48 @@ nothing was missed.
 The tracker's own "Last verified" date moves only when verification actually
 happened. Adding a state or fixing a link is not verification, and the date
 should not move for it.
+
+## Repo conventions
+
+### Line endings
+
+Line endings are not uniform across this repo, and `.gitattributes` does not
+normalize them. It only marks `*.pdf` as binary. As of August 10, 2026, of the
+15 HTML files, 12 use CRLF and 3 use LF:
+
+- `press/data-center-tracker.html`
+- `press/cost-of-serving-large-load.html`
+- `resources/index.html`
+
+No file currently mixes the two, and none should.
+
+**Content inserted by a script has to match the file it is going into, not a
+repo-wide assumption.** A multi-line string authored with LF and written into a
+CRLF file produces mixed endings silently. Nothing errors, the page still
+renders, and the damage only shows up as a diff that claims the whole region
+changed. Check the target first:
+
+```
+node -e "const s=require('fs').readFileSync(process.argv[1],'utf8');const c=(s.match(/\r\n/g)||[]).length,l=(s.match(/\n/g)||[]).length;console.log(c===0?'LF':c===l?'CRLF':'MIXED')" press/faq.html
+```
+
+If the target is CRLF, convert the inserted text with `.replace(/\n/g, "\r\n")`
+before writing.
+
+Anchor strings have the same problem in reverse. An anchor containing
+`</div>\n</div>` will not match a CRLF file, where the bytes are
+`</div>\r\n</div>`, so the replacement finds nothing and writes nothing. That
+failure is silent unless you check. Count the matches for every replacement and
+refuse to write the file when a count is not what you expected.
+
+### Structured data
+
+Several pages carry an `application/ld+json` block whose `dateModified` is
+separate from the visible "Last verified" line, and the two drift. When a
+page's visible date moves, move `dateModified` with it.
+
+`press/faq.html` goes further: each answer's text is mirrored inside its
+FAQPage block. An edit to a visible answer has to land in both copies, or the
+structured data will keep asserting something the page no longer says. Anchor
+on a sentence that appears in both and expect two matches, rather than editing
+the visible copy alone.
