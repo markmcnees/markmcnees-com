@@ -89,6 +89,29 @@ The tracker's own "Last verified" date moves only when verification actually
 happened. Adding a state or fixing a link is not verification, and the date
 should not move for it.
 
+## Quoting
+
+The no-dash house rule applies to **authored text**. Inside quotation marks,
+punctuation is reproduced exactly as the source published it. Fidelity governs
+over house style.
+
+If a dash inside a quote is unacceptable in a given placement, shorten the quote
+to a fragment that does not contain the dash. Do not alter what is inside the
+quotation marks.
+
+This is not hypothetical. The Bisnow pull quote on the press desk was published
+as two quoted spans split by an attribution, with an en dash (U+2013) in the
+second span:
+
+> “This is not a moratorium like we're seeing other places,” McNees said.
+> “Abbott's not stopping anybody from building – it's just putting a condition
+> in front of getting connected to the grid.”
+
+It was first published here as one continuous sentence with a comma where the
+dash belongs. Three things had been changed at once: the dash, the sentence
+boundary, and the quotation marks. Verify a quote against the source itself,
+reading the raw bytes rather than a converted rendering, before publishing it.
+
 ## Repo conventions
 
 ### Line endings
