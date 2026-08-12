@@ -8,21 +8,37 @@ the speaker page. When the tracker adds a state, every one of those has to move
 together. This grep is the check. Run it from the repo root.
 
 ```
-grep -rniE "(thirteen|fourteen|1[34])[^<]{0,20}states?" --include=*.html . | grep -v 'count-guard-ok'
+NUM='(^|[^0-9.])1[34]([^0-9.]|$)'
+grep -rniE "(thirteen|fourteen|$NUM).{0,25}states?|states?.{0,25}(thirteen|fourteen|$NUM)" \
+  --include=*.html . | grep -v 'count-guard-ok'
 ```
 
-Three things to know about it.
+Five things to know about it.
 
 **The pattern is count-specific and must be updated when the count changes.**
 It names the current number and the one before it on purpose, so a stale value
-still surfaces. When the tracker goes to fifteen, the alternation becomes
-`(fourteen|fifteen|1[45])` and this section gets updated in the same commit.
+still surfaces. When the tracker goes to fifteen, the word alternation becomes
+`(fourteen|fifteen)` and `NUM` becomes `(^|[^0-9.])1[45]([^0-9.]|$)`, and this
+section gets updated in the same commit.
 A pattern that matched any number would return the whole site and get ignored.
 
 **Both spelled-out and numeric forms are matched.** Prose uses "fourteen
 states" and "thirteen-state reference"; other places use "13 states plus D.C."
 An earlier word-only pattern missed every numeric reference, including a PJM
 line in the tracker that had gone unreviewed for months.
+
+**The numeral form is bounded, and the noun can come first.** `1[34]` on its
+own also matches inside "140" and "13.5", so it is wrapped in `(^|[^0-9.])`
+and `([^0-9.]|$)`. The pattern is also run in both orders, so "all 14 of them"
+after the word states is caught as well as "14 states" before it. Verified
+against a fixed case list: the earlier pattern was wrong on 7 of 13 cases, this
+one on 2, and the remaining 2 are the date and SVG cases below, which no regex
+can separate from a real count.
+
+**It must stay ERE.** The obvious way to write the digit bounds is a PCRE
+lookaround, but `grep -P` is unavailable in the Git Bash build used here and
+fails with "supports only unibyte and UTF-8 locales". Everything above is
+POSIX ERE so `grep -E` alone is enough.
 
 **Markers must state their reason.** A bare `<!-- count-guard-ok -->` reads as
 "this line is exempt" and stops the next person from looking. Write what makes
@@ -41,10 +57,11 @@ a stale count on a live press page through a full review.
 
 ### Known limits
 
-**No matching across tag boundaries.** The `[^<]{0,20}` window stops at the
-next `<`, so a count split by markup is invisible. `thirteen <b>states</b>`
-will not match. Counts inside a sentence broken by a link or a `<span>` have to
-be caught by reading.
+**Matching across tag boundaries now works, on one line.** The window used to
+be `[^<]{0,20}`, which stopped at the next `<`, so `thirteen <b>states</b>`
+was invisible and had to be caught by reading. The window is now `.{0,25}` and
+crosses tags. It still cannot cross a newline, because grep is line based, so a
+count split across two lines is still only findable by reading.
 
 **No marker can go inside an `application/ld+json` block.** JSON has no comment
 syntax, and an HTML comment inside the script element breaks the parse and
@@ -56,7 +73,11 @@ marker to make the output clean.
 **Dates and markup produce false positives.** A date like "July 14, 2026,
 pauses state environmental permits" matches, because "state" falls within the
 character window after "14". So does an SVG attribute like `font-size="13">State`.
-Both are expected. Neither is a count.
+Neither is a count. These are the only two irreducible false positives on the
+site as of August 12, 2026, and both now carry a marker naming the reason, so
+the guard's output is the JSON-LD pair and genuine count statements only. If you
+add a date or an SVG label that trips the pattern, mark it the same way rather
+than leaving it to be re-diagnosed.
 
 Because of those last two, the guard is a prompt to review, not a pass or fail
 gate. A clean run means nothing was missed by the pattern. It does not mean
