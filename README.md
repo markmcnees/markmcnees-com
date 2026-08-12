@@ -112,6 +112,29 @@ dash belongs. Three things had been changed at once: the dash, the sentence
 boundary, and the quotation marks. Verify a quote against the source itself,
 reading the raw bytes rather than a converted rendering, before publishing it.
 
+### Quotation marks are earned
+
+Quotation marks around another party's words are a fidelity claim: they assert
+that the string inside them is what the source says. So they are used **only
+where the string has been checked against that source**. Anything unverified is
+rendered without quotation marks. Do not guess at wording, and do not delete a
+reference to avoid the problem. Strip the marks, keep the words, keep the link.
+
+The reason is that a reader cannot tell a checked quotation from an unchecked
+one, so if the marks appear on both they carry no information. Making them mean
+something requires withholding them when the check has not been done.
+
+Checking means reading the source's own bytes, not a rendering of them. A
+markdown conversion silently normalises punctuation, and a byte filter can
+delete text outright. Both have happened here.
+
+As of August 12, 2026 the tracker's references carry 29 quoted strings. 25 are
+verified, 1 was a phrase the page recommends rather than a quotation from a
+source and is no longer in marks, and 3 are rendered without marks because their sources sit behind bot
+protection: `governor.ny.gov` answers 403, `dlapiper.com` answers 429, and
+`cato.org` answers 200 with an empty body. Re-check them if they become
+reachable and restore the marks then.
+
 ## Repo conventions
 
 ### Line endings
