@@ -284,7 +284,7 @@
   "headline": "Who pays for the data center buildout",
   "author": { "@type": "Person", "name": "Mark McNees", "url": "https://markmcnees.com" },
   "publisher": { "@type": "Person", "name": "Mark McNees", "url": "https://markmcnees.com" },
-  "dateModified": "2026-08-27",
+  "dateModified": "2026-08-31",
   "mainEntityOfPage": "https://markmcnees.com/press/data-center-tracker.html"
 }
 </script>
@@ -367,7 +367,7 @@
   <main class="main">
   <div class="strip">
     <span class="dot"></span>
-    <span><b>Working press resource.</b> Facts verified against primary sources. Last verified August 27, 2026.</span>
+    <span><b>Working press resource.</b> Facts verified against primary sources. Last verified August 31, 2026.</span>
     <span>On deadline: <a href="tel:+18509737687">850.973.7687</a></span>
   </div>
   <div class="wrap">
@@ -1830,7 +1830,7 @@
         var el = document.getElementById(btn.dataset.q);
         if(!el) return;
         var q = el.innerText.trim().replace(/^[\u201C"]|[\u201D"]$/g,'').trim();
-        var text = '"' + q + '"\n\u2014 ' + ATTR;
+        var text = '"' + q + '"\n' + ATTR;
         navigator.clipboard.writeText(text).then(function(){
           var old = btn.textContent;
           btn.textContent = 'Copied';
