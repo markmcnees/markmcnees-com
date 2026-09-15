@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en" class="press-page">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Utility compliance rubric, Dr. Mark McNees</title>
+<meta name="description" content="A published reading framework for the four Florida large-load tariff filings due October 1, 2026, scored against section 366.043 with a fillable matrix and a plain-language glossary.">
+<link rel="canonical" href="https://markmcnees.com/press/rubric.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://markmcnees.com/press/rubric.html">
+<meta property="og:title" content="Utility compliance rubric, Dr. Mark McNees">
+<meta property="og:description" content="A published reading framework for the four Florida large-load tariff filings due October 1, 2026, scored against section 366.043 with a fillable matrix and a plain-language glossary.">
+<meta property="og:site_name" content="Dr. Mark McNees">
+<meta property="og:image" content="https://markmcnees.com/images/headshot.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Utility compliance rubric, Dr. Mark McNees">
+<meta name="twitter:description" content="A published reading framework for the four Florida large-load tariff filings due October 1, 2026, scored against section 366.043 with a fillable matrix and a plain-language glossary.">
+<meta name="twitter:image" content="https://markmcnees.com/images/headshot.png">
+<meta name="author" content="Mark McNees">
+<link rel="stylesheet" href="/css/nav.css">
+<style>
+  :root{
+    --ink:#1a1a17; --paper:#ffffff; --wash:#f6f4ef; --line:#e2ddd2;
+    --accent:#C4972A; --green:#173f34; --hot:#9c3a1c; --muted:#6a6458;
+    --font-display:"Cormorant Garamond",Georgia,serif;
+    --font-body:"DM Sans",-apple-system,sans-serif;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font-body);color:var(--ink);background:var(--paper);line-height:1.6;}
+  a{color:var(--accent);}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  .strip{background:var(--green);color:#e9efe9;font-size:13px;letter-spacing:.02em;
+    padding:9px 28px;display:flex;gap:20px;flex-wrap:wrap;align-items:center;}
+  .strip b{color:#fff;font-weight:600;}
+  .strip .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto;}
+  .strip a{color:#f0d99a;}
+  .hero{padding:52px 0 32px;}
+  .kick{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+    font-weight:700;margin-bottom:14px;}
+  h1{font-family:var(--font-display);font-size:clamp(34px,4.6vw,52px);line-height:1.08;
+    font-weight:700;max-width:22ch;}
+  .brief{max-width:64ch;margin-top:22px;font-size:17.5px;}
+  .brief p+p{margin-top:10px;}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;}
+  .btn{display:inline-block;font-size:14.5px;font-weight:600;padding:12px 22px;
+    border:1px solid var(--accent);border-radius:2px;text-decoration:none;}
+  .btn.solid{background:var(--accent);color:#fff;}
+  .btn.ghost{background:#fff;color:var(--accent);}
+  .btn:hover{filter:brightness(.95);}
+  .btn:focus-visible{outline:2px solid var(--green);outline-offset:2px;}
+  .deadline{margin-top:18px;font-size:14.5px;color:var(--muted);}
+  .doc{max-width:74ch;margin:0 auto;padding:0 28px 80px;}
+  .doc h2{font-family:var(--font-display);font-size:30px;line-height:1.15;font-weight:700;
+    margin:46px 0 10px;padding-top:22px;border-top:1px solid var(--line);}
+  .doc h3{font-size:17px;font-weight:700;margin:30px 0 6px;}
+  .doc p{font-size:17px;margin:0 0 14px;}
+  .doc ul{margin:0 0 16px;padding-left:20px;}
+  .doc li{font-size:17px;margin-bottom:6px;}
+  .src{font-size:14px;line-height:1.55;color:var(--muted);margin:0 0 18px;}
+  .rec{font-size:14px;line-height:1.55;color:var(--muted);margin:0 0 18px;
+    border-left:2px solid var(--line);padding-left:12px;}
+  .note{font-size:15.5px;line-height:1.6;background:var(--wash);padding:14px 16px;margin:0 0 20px;}
+  .jump{font-size:15px;margin:0 0 26px;border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);padding:12px 0;}
+  .jump a{font-weight:700;text-decoration:none;border-bottom:1px solid var(--accent);}
+  .jump a:hover{background:#fdf6e4;}
+  .jump span{color:var(--muted);margin-left:10px;}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;margin:0 0 20px;}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-weight:700;}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;}
+  button.term{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;
+    border-bottom:1px dotted var(--accent);}
+  button.term:hover,button.term:focus-visible{background:#fdf6e4;}
+  button.term:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .pop{font-size:15px;line-height:1.6;background:var(--wash);border-left:3px solid var(--accent);
+    padding:14px 16px;margin:-6px 0 20px;}
+  .pop b{display:block;margin-bottom:3px;}
+  .pop a{font-size:13.5px;}
+  .matrix-scroll{overflow-x:auto;margin:0 0 6px;}
+  table.matrix{font-size:13px;min-width:56rem;}
+  table.matrix th{background:var(--wash);}
+  table.matrix td:first-child{width:19rem;}
+  table.matrix span.req{display:block;color:var(--muted);font-weight:400;font-size:12.5px;
+    margin-top:3px;line-height:1.4;}
+  table.matrix td.cls{text-align:center;font-weight:700;font-size:12.5px;}
+  table.matrix td.cls.m{color:var(--green);}
+  table.matrix td.cls.p{color:var(--muted);}
+  table.matrix td.bench{color:var(--muted);font-size:12.5px;}
+  table.matrix tr.result td{background:var(--wash);font-weight:700;}
+  table.matrix select{font:inherit;font-size:13px;width:100%;padding:6px 4px;
+    border:1px solid var(--line);border-radius:2px;background:#fff;color:var(--ink);}
+  table.matrix select:focus-visible{outline:2px solid var(--accent);outline-offset:1px;}
+  table.matrix select.notread{color:var(--muted);}
+  table.matrix td.out{font-weight:700;font-variant-numeric:tabular-nums;}
+  table.matrix td.out.fail{color:var(--hot);}
+  table.matrix td.out.pending{color:var(--muted);font-weight:400;}
+  .work{font-size:14px;line-height:1.55;color:var(--muted);margin:0 0 18px;}
+  .tools{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px;}
+  .tools button{font:inherit;font-size:14px;font-weight:600;padding:10px 18px;
+    border:1px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer;border-radius:2px;}
+  .tools button:hover{background:var(--ink);color:#fff;}
+  .tools button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .dl{border:1px solid var(--line);border-left:3px solid var(--green);padding:18px 20px;margin:0 0 26px;}
+  .dl h4{font-size:16px;margin:0 0 6px;}
+  .dl p{font-size:14.5px;line-height:1.6;color:var(--muted);margin:0 0 10px;}
+  .dl a.file{font-size:14.5px;font-weight:700;}
+  ol.sources{font-size:14.5px;line-height:1.6;padding-left:22px;margin:0 0 20px;}
+  ol.sources li{margin-bottom:10px;}
+  .src a,ol.sources a{font-weight:700;margin-left:6px;white-space:nowrap;}
+  dl.gloss{margin:0;}
+  dl.gloss div{padding:14px 0;border-bottom:1px solid var(--line);}
+  dl.gloss dt{font-weight:700;font-size:16px;}
+  dl.gloss dd{margin:4px 0 0;font-size:16px;line-height:1.6;}
+  dl.gloss div:target{background:#fdf6e4;}
+  footer{border-top:1px solid var(--line);padding:26px 28px;font-size:14px;color:var(--muted);
+    display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between;
+    max-width:var(--maxw);margin:0 auto;}
+  @media (max-width:640px){
+    .doc{padding:0 20px 60px;} .doc p,.doc li{font-size:16px;}
+    table.matrix{min-width:44rem;}
+  }
+  #printhead{display:none;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:16px;}
+  #printhead h2{border:0;margin:0 0 4px;padding:0;font-size:20px;}
+  #printhead p{font-size:12px;line-height:1.45;color:var(--muted);margin:0;}
+  @media print{
+    .site-nav,.site-nav-spacer,.press-nav,.strip,.hero,footer,.pop,.tools,.dl,.work,.jump{display:none;}
+    button.term{border-bottom:0;}
+    table.matrix select{border:0;-webkit-appearance:none;appearance:none;padding:0;
+      font-weight:700;color:#000;background:none;}
+    table.matrix select.notread{color:#777;font-weight:400;}
+    .matrix-scroll{overflow:visible;} table.matrix{min-width:0;width:100%;font-size:11px;}
+    #printhead{display:block;}
+    body.print-matrix .doc > *{display:none;}
+    body.print-matrix #printhead,body.print-matrix .matrix-scroll{display:block;}
+    body.print-matrix .doc{max-width:none;padding:0;}
+  }
+</style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-name">Dr. Mark McNees</a>
+    <button class="site-nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNavMenu">
+      <span class="site-nav-burger"></span>
+    </button>
+    <nav class="site-nav-menu" id="siteNavMenu" aria-label="Primary">
+      <a href="/#argument">The Argument</a>
+      <a href="/speaker/">Speaking</a>
+      <a href="/published-work/">Published Work</a>
+      <a href="/community/">Community Guide</a>
+      <a href="/press/" class="on">Press</a>
+      <a href="/bio/">About</a>
+      <a href="/#contact" class="site-nav-cta">Book a Talk</a>
+    </nav>
+  </div>
+</header>
+<div class="site-nav-spacer" aria-hidden="true"></div>
+
+<!-- PRESS SUB-NAV -->
+<nav class="press-nav" aria-label="Press section">
+  <div class="press-nav-inner">
+    <a href="/press/">Press desk</a>
+    <a href="/press/rubric.html" class="on">Compliance rubric</a>
+    <a href="/press/faq.html">Reporter FAQ</a>
+    <a href="/press/data-center-tracker.html">State tracker</a>
+    <a href="/press/research.html">Following the research</a>
+    <a href="/press/cost-of-serving-large-load.html">How the cost is calculated</a>
+    <a href="/press/how-it-works.html">How it works</a>
+  </div>
+</nav>
+
+<div class="strip">
+  <span class="dot"></span>
+  <span><b>Published September 15, 2026.</b> Facts verified against primary sources through September 15, 2026.</span>
+  <span>Criteria published before the filings exist.</span>
+  <span>On deadline: <a href="tel:+18509737687">850.973.7687</a></span>
+</div>
+
+<div class="wrap"><div class="hero">
+<div class="kick">Utility compliance rubric</div>
+<h1>October 1 large-load tariff filings: a compliance reading framework</h1>
+<div class="brief"><p>Four Florida investor-owned utilities must file a large-load tariff for Commission approval by October 1, 2026 under section 366.043, Florida Statutes. This is the framework I will read those filings against, published before they exist so the criteria are on the record before anyone knows the answers.</p><p>Seven tests, each tied to the subsection it reads. Four findings per test. One gate, one total, three counts. It is not a prediction of what the Commission will do and it takes no view on the size of the data center buildout. It is about who pays.</p></div>
+<div class="cta"><a class="btn solid" href="#matrix">Go straight to the rubric</a><a class="btn ghost" href="#glossary">Glossary</a><a class="btn ghost" href="#sources">Sources</a><a class="btn ghost" href="/press/sb484-compliance-rubric.pdf">Fillable worksheet (PDF)</a><a class="btn ghost" href="/press/data-center-tracker.html">Fourteen-state deep reference</a><a class="btn ghost" href="/press/faq.html">Reporter FAQ</a></div>
+<p class="deadline">Writing on deadline? Call <a href="tel:+18509737687">850.973.7687</a> or email <a href="mailto:mmcnees@fsu.edu">mmcnees@fsu.edu</a>.</p>
+</div></div>
+<div class="doc">
+<p class="jump"><a href="#matrix">Go straight to the rubric</a><span>Seven tests, four filings, scored as you go.</span></p>
+<h2>What this is</h2>
+<p>A structured reading of the four large-load <button class="term" data-term="tariff" aria-describedby="g-tariff">tariff</button> filings due October 1, 2026, against one statute and one existing <button class="term" data-term="benchmark" aria-describedby="g-benchmark">benchmark</button>, applied the same way to each filing. It is a compliance reading because the statute asks for compliance: section 366.043(8) requires each public utility to file a tariff that complies with this section. The question is whether the filed words satisfy the statute, requirement by requirement.</p>
+<p>The criteria are published before the filings exist, so they are on the record before anyone knows the answers. It is not a prediction of what the Florida Public Service Commission will do, a forecast about the size of the data center buildout, or an environmental argument. It is about <button class="term" data-term="cost-shifting" aria-describedby="g-cost-shifting">who pays</button>.</p>
+<p><strong>Standing.</strong> I am not a party to these <button class="term" data-term="docket" aria-describedby="g-docket">dockets</button>. The Office of Public Counsel is, and its review is the one that carries legal weight. This is an outside academic reading. My only filing on the subject is a public comment in Docket 20260064-EI, Document No. 04900-2026.</p>
+<p class="note">Every term that needs one is defined where it first appears, and the glossary at the end defines all of them. On the web version, clicking a term opens its definition without leaving the page. The matrix is fillable: download the PDF and mark your own readings in it as the filings land.</p>
+<h2>Scope</h2>
+<p>Section 366.043 applies to a public utility as defined in section 366.02, which excludes rural electric cooperatives and municipal utilities. Four <button class="term" data-term="iou" aria-describedby="g-iou">investor-owned utilities</button> must file by October 1: Florida Power &amp; Light, Duke Energy Florida, Tampa Electric, and Florida Public Utilities.</p>
+<table><tr><th>Utility type (Florida PSC, customers as of Dec. 31, 2024)</th><th class="num">Accounts</th></tr><tr><td>Investor-owned (covered by the statute)</td><td class="num">8,898,282</td></tr><tr><td>Municipal (not covered)</td><td class="num">1,624,182</td></tr><tr><td>Rural electric cooperative (not covered)</td><td class="num">1,373,691</td></tr><tr><td>Total</td><td class="num">11,896,155</td></tr><tr><td>Outside the statute</td><td class="num">2,997,873 (25.20 percent)</td></tr></table>
+<p class="src">Source: Florida Public Service Commission, Statistics of the Florida Electric Utility Industry 2024, published October 2025, Table 32, printed page 47. These are accounts, not population. Florida Public Utilities serves 33,188 of the investor-owned accounts; the statute applies to it on the same terms as to the other three. <a href="https://www.floridapsc.com/pscfiles/website-files/PDF/Publications/Reports/ElectricGas/Statistics/2024.pdf" rel="noopener">FPSC report</a></p>
+<h2>The statute in brief</h2>
+<p>SB 484 was signed May 7, 2026 as Chapter 2026-65, Laws of Florida, and took effect July 1, 2026. It creates section 366.043.</p>
+<p class="src">Source: enrolled text of CS/CS/SB 484 and the chapter law. Every subsection cited in this document was read in that text. <a href="https://flsenate.gov/Session/Bill/2026/484/BillText/er/HTML" rel="noopener">Enrolled text</a> <a href="https://laws.flrules.org/2026/65" rel="noopener">Chapter law</a></p>
+<p><strong>Who is covered, 366.043(2)(d).</strong> A <button class="term" data-term="large-load" aria-describedby="g-large-load">large load customer</button> has an anticipated monthly peak load of 50 megawatts or more, measured as the highest average over a 15-minute interval at a single location. <button class="term" data-term="colocation" aria-describedby="g-colocation">Colocation</button> tenants at one location count together, meaning separate tenants sharing one site. Load spread across several locations under one owner does not. Section 366.043(4) bars splitting a load at one location to stay under the threshold.</p>
+<p><strong>Two standards in one paragraph, 366.043(3)(a).</strong> The first sentence says the tariff and service requirements must reasonably ensure that each large load customer bears its own full <button class="term" data-term="cost-of-service" aria-describedby="g-cost-of-service">cost of service</button> and that such cost is not shifted to the <button class="term" data-term="general-body" aria-describedby="g-general-body">general body of ratepayers</button>, listing connection, incremental transmission, <button class="term" data-term="incremental-generation" aria-describedby="g-incremental-generation">incremental generation</button>, other infrastructure, operations and maintenance, and any other costs required to serve. The last sentence is unqualified: the risk of nonpayment of such costs may not be borne by the general body of ratepayers. A filing can be defensible under the first sentence and still fail the second.</p>
+<p><strong>A menu, not a mandate, 366.043(5).</strong> The Commission may approve tariffs that include <button class="term" data-term="ciac" aria-describedby="g-ciac">contributions in aid of construction</button>, money paid up front toward construction; <button class="term" data-term="demand-charge" aria-describedby="g-demand-charge">demand charges</button> including minimum demand charges, priced on the largest amount of power drawn at once; incremental generation charges; <button class="term" data-term="guarantee" aria-describedby="g-guarantee">financial guarantees</button>; minimum <button class="term" data-term="load-factor" aria-describedby="g-load-factor">load factors</button>, a measure of how steadily a customer draws power; <button class="term" data-term="take-or-pay" aria-describedby="g-take-or-pay">take-or-pay</button> provisions, under which the customer pays for a minimum quantity whether or not it uses it; and at (5)(g) <button class="term" data-term="term" aria-describedby="g-term">minimum service terms</button> including early termination fees. A utility can decline every tool on the list and still owe the result that (3)(a) requires.</p>
+<p><strong>Also in the section.</strong> Nothing may hinder <button class="term" data-term="curtail" aria-describedby="g-curtail">curtailment</button> for grid stability or emergencies, 366.043(6). To curtail is to require a customer to cut back or stop drawing power, under terms the customer agreed to in advance. Foreign-entity screening and a service prohibition, 366.043(3)(b) and (7). The rate provisions are technology-neutral: the phrase data center does not appear in section 366.043.</p>
+<h2>Findings: four values</h2>
+<table><tr><th>Finding</th><th>Meaning</th></tr><tr><td>Met</td><td>The filed language satisfies the requirement on its face, without a later proceeding.</td></tr><tr><td>Partially met</td><td>Some elements addressed, others absent.</td></tr><tr><td>Not met</td><td>The requirement is not addressed in the filed language.</td></tr><tr><td>Deferred</td><td>The filing acknowledges the requirement and assigns its resolution to a future proceeding.</td></tr></table>
+<p>Silence is not met, not deferred. Deferred requires the filing to say the requirement is coming later. And partially met does not trip the <button class="term" data-term="gate" aria-describedby="g-gate">gate</button> below, because the filing addressed the requirement imperfectly rather than ignored it. Only not met trips it.</p>
+<h2>Weighting, and how the final result is reached</h2>
+<p>No test is weighted above another, because the statute does not rank its own requirements. What the statute does rank is <button class="term" data-term="required" aria-describedby="g-required">what it requires against what it merely allows</button>, and that is the only distinction the scoring uses.</p>
+<p>The statute makes that distinction plainly. Section 366.043(8) and section 366.043(3)(a) are required: the utility shall file, the requirements must reasonably ensure full cost of service, and the risk of nonpayment may not be borne by the general body of ratepayers. Subsection (5) is optional: the Commission may approve the listed tools, and a utility can decline every one of them. So each test is marked required or optional in the matrix, according to the provision it reads.</p>
+<ul><li><strong>Required:</strong> test zero, 366.043(8). Test 1, 366.043(2)(d). Test 2, 366.043(3)(a) first sentence. Test 3, 366.043(3)(a) last sentence. Test 6, 366.043(6). Test 7, 366.043(3)(b), which reaches the gate and not the total because it is outside the cost question.</li><li><strong>Optional:</strong> test 4 and test 5, which read the tools at 366.043(5) that a filing may use to satisfy the required outcome. A filing can score badly here and still satisfy (3)(a) by another route, which is why these are reported separately rather than averaged in.</li></ul>
+<p><strong><button class="term" data-term="face-compliance" aria-describedby="g-face-compliance">The total</button>.</strong> A percentage of the five required cost-of-service standards a filing satisfies <button class="term" data-term="on-the-face" aria-describedby="g-on-the-face">on its face</button>, each weighted equally. It is called a total rather than a score because it counts what the filed words satisfy; it does not weigh how much any one requirement matters. Met scores 1.0. Partially met and deferred each score 0.5, because both mean the requirement was addressed but not satisfied on its face, which is better than silence and worse than done. Not met scores 0. Five required tests, so the total is multiplied by 20. The two optional tests are excluded: a utility may lawfully decline every tool at subsection (5), and including them would score a lawful choice as a deficiency.</p>
+<p><strong>The gate overrides the total.</strong> A filing with any required test reading not met is reported as missing a required element on the face of the filing, regardless of the percentage, so no filing can offset a miss with good marks elsewhere. The total is still reported, because how far short it falls is itself informative. This is a reading of the filed words. It is not a finding the Commission has made or will make; 366.043(3)(a) asks the Commission to judge what reasonably ensures full cost of service, and that judgment belongs to a proceeding.</p>
+<p>Reported with the total, never folded into it:</p>
+<ul><li><strong>The gate.</strong> Clears, or misses a required test. Binary, and the only conclusion the framework states as a miss.</li><li><strong>Required met, of five.</strong> A count of full credit, so a reader can see whether a given percentage came from clean answers or from half credit.</li><li><strong>Deferred, of seven.</strong> How much of the substance is postponed. A filing can clear the gate and still defer most of the arithmetic.</li><li><strong>Optional tools, of two.</strong> The two optional tests, reported on their own. Met counts; partially met does not.</li></ul>
+<p><strong>Two things the arithmetic does on purpose.</strong> Five partially met readings clear the gate at 50 percent, and one not met among four met readings misses the gate at 80 percent. That is the design: a filing that addresses every requirement imperfectly ranks above one that is silent on any of them. And deferred scores the same 0.5 as partially met, so a filing that names a requirement and parks the arithmetic in a future docket scores better than silence and worse than a stated charge mechanism. A reader who thinks a promise should score lower than half credit can see exactly where that judgment sits.</p>
+<p><strong>A worked example, using the one tariff that already exists.</strong> FPL's LLCS schedules apply only to new or incremental load of 50 MW or more and a load factor of 85 percent or higher, while the statute sets no load factor condition and no new-load limit, so a customer the statute covers can be served outside the tariff. Test 1 reads not met. Were that an October 1 filing, the gate would read missed and the arithmetic on the remaining tests would not change the headline.</p>
+<p><strong>A second case worth naming in advance.</strong> A letter asserting that existing tariffs already comply arrives on time but files no tariff for approval, so test zero reads partially met. The gate does not trip, the total is capped at 90 percent before any other test is read, and tests 1 through 6 are then applied to whichever existing tariff the letter points to.</p>
+<h2>Test zero: did a complying tariff arrive at all?</h2>
+<p>This sits ahead of the six tests because everything after it assumes a filing to read. It has three outcomes, not two.</p>
+<ul><li><strong>Tariff filed.</strong> A tariff filed for Commission approval under 366.043(8). Proceed to the six tests.</li><li><strong>Assertion of existing compliance.</strong> A letter or petition taking the position that the utility's existing tariffs already comply, with no new tariff filed for approval. This is neither a non-filing nor a complying filing, and it is the outcome the statute's text does not expressly address.</li><li><strong>Nothing filed.</strong> No filing on or before October 1.</li></ul>
+<p><strong>Findings for test zero.</strong></p>
+<ul><li>Met: a tariff filed for Commission approval on or before October 1</li><li>Partially met: a filing arrives on time but asserts that existing tariffs already comply, rather than filing a tariff for approval</li><li>Not met: nothing filed by October 1</li></ul>
+<p><strong>A filing that already exists.</strong> Duke Energy Florida has a large-load tariff petition pending in Docket 20260064-EI, heard and briefed before October 1. On October 1 the question for Duke is what arrived: a new tariff filed for approval under 366.043(8), a letter pointing to the pending petition, or nothing. Whatever arrives is recorded with its docket and document number. If the pending petition is the instrument Duke relies on, tests 1 through 7 are applied to that instrument, not waived because it predates the deadline. A new October 1 filing supersedes it for scoring.</p>
+<p><strong>What the statute provides in the second and third cases.</strong> Section 366.043(8) states the obligation and carries no penalty of its own. Section 366.095 lets the Commission penalize an entity found to have refused to comply with or willfully violated any provision of chapter 366, up to $5,000 per offense, each day a separate offense; it requires a finding and is discretionary. Section 366.06(2) lets the Commission act upon its own motion where rates or practices are unjust or in violation of law. Recorded for each utility: what arrived, its document number, and its date.</p>
+<h2>The six tests</h2>
+<h3>Test 1. Does coverage match the statutory definition?</h3>
+<p><strong>Statutory hook.</strong> 366.043(2)(d), read against the tariff's applicability clause.</p>
+<p><strong>Question.</strong> Does the tariff apply to every customer the statute defines as a large load customer, or do added eligibility conditions narrow it? Watch for <button class="term" data-term="load-factor" aria-describedby="g-load-factor">load-factor</button> floors, meaning a minimum steadiness of draw; new-load-only limits; optional election structures; thresholds measured other than as a 15-minute peak at one location; and colocation tenants not aggregated.</p>
+<ul><li>Met: applicability tracks the statutory definition, or any added condition excludes no one the statute covers</li><li>Partially met: conditions narrow coverage, but a default tariff catches the remainder</li><li>Not met: a customer meeting the statutory definition can be served outside the tariff</li><li>Deferred: the filing acknowledges the requirement and assigns its resolution to a future proceeding</li></ul>
+<p>Two things to say about this test. First, whether a utility may serve a statutory large load customer under a general schedule with added contract terms, rather than under a separate tariff, is contested in Docket 20260064-EI. The not met standard above takes the reading that a complying tariff must reach every customer the statute defines; that is a construction of 366.043(8), not a settled one. Second, a load factor used inside a tariff to price steadiness, which 366.043(5)(e) allows, is not a coverage defect. A load factor used as an eligibility floor that leaves a 50 MW customer outside the tariff is.</p>
+<p class="rec">Recorded for each filing: the applicability language, verbatim, with sheet number.</p>
+<h3>Test 2. Are all the listed cost categories assigned?</h3>
+<p><strong>Statutory hook.</strong> 366.043(3)(a), first sentence: the requirements must reasonably ensure that each large load customer bears its own full cost of service. Reasonably ensure is a standard, not a checklist, which is why partially met and deferred exist in this test.</p>
+<p><strong>Question.</strong> Does the tariff assign each listed category to the large load customer: connection, incremental transmission, incremental generation, other infrastructure, operations and maintenance, and any other costs required to serve? The list is open-ended, so whether the tariff has a catch-all is itself part of the test.</p>
+<ul><li>Met: every category addressed with a stated charge mechanism</li><li>Partially met: categories addressed unevenly, or some only in principle</li><li>Not met: no cost category is assigned a charge mechanism</li><li>Deferred: a category acknowledged, with its amount or method left to a future proceeding</li></ul>
+<p class="rec">Recorded for each filing: a grid, one row per cost category, one column per utility.</p>
+<h3>Test 3. Is nonpayment risk actually off the general body of ratepayers?</h3>
+<p><strong>Statutory hook.</strong> 366.043(3)(a), last sentence. Tools at (5)(a) and (5)(d).</p>
+<p><strong>Question.</strong> Which <button class="term" data-term="guarantee" aria-describedby="g-guarantee">financial assurance instruments</button> does the filing use, and are they sized to the utility's committed investment or only to a few months of billing?</p>
+<ul><li>Met: assurance sized to the committed investment</li><li>Partially met: assurance present but sized to billing exposure rather than capital exposure</li><li>Not met: no assurance instrument</li><li>Deferred: the filing acknowledges the requirement and assigns its resolution to a future proceeding</li></ul>
+<p class="rec">Recorded for each filing: instrument type, sizing formula, and the investment it sits against.</p>
+<h3>Test 4. What happens to the asset when the load leaves?</h3>
+<p><strong>Statutory hook.</strong> 366.043(3)(a) addresses nonpayment. Durability tools at (5)(f) and (5)(g) are optional.</p>
+<p><strong>Question.</strong> Nonpayment is not the same event as termination, expiry, or non-renewal. A customer can pay every invoice and still leave. If a utility builds capacity for a load that later leaves, does the tariff say who carries the cost of what remains, the <button class="term" data-term="stranded" aria-describedby="g-stranded">stranded asset</button>? The one yes-or-no check: did the filing include an early termination charge under (5)(g)?</p>
+<ul><li>Met: term, take-or-pay level, and termination charge together recover the committed investment across plausible departure dates</li><li>Partially met: durability tools present but recovery incomplete or unquantified</li><li>Not met: none of the (5)(f) or (5)(g) tools used</li><li>Deferred: stranded-cost treatment left to a future rate case</li></ul>
+<p>The met standard here is a durability test, not a statutory minimum. The statute does not require a term, a take-or-pay level or a termination charge; it allows them. A short exit fee with no stated basis reads partially met on this test and is still lawful. The reason the test exists is that the first sentence of 366.043(3)(a) reaches any other costs required to serve, and a plant built for a customer who pays every bill and then leaves is a cost that lands on someone. The statute puts the tools for that in the optional list, so the test is optional and the risk is named here.</p>
+<p class="rec">Recorded for each filing: term, take-or-pay level, and whether the termination charge is a formula or a negotiated amount.</p>
+<h3>Test 5. Is the basis of the incremental generation charge stated?</h3>
+<p><strong>Statutory hook.</strong> 366.043(3)(a) lists incremental generation among the costs the customer bears. 366.043(5)(c) authorizes an incremental generation charge. Neither says how that cost is measured.</p>
+<p><strong>Question.</strong> Does the filing state how the charge is calculated, from a basis someone outside the utility can check, and is the underlying calculation filed or confidential?</p>
+<ul><li>Met: stated, checkable basis, on file</li><li>Partially met: basis stated in general terms, or partly confidential</li><li>Not met: a number or negotiated term with no disclosed basis</li><li>Deferred: the filing acknowledges the requirement and assigns its resolution to a future proceeding</li></ul>
+<p>Confidential cost models are ordinary at the Commission. Reading partly confidential as partially met is a transparency preference, stated as such: a charge nobody outside the utility can check is harder to call cost of service on its face.</p>
+<p class="rec">Recorded for each filing: the calculation language, verbatim, and whether it is filed or confidential.</p>
+<h3>Test 6. Does anything hinder curtailment?</h3>
+<p><strong>Statutory hook.</strong> 366.043(6), which reaches contracts, service requirements, and utility policies, not just the tariff sheet.</p>
+<p><strong>Question.</strong> Do <button class="term" data-term="firm" aria-describedby="g-firm">firm-service</button> guarantees, liability terms, or performance credits make <button class="term" data-term="curtail" aria-describedby="g-curtail">curtailment</button> costly or conditional?</p>
+<ul><li>Met: curtailment right stated without conditions that make it a compensable event. Ordinary advance notice is not a condition; it is how curtailment works</li><li>Partially met: curtailment allowed but subject to compensation, credits, or liability terms that raise its cost</li><li>Not met: curtailment restricted</li><li>Deferred: the filing acknowledges the requirement and assigns its resolution to a future proceeding</li></ul>
+<p class="rec">Recorded for each filing: the curtailment clause and any language that interacts with it.</p>
+<h3>Test 7. Are foreign-entity screening provisions present?</h3>
+<p><strong>Statutory hook.</strong> 366.043(3)(b). The requirements must include provisions reasonably designed to prevent service to a customer that would otherwise be a large load customer if that customer is a foreign entity.</p>
+<p><strong>Question.</strong> Are such provisions in the filed tariff or not. This is a required element, so a filing silent on it misses the gate. It is outside the cost question this framework exists to ask, so it is read as present or absent, with no judgment on design, and it does not enter the total.</p>
+<ul><li>Met: screening provisions present in the filed language</li><li>Not met: no screening provision in the filed language</li></ul>
+<p class="rec">Recorded for each filing: the screening clause, verbatim, with sheet number.</p>
+<p>Reported without scoring: the foreign-entity service prohibition at 366.043(7), which binds the utility rather than the tariff; anti-splitting at 366.043(4), which is a prohibition on the customer and not a required tariff clause, so its absence from a tariff is not a miss; and colocation aggregation, 366.043(2)(d).</p>
+<h2>The benchmark</h2>
+<p>Florida already has one approved large-load tariff: Florida Power &amp; Light's Large-Load Contract Service schedules, LLCS-1 at Sheet No. 8.950 and LLCS-2 at Sheet No. 8.953, effective January 1, 2026, from the 2025 rate settlement in Docket 20250011-EI. The Commission voted to approve the settlement November 20, 2025, and issued Order No. PSC-2026-0022-S-EI on January 22, 2026.</p>
+<p>Paragraph 6 of the settlement approved the LLCS tariffs as filed with modifications. Those modifications are the terms that can be checked today:</p>
+<ul><li><strong>Eligibility, 6(a).</strong> The tariffs apply to a customer with new or incremental load of 50 MW or more and a load factor of 85 percent or higher.</li><li><strong>Take-or-pay, 6(b).</strong> The minimum take-or-pay demand charge is 70 percent.</li><li><strong>Credit support, 6(e).</strong> For counterparties rated BBB or better, a parent guaranty equal to the present value of five years of incremental generation charge revenues, with a parent liquidity test and annual review. Below BBB, a letter of credit or surety bond at ten years. Unrated counterparties get five or ten years after an internal FPL credit review.</li><li><strong>Metering, 6(d).</strong> The metering language is not intended to aggregate load across locations; each location keeps its own dedicated metering.</li><li><strong>An open deadline, 6(f)(vi).</strong> System studies accepted before the tariff took effect must have an executed LLCS Service Agreement by September 30, 2026.</li></ul>
+<p>The tariff as filed also carries an early termination exit fee and a minimum term of not less than 20 years from in-service. Those terms sit in the tariff sheets rather than in the settlement, and they are reported here as filed terms pending a direct read of the sheets.</p>
+<p><strong>Applied to Test 1, the benchmark reads not met.</strong> The statute defines a large load customer by anticipated monthly peak of 50 MW at a single location. It sets no load factor condition and no new-load limit. A customer the statute covers, at 50 MW with an 80 percent load factor, can be served outside the LLCS tariff.</p>
+<p>Every date in the paragraph above comes before SB 484 was signed. A tariff written before the statute existed was not written against its required elements, so it is read element by element like the others rather than presumed to comply. It was also a partial settlement. The signatories are listed at footnote 2 of Order No. PSC-2026-0117-FOF-EI (Document No. 02414-2026); the Office of Public Counsel did not sign, and under paragraph 31 no signatory may seek appellate review of the approving order.</p>
+<p class="src">Source: 2025 Stipulation and Settlement Agreement, Docket No. 20250011-EI, dated August 20, 2025, filed as exhibit 99 to a Form 8-K, paragraphs 6 and 31; Order No. PSC-2026-0022-S-EI. <a href="https://www.sec.gov/Archives/edgar/data/0000753308/000075330825000047/exhibit99tonee-fpl8xkdated.htm" rel="noopener">Settlement, SEC EDGAR</a> <a href="https://floridapsc.com/pscfiles/library/filings/2026/00628-2026/00628-2026.pdf" rel="noopener">Approving order</a></p>
+<h2>Why the exit term matters: Kentucky</h2>
+<p>In 2013 and 2014 two aluminum smelters on the Big Rivers Electric system in Kentucky moved off their cost-based contracts. Industrial customers asked the Kentucky Public Service Commission to charge the departing load for the capacity built to serve it. The Commission declined, Case No. 2013-00221 (August 14, 2013) and Case No. 2013-00413 (January 30, 2014). The Commission-approved 2009 contracts carried a twelve-month termination notice and no provision imposing an exit fee, and the Commission would not read one in afterward.</p>
+<p>The costs did not disappear. In Case No. 2020-00064 (June 25, 2020), the Commission authorized recovery of regulatory assets whose stated balances total approximately $371.9 million, plus decommissioning costs not yet determined, over a period no longer than through December 31, 2043, with an annual application required each February. At page 23 of that order, in its own findings: if BREC's history informs the Commission of nothing else, it is LIC customers that may come and go based on a number of factors; and the rural class is always left holding the bag. A term that is not in the agreement at signing may not be available later.</p>
+<p class="src">Source: Kentucky Public Service Commission orders in Case Nos. 2013-00221, 2013-00413 and 2020-00064. <a href="https://psc.ky.gov/pscscf/2013%20Cases/2013-00221/20130814_PSC_ORDER.pdf" rel="noopener">2013-00221</a> <a href="https://psc.ky.gov/pscscf/2013%20Cases/2013-00413/20140130_PSC_ORDER.pdf" rel="noopener">2013-00413</a> <a href="https://psc.ky.gov/pscscf/2020%20Cases/2020-00064/20200625_PSC_ORDER.pdf" rel="noopener">2020-00064</a></p>
+<h2>How it reports</h2>
+<p>The deliverable is one matrix, published October 1 and 2 as the filings land. Test zero and the seven tests are the rows, each marked required or optional. The four filings are the columns. One finding per cell, from the four values above. The last five rows carry the gate, the total, and the three counts.</p>
+<p>Each row carries the statutory requirement it reads, so the thing being scored sits next to the finding rather than somewhere else in the document. The second reference column is FPL's existing LLCS tariff, the only large-load tariff Florida has approved so far. It is there for comparison, not as a standard: it was written before SB 484 existed, it reads not met on Test 1, and it is a separate instrument from whatever FPL files on October 1. The same utility appears in both places and the two are not read together.</p>
+<div class="matrix-scroll" id="matrix"><table class="matrix"><tr><th>Test, and what the statute requires</th><th>Required<br>or optional</th><th>FPL LLCS<br>already approved, for comparison</th><th>FPL</th><th>Duke</th><th>TECO</th><th>Florida Public Utilities</th></tr><tr><td><strong>Test zero. Complying tariff filed</strong><span class="req">366.043(8). File a tariff that complies with this section, for Commission approval, no later than October 1, 2026.</span></td><td class="cls m">Required</td><td class="bench">n/a</td><td><select class="notread" data-r="0" data-c="0" data-cls="M" aria-label="Test zero. Complying tariff filed, FPL"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="0" data-c="1" data-cls="M" aria-label="Test zero. Complying tariff filed, Duke"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="0" data-c="2" data-cls="M" aria-label="Test zero. Complying tariff filed, TECO"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="0" data-c="3" data-cls="M" aria-label="Test zero. Complying tariff filed, Florida Public Utilities"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td></tr><tr><td><strong>1. Coverage matches the definition</strong><span class="req">366.043(2)(d). Reach every customer with an anticipated monthly peak of 50 MW or more, highest 15-minute average, at a single location.</span></td><td class="cls m">Required</td><td class="bench">Not met. 85% load factor floor, new load only</td><td><select class="notread" data-r="1" data-c="0" data-cls="M" aria-label="1. Coverage matches the definition, FPL"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="1" data-c="1" data-cls="M" aria-label="1. Coverage matches the definition, Duke"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="1" data-c="2" data-cls="M" aria-label="1. Coverage matches the definition, TECO"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="1" data-c="3" data-cls="M" aria-label="1. Coverage matches the definition, Florida Public Utilities"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td></tr><tr><td><strong>2. Cost categories assigned</strong><span class="req">366.043(3)(a), first sentence. Assign the customer its full cost of service: connection, incremental transmission, incremental generation, other infrastructure, operations and maintenance, and any other costs required to serve.</span></td><td class="cls m">Required</td><td class="bench"></td><td><select class="notread" data-r="2" data-c="0" data-cls="M" aria-label="2. Cost categories assigned, FPL"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="2" data-c="1" data-cls="M" aria-label="2. Cost categories assigned, Duke"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="2" data-c="2" data-cls="M" aria-label="2. Cost categories assigned, TECO"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="2" data-c="3" data-cls="M" aria-label="2. Cost categories assigned, Florida Public Utilities"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td></tr><tr><td><strong>3. Nonpayment risk off ratepayers</strong><span class="req">366.043(3)(a), last sentence. The risk of nonpayment may not be borne by the general body of ratepayers. Unqualified.</span></td><td class="cls m">Required</td><td class="bench"></td><td><select class="notread" data-r="3" data-c="0" data-cls="M" aria-label="3. Nonpayment risk off ratepayers, FPL"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="3" data-c="1" data-cls="M" aria-label="3. Nonpayment risk off ratepayers, Duke"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="3" data-c="2" data-cls="M" aria-label="3. Nonpayment risk off ratepayers, TECO"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="3" data-c="3" data-cls="M" aria-label="3. Nonpayment risk off ratepayers, Florida Public Utilities"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td></tr><tr><td><strong>4. Asset when the load leaves</strong><span class="req">366.043(5)(f) and (5)(g). Nothing is required. The Commission may approve minimum terms and early termination fees. The required result at (3)(a) still has to be reached by some route.</span></td><td class="cls p">Optional</td><td class="bench"></td><td><select class="notread" data-r="4" data-c="0" data-cls="P" aria-label="4. Asset when the load leaves, FPL"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="4" data-c="1" data-cls="P" aria-label="4. Asset when the load leaves, Duke"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="4" data-c="2" data-cls="P" aria-label="4. Asset when the load leaves, TECO"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="4" data-c="3" data-cls="P" aria-label="4. Asset when the load leaves, Florida Public Utilities"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td></tr><tr><td><strong>5. Incremental generation basis stated</strong><span class="req">366.043(5)(c). Nothing is required. The Commission may approve an incremental generation charge. The statute does not say how that cost is measured.</span></td><td class="cls p">Optional</td><td class="bench"></td><td><select class="notread" data-r="5" data-c="0" data-cls="P" aria-label="5. Incremental generation basis stated, FPL"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="5" data-c="1" data-cls="P" aria-label="5. Incremental generation basis stated, Duke"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="5" data-c="2" data-cls="P" aria-label="5. Incremental generation basis stated, TECO"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="5" data-c="3" data-cls="P" aria-label="5. Incremental generation basis stated, Florida Public Utilities"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td></tr><tr><td><strong>6. Curtailment unhindered</strong><span class="req">366.043(6). No contract, service requirement or utility policy may hinder curtailment for grid stability or emergencies.</span></td><td class="cls m">Required</td><td class="bench"></td><td><select class="notread" data-r="6" data-c="0" data-cls="M" aria-label="6. Curtailment unhindered, FPL"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="6" data-c="1" data-cls="M" aria-label="6. Curtailment unhindered, Duke"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="6" data-c="2" data-cls="M" aria-label="6. Curtailment unhindered, TECO"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td><td><select class="notread" data-r="6" data-c="3" data-cls="M" aria-label="6. Curtailment unhindered, Florida Public Utilities"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Partially met">Partially met</option><option value="Not met">Not met</option><option value="Deferred">Deferred</option></select></td></tr><tr><td><strong>7. Foreign-entity screening present</strong><span class="req">366.043(3)(b). The tariff must include provisions reasonably designed to prevent service to a large load customer that is a foreign entity. Required; reaches the gate, not the total.</span></td><td class="cls m">Required</td><td class="bench"></td><td><select class="notread" data-r="7" data-c="0" data-cls="G" aria-label="7. Foreign-entity screening present, FPL"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Not met">Not met</option></select></td><td><select class="notread" data-r="7" data-c="1" data-cls="G" aria-label="7. Foreign-entity screening present, Duke"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Not met">Not met</option></select></td><td><select class="notread" data-r="7" data-c="2" data-cls="G" aria-label="7. Foreign-entity screening present, TECO"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Not met">Not met</option></select></td><td><select class="notread" data-r="7" data-c="3" data-cls="G" aria-label="7. Foreign-entity screening present, Florida Public Utilities"><option value="Not yet read">Not yet read</option><option value="Met">Met</option><option value="Not met">Not met</option></select></td></tr><tr class="result"><td>Gate: clears, or misses a required test</td><td></td><td></td><td class="out pending" data-out="gate" data-c="0">not yet read</td><td class="out pending" data-out="gate" data-c="1">not yet read</td><td class="out pending" data-out="gate" data-c="2">not yet read</td><td class="out pending" data-out="gate" data-c="3">not yet read</td></tr><tr class="result"><td>Total, %</td><td></td><td></td><td class="out pending" data-out="total" data-c="0">not yet read</td><td class="out pending" data-out="total" data-c="1">not yet read</td><td class="out pending" data-out="total" data-c="2">not yet read</td><td class="out pending" data-out="total" data-c="3">not yet read</td></tr><tr class="result"><td>Required tests met, of five</td><td></td><td></td><td class="out pending" data-out="required-tests-met" data-c="0">not yet read</td><td class="out pending" data-out="required-tests-met" data-c="1">not yet read</td><td class="out pending" data-out="required-tests-met" data-c="2">not yet read</td><td class="out pending" data-out="required-tests-met" data-c="3">not yet read</td></tr><tr class="result"><td>Deferred, of seven</td><td></td><td></td><td class="out pending" data-out="deferred" data-c="0">not yet read</td><td class="out pending" data-out="deferred" data-c="1">not yet read</td><td class="out pending" data-out="deferred" data-c="2">not yet read</td><td class="out pending" data-out="deferred" data-c="3">not yet read</td></tr><tr class="result"><td>Optional tools, of two</td><td></td><td></td><td class="out pending" data-out="optional-tools" data-c="0">not yet read</td><td class="out pending" data-out="optional-tools" data-c="1">not yet read</td><td class="out pending" data-out="optional-tools" data-c="2">not yet read</td><td class="out pending" data-out="optional-tools" data-c="3">not yet read</td></tr></table></div>
+<p class="work">Choose a finding in any cell and the five rows below fill themselves. The total stays blank until all five required cost-of-service tests have been read, because a partial total reads lower than the filing deserves.</p>
+<div class="tools"><button type="button" id="dl-pdf">Save the completed matrix as a PDF</button><button type="button" id="dl-csv">Download as a spreadsheet</button><button type="button" id="dl-html">Download an editable copy, HTML</button><button type="button" id="dl-clear">Clear the matrix</button></div>
+<p>The comparison cell at Test 1 is filled because that tariff exists and can be read today. Every other cell stays empty until a filing exists to read. Nothing in the bottom five rows requires a forecast or a judgment about relative importance: the gate is binary and the counts are arithmetic on the cells above them. A miss at the gate is a reading of the filed words, not a finding the Commission has made or will make.</p>
+<div class="dl"><h4>Download the worksheet</h4><p>The PDF is the same seven tests as a printable worksheet. Mark a finding with one click in every cell. In Adobe Acrobat and Acrobat Reader the gate, the total and the three counts fill themselves in; other PDF viewers leave them for you to type. The matrix on this page does the arithmetic in any browser and saves your completed matrix straight to a PDF.</p><p><a class="file" href="/press/sb484-compliance-rubric.pdf">Fillable worksheet, PDF, 11 pages</a></p></div>
+<h2 id="glossary">Glossary</h2>
+<p>Every term below appears somewhere in this framework. Nothing here assumes prior knowledge of utility regulation.</p>
+<dl class="gloss"><div id="g-curtail"><dt>Curtail</dt><dd>The utility tells a customer to cut back or stop drawing power, and the customer has agreed in advance to do it. Sold as curtailable or interruptible service, usually at a discount: the customer accepts interruption when the system is tight, in exchange for a lower rate or a faster connection. It matters to cost allocation for one reason. A load the utility can turn down needs less new capacity built for it, so it shifts less cost onto everyone else.</dd></div><div id="g-firm"><dt>Firm service</dt><dd>The opposite of curtailable. The utility commits to serve the load at all hours. Firm service for a very large customer is what drives new construction.</dd></div><div id="g-large-load"><dt>Large load customer</dt><dd>Under the statute, a customer with an anticipated monthly peak of 50 megawatts or more, measured as the highest average over any 15 minute interval, at a single location. Load at separate locations under one owner is not added together. Separate tenants sharing one site are counted together.</dd></div><div id="g-tariff"><dt>Tariff</dt><dd>The published terms and prices a utility charges a class of customers, filed with the Commission and approved by it. A tariff is a public document, not a private contract.</dd></div><div id="g-cost-of-service"><dt>Cost of service</dt><dd>What it actually costs the utility to serve a particular customer, including the generation and the wires built because that customer arrived.</dd></div><div id="g-cost-shifting"><dt>Cost shifting</dt><dd>When a customer does not pay the full cost of serving it, the difference lands on everybody else's bill. This framework exists to test whether a filing prevents that.</dd></div><div id="g-general-body"><dt>General body of ratepayers</dt><dd>Everyone else on the system. Households, small businesses, and the industrial customers who were already there.</dd></div><div id="g-incremental-generation"><dt>Incremental generation</dt><dd>New generating capacity built because a new load arrived, as distinct from the plants already serving everyone.</dd></div><div id="g-embedded"><dt>Embedded cost</dt><dd>The average cost of the system as it already exists. Charging a new large customer at embedded cost means it pays the old average rather than the cost of what was built for it.</dd></div><div id="g-demand-charge"><dt>Demand charge</dt><dd>A charge based on the highest amount of power a customer draws at one time, rather than on total energy used over the month. It prices the size of the pipe, not the water through it.</dd></div><div id="g-load-factor"><dt>Load factor</dt><dd>How steadily a customer uses power, stated as a percentage of its own peak. A customer running flat out around the clock has a high load factor. A customer that spikes and idles has a low one.</dd></div><div id="g-take-or-pay"><dt>Take or pay</dt><dd>The customer pays for a minimum quantity whether or not it uses it. It keeps revenue coming in if the load turns out smaller than promised.</dd></div><div id="g-term"><dt>Minimum service term</dt><dd>The number of years the customer must stay. The early termination fee, sometimes called an exit fee, is what it pays to leave before the term ends.</dd></div><div id="g-guarantee"><dt>Financial guarantee, or credit support</dt><dd>Security posted so the utility is paid if the customer fails. Usually a letter of credit, a surety bond, or a guaranty from a parent company.</dd></div><div id="g-ciac"><dt>Contribution in aid of construction</dt><dd>Money the customer pays up front toward building what it needs, before service starts. The customer funds the construction instead of the utility funding it and recovering the money through rates later. The statute allows it to be refunded in whole or in part over time.</dd></div><div id="g-stranded"><dt>Stranded asset</dt><dd>A plant or a line built to serve a customer that later shrinks or leaves. The asset remains, it still has to be paid for, and the question is who pays.</dd></div><div id="g-colocation"><dt>Colocation</dt><dd>Several tenants operating inside one facility at one site.</dd></div><div id="g-iou"><dt>Investor owned utility</dt><dd>A private company whose rates the Commission sets. Florida has four. They are the only utilities this statute reaches. Municipal utilities and rural electric cooperatives are not covered by it.</dd></div><div id="g-docket"><dt>Docket</dt><dd>The numbered case file at the Commission where every filing in a proceeding is kept. Anyone can read it.</dd></div><div id="g-mandatory"><dt>Required and optional</dt><dd>The statute's own verbs do the sorting. Shall, must, and may not are required. May is optional. Five tests read required provisions, two read optional ones. Lawyers call these mandatory and optional; the statute uses shall, must and may not for the first and may for the second.</dd></div><div id="g-gate"><dt>The gate</dt><dd>Any required test reading not met means the filing misses a required element on the face of the filing. This is the only conclusion the framework states as a miss, and it overrides the total. It is a reading of the filed words, not a finding the Commission has made or will make.</dd></div><div id="g-face-compliance"><dt>Total</dt><dd>A percentage built from the five required cost-of-service tests only, each weighted equally. Met counts 1.0, partially met and deferred count 0.5, not met counts 0, multiplied by 20. The two optional tests are reported next to the number, never folded into it, because a utility may lawfully decline every optional tool and still comply. It is a total, not a score: it counts what the filed words satisfy and takes no view on how much each requirement matters.</dd></div><div id="g-on-the-face"><dt>On the face of the filing</dt><dd>Everything here is read from what the utility filed. This framework does not predict what the Commission will approve, and it does not say whether a tariff will work in practice.</dd></div><div id="g-benchmark"><dt>The comparison column</dt><dd>FPL's Large-Load Contract Service tariff, the only large load tariff Florida has approved so far. It sits in the matrix so the October filings can be read against something real. It is not a standard: it was written before SB 484 existed, and it reads not met on Test 1.</dd></div></dl>
+<h2 id="sources">Sources</h2>
+<p>Every checkable fact in this document traces to one of the documents below. Each was opened at the address given. Two are retrieved by number from the Commission's docket search because the Commission's document server does not publish stable addresses for them.</p>
+<ol class="sources"><li>Chapter 2026-65, Laws of Florida (CS/CS/SB 484), creating section 366.043. Enrolled text and chapter law. <a href="https://flsenate.gov/Session/Bill/2026/484/BillText/er/HTML" rel="noopener">Enrolled text</a> <a href="https://laws.flrules.org/2026/65" rel="noopener">Chapter law</a></li><li>Florida Public Service Commission, Statistics of the Florida Electric Utility Industry 2024, published October 2025. Table 32, printed page 47, customers by utility as of December 31, 2024. <a href="https://www.floridapsc.com/pscfiles/website-files/PDF/Publications/Reports/ElectricGas/Statistics/2024.pdf" rel="noopener">FPSC report, PDF</a></li><li>2025 Stipulation and Settlement Agreement, Docket No. 20250011-EI, dated August 20, 2025, filed with the SEC as exhibit 99 to a Form 8-K. Paragraph 6 is the source for every FPL LLCS term in this document. <a href="https://www.sec.gov/Archives/edgar/data/0000753308/000075330825000047/exhibit99tonee-fpl8xkdated.htm" rel="noopener">SEC EDGAR, exhibit 99</a></li><li>Order No. PSC-2026-0022-S-EI, Final Order Approving 2025 Stipulation and Settlement Agreement, issued January 22, 2026. <a href="https://floridapsc.com/pscfiles/library/filings/2026/00628-2026/00628-2026.pdf" rel="noopener">Order, PDF</a></li><li>Order No. PSC-2026-0117-FOF-EI, issued April 27, 2026, Document No. 02414-2026, footnote 2 for the signatory list. Retrieve by document number from the Commission's docket search under Docket 20250011-EI. <a href="https://www.floridapsc.com/dockets" rel="noopener">FPSC docket search</a></li><li>Duke Energy Florida large-load tariff proceeding, Docket No. 20260064-EI, and the author's public comment, Document No. 04900-2026. Retrieve from the Commission's docket search. <a href="https://www.floridapsc.com/dockets" rel="noopener">FPSC docket search</a></li><li>Kentucky Public Service Commission, Case No. 2013-00221, order of August 14, 2013. <a href="https://psc.ky.gov/pscscf/2013%20Cases/2013-00221/20130814_PSC_ORDER.pdf" rel="noopener">Order, PDF</a></li><li>Kentucky Public Service Commission, Case No. 2013-00413, order of January 30, 2014. <a href="https://psc.ky.gov/pscscf/2013%20Cases/2013-00413/20140130_PSC_ORDER.pdf" rel="noopener">Order, PDF</a></li><li>Kentucky Public Service Commission, Case No. 2020-00064, order of June 25, 2020. The quoted finding is at page 23. <a href="https://psc.ky.gov/pscscf/2020%20Cases/2020-00064/20200625_PSC_ORDER.pdf" rel="noopener">Order, PDF</a></li></ol>
+<h2>What it does not claim</h2>
+<p>It does not forecast the contents of filings that do not yet exist; every statement about them stays conditional until October 1. It takes no view on how large the buildout will be, only on who bears the risk if it is wrong. It is not a finding about what the Commission will or should decide.</p>
+</div>
+<footer>
+  <span>Dr. Mark McNees, Florida State University</span>
+  <span><a href="/press/">Press desk</a> &nbsp;&middot;&nbsp; <a href="/press/data-center-tracker.html">Fourteen-state deep reference</a> &nbsp;&middot;&nbsp; <a href="/press/faq.html">Reporter FAQ</a> &nbsp;&middot;&nbsp; <a href="/press/sb484-compliance-rubric.pdf">Rubric worksheet PDF</a> &nbsp;&middot;&nbsp; <a href="/">markmcnees.com</a></span>
+</footer>
+<script>window.GLOSS={"curtail":["Curtail","The utility tells a customer to cut back or stop drawing power, and the customer has agreed in advance to do it. Sold as curtailable or interruptible service, usually at a discount: the customer accepts interruption when the system is tight, in exchange for a lower rate or a faster connection. It matters to cost allocation for one reason. A load the utility can turn down needs less new capacity built for it, so it shifts less cost onto everyone else."],"firm":["Firm service","The opposite of curtailable. The utility commits to serve the load at all hours. Firm service for a very large customer is what drives new construction."],"large-load":["Large load customer","Under the statute, a customer with an anticipated monthly peak of 50 megawatts or more, measured as the highest average over any 15 minute interval, at a single location. Load at separate locations under one owner is not added together. Separate tenants sharing one site are counted together."],"tariff":["Tariff","The published terms and prices a utility charges a class of customers, filed with the Commission and approved by it. A tariff is a public document, not a private contract."],"cost-of-service":["Cost of service","What it actually costs the utility to serve a particular customer, including the generation and the wires built because that customer arrived."],"cost-shifting":["Cost shifting","When a customer does not pay the full cost of serving it, the difference lands on everybody else's bill. This framework exists to test whether a filing prevents that."],"general-body":["General body of ratepayers","Everyone else on the system. Households, small businesses, and the industrial customers who were already there."],"incremental-generation":["Incremental generation","New generating capacity built because a new load arrived, as distinct from the plants already serving everyone."],"embedded":["Embedded cost","The average cost of the system as it already exists. Charging a new large customer at embedded cost means it pays the old average rather than the cost of what was built for it."],"demand-charge":["Demand charge","A charge based on the highest amount of power a customer draws at one time, rather than on total energy used over the month. It prices the size of the pipe, not the water through it."],"load-factor":["Load factor","How steadily a customer uses power, stated as a percentage of its own peak. A customer running flat out around the clock has a high load factor. A customer that spikes and idles has a low one."],"take-or-pay":["Take or pay","The customer pays for a minimum quantity whether or not it uses it. It keeps revenue coming in if the load turns out smaller than promised."],"term":["Minimum service term","The number of years the customer must stay. The early termination fee, sometimes called an exit fee, is what it pays to leave before the term ends."],"guarantee":["Financial guarantee, or credit support","Security posted so the utility is paid if the customer fails. Usually a letter of credit, a surety bond, or a guaranty from a parent company."],"ciac":["Contribution in aid of construction","Money the customer pays up front toward building what it needs, before service starts. The customer funds the construction instead of the utility funding it and recovering the money through rates later. The statute allows it to be refunded in whole or in part over time."],"stranded":["Stranded asset","A plant or a line built to serve a customer that later shrinks or leaves. The asset remains, it still has to be paid for, and the question is who pays."],"colocation":["Colocation","Several tenants operating inside one facility at one site."],"iou":["Investor owned utility","A private company whose rates the Commission sets. Florida has four. They are the only utilities this statute reaches. Municipal utilities and rural electric cooperatives are not covered by it."],"docket":["Docket","The numbered case file at the Commission where every filing in a proceeding is kept. Anyone can read it."],"mandatory":["Required and optional","The statute's own verbs do the sorting. Shall, must, and may not are required. May is optional. Five tests read required provisions, two read optional ones. Lawyers call these mandatory and optional; the statute uses shall, must and may not for the first and may for the second."],"gate":["The gate","Any required test reading not met means the filing misses a required element on the face of the filing. This is the only conclusion the framework states as a miss, and it overrides the total. It is a reading of the filed words, not a finding the Commission has made or will make."],"face-compliance":["Total","A percentage built from the five required cost-of-service tests only, each weighted equally. Met counts 1.0, partially met and deferred count 0.5, not met counts 0, multiplied by 20. The two optional tests are reported next to the number, never folded into it, because a utility may lawfully decline every optional tool and still comply. It is a total, not a score: it counts what the filed words satisfy and takes no view on how much each requirement matters."],"on-the-face":["On the face of the filing","Everything here is read from what the utility filed. This framework does not predict what the Commission will approve, and it does not say whether a tariff will work in practice."],"benchmark":["The comparison column","FPL's Large-Load Contract Service tariff, the only large load tariff Florida has approved so far. It sits in the matrix so the October filings can be read against something real. It is not a standard: it was written before SB 484 existed, and it reads not met on Test 1."]};
+var M = {"Met":1, "Partially met":0.5, "Deferred":0.5, "Not met":0};
+function cells(){ return Array.prototype.slice.call(document.querySelectorAll('table.matrix select')); }
+function outs(k,c){ return document.querySelector('td[data-out="'+k+'"][data-c="'+c+'"]'); }
+function setOut(k,c,txt,cls){ var e=outs(k,c); if(!e) return;
+  e.textContent=txt; e.className='out'+(cls?' '+cls:''); }
+
+function score(){
+  var byCol={};
+  cells().forEach(function(s){
+    s.classList.toggle('notread', s.value==='Not yet read');
+    (byCol[s.dataset.c]=byCol[s.dataset.c]||[]).push(s);
+  });
+  Object.keys(byCol).forEach(function(c){
+    var list=byCol[c];
+    var mand=list.filter(function(s){return s.dataset.cls==='M';});
+    var gateRows=list.filter(function(s){return s.dataset.cls==='M'||s.dataset.cls==='G';});
+    var perm=list.filter(function(s){return s.dataset.cls==='P';});
+    var readM=mand.filter(function(s){return s.value!=='Not yet read';});
+    var readG=gateRows.filter(function(s){return s.value!=='Not yet read';});
+    var anyFail=gateRows.some(function(s){return s.value==='Not met';});
+    var metM=mand.filter(function(s){return s.value==='Met';}).length;
+    var def=list.filter(function(s){return s.value==='Deferred';}).length;
+    var inst=perm.filter(function(s){return s.value==='Met';}).length;
+
+    if(anyFail) setOut('gate',c,'Misses a required test','fail');
+    else if(readG.length===gateRows.length) setOut('gate',c,'Clears');
+    else setOut('gate',c,'not yet read','pending');
+
+    if(readM.length===mand.length){
+      var pts=mand.reduce(function(a,s){return a+(M[s.value]||0);},0);
+      setOut('total',c, Math.round(pts*20)+'%', anyFail?'fail':'');
+    } else {
+      setOut('total',c, readM.length+' of 5 read','pending');
+    }
+    setOut('required-tests-met',c, metM+' of 5');
+    setOut('deferred',c, def+' of 7');
+    setOut('optional-tools',c, inst+' of 2');
+  });
+  try{ localStorage.setItem('sb484matrix', JSON.stringify(cells().map(function(s){return s.value;}))); }catch(e){}
+}
+
+function restore(){
+  try{
+    var v=JSON.parse(localStorage.getItem('sb484matrix')||'null');
+    if(v) cells().forEach(function(s,i){ if(v[i]) s.value=v[i]; });
+  }catch(e){}
+  score();
+}
+
+function save(name, text, type){
+  var b=new Blob([text],{type:type});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(b); a.download=name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){URL.revokeObjectURL(a.href);},2000);
+}
+function today(){ return new Date().toISOString().slice(0,10); }
+
+document.addEventListener('change',function(e){ if(e.target.matches('table.matrix select')) score(); });
+
+document.addEventListener('DOMContentLoaded', function(){
+  restore();
+  var b;
+  if(b=document.getElementById('dl-csv')) b.onclick=function(){
+    var t=document.querySelector('table.matrix'), out=[];
+    Array.prototype.forEach.call(t.rows,function(row){
+      out.push(Array.prototype.map.call(row.cells,function(cell){
+        var sel=cell.querySelector('select');
+        var v=sel?sel.value:cell.textContent.replace(/\s+/g,' ').trim();
+        return '"'+v.replace(/"/g,'""')+'"';
+      }).join(','));
+    });
+    save('sb484-compliance-matrix_'+today()+'.csv', out.join('\n'), 'text/csv');
+  };
+  if(b=document.getElementById('dl-pdf')) b.onclick=function(){
+    var head=document.getElementById('printhead');
+    if(!head){
+      head=document.createElement('div'); head.id='printhead';
+      head.innerHTML='<h2>October 1 large-load tariff filings: a compliance reading</h2>'+
+        '<p>Completed '+today()+'. Each finding is a reading of the words in the filing, under section '+
+        '366.043, Florida Statutes. The total counts the five required cost-of-service tests. Any required '+
+        'test reading not met misses the gate whatever the percentage says. A miss is a reading of the '+
+        'filed words, not a Commission finding. '+
+        'Full framework, glossary and method at markmcnees.com. Dr. Mark R. McNees, Florida State University.</p>';
+      var mx=document.querySelector('.matrix-scroll');
+      mx.parentNode.insertBefore(head, mx);
+    }
+    document.body.classList.add('print-matrix');
+    window.print();
+  };
+  window.addEventListener('afterprint',function(){
+    document.body.classList.remove('print-matrix');
+  });
+  if(b=document.getElementById('dl-clear')) b.onclick=function(){
+    cells().forEach(function(s){ s.value='Not yet read'; }); score();
+  };
+  if(b=document.getElementById('dl-html')) b.onclick=function(){
+    cells().forEach(function(s){
+      Array.prototype.forEach.call(s.options,function(o){
+        if(o.value===s.value) o.setAttribute('selected',''); else o.removeAttribute('selected');
+      });
+    });
+    document.querySelectorAll('.tools,.pop').forEach(function(n){n.setAttribute('data-strip','1');});
+    var clone=document.documentElement.cloneNode(true);
+    clone.querySelectorAll('[data-strip]').forEach(function(n){n.remove();});
+    save('sb484-compliance-matrix_'+today()+'.html',
+         '<!DOCTYPE html>\n'+clone.outerHTML, 'text/html');
+    document.querySelectorAll('[data-strip]').forEach(function(n){n.removeAttribute('data-strip');});
+  };
+});
+
+document.addEventListener('click',function(e){
+  var b=e.target.closest('button.term'); if(!b) return;
+  var id=b.dataset.term, host=b.closest('p,li,h3');
+  var open=host.nextElementSibling;
+  if(open&&open.classList.contains('pop')&&open.dataset.term===id){open.remove();return;}
+  document.querySelectorAll('.pop').forEach(function(n){n.remove();});
+  var g=window.GLOSS[id]; if(!g) return;
+  var d=document.createElement('div'); d.className='pop'; d.dataset.term=id; d.id='pop-'+id;
+  d.innerHTML='<b>'+g[0]+'</b>'+g[1]+' <a href="#g-'+id+'">See in glossary</a>';
+  host.insertAdjacentElement('afterend',d);
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') document.querySelectorAll('.pop').forEach(function(n){n.remove();});
+});
+</script>
+<script>
+(function () {
+  var toggle = document.querySelector('.site-nav-toggle');
+  var menu = document.getElementById('siteNavMenu');
+  if (!toggle || !menu) return;
+  function setOpen(open) {
+    menu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) { var first = menu.querySelector('a'); if (first) first.focus(); }
+    else { toggle.focus(); }
+  }
+  toggle.addEventListener('click', function () {
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') setOpen(false);
+  });
+  menu.addEventListener('click', function (e) { if (e.target.tagName === 'A') setOpen(false); });
+})();
+</script>
+</body></html>
