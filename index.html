@@ -515,7 +515,10 @@
   .about-bio p strong { color: var(--cream); font-weight: 500; }
 
   /* ── CONTACT ── */
-  #contact { background: var(--navy-mid); }
+  #contact { background: var(--navy); }
+  #speaking { background: var(--navy-mid); }
+  .hero-deadline { margin-top: 1.2rem; font-size: 0.95rem; opacity: 0.9; }
+  .hero-deadline a { color: var(--gold); text-decoration: none; }
 
   .contact-inner {
     max-width: 640px;
@@ -690,12 +693,11 @@
       <span class="site-nav-burger"></span>
     </button>
     <nav class="site-nav-menu" id="siteNavMenu" aria-label="Primary">
-      <a href="/press/">Press</a>
       <a href="/community/">For officials</a>
       <a href="/published-work/">Published Work</a>
       <a href="/speaker/">Speaking</a>
       <a href="/bio/">About</a>
-      <a href="/press/#contact" class="site-nav-cta">Media contact</a>
+      <a href="/press/" class="site-nav-cta">Press</a>
     </nav>
   </div>
 </header>
@@ -704,7 +706,7 @@
 <!-- HERO -->
 <div id="hero">
   <div class="hero-text">
-    <p class="hero-eyebrow">Corporate Accountability · Energy Policy · Keynote Speaker</p>
+    <p class="hero-eyebrow">Energy Cost Policy · Florida State University</p>
     <h1 class="hero-name">Dr. Mark<br>McNees</h1>
     <p class="hero-title">The FSU faculty member and nationally published energy policy voice arguing that corporations shouldn't externalize costs while internalizing profits.</p>
     <p class="hero-position">
@@ -715,9 +717,10 @@
       Big Tech internalizes the profits. Ratepayers pay the power bill. Four states have passed binding statutes and ten more are working the same question. The rest of the country is catching up.
     </blockquote>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Book a Talk</a>
-      <a href="#clips" class="btn-secondary">Read the Work</a>
+      <a href="/press/" class="btn-primary">Press desk</a>
+      <a href="/press/rubric.html" class="btn-secondary">Compliance rubric</a>
     </div>
+    <p class="hero-deadline">On deadline? Call or text <a href="tel:+18509737687">850.973.7687</a>.</p>
   </div>
   <div class="hero-photo">
     <img src="images/headshot.png" alt="Dr. Mark McNees" loading="eager">
@@ -741,21 +744,6 @@
   </div>
 </div>
 
-<!-- SPEAKER REEL -->
-<section id="reel">
-  <div class="section-inner">
-    <p class="section-label">Speaker reel</p>
-    <h2 class="section-heading">Who pays for the cost of growth</h2>
-    <p class="reel-positioning">Dr. Mark McNees studies the economics of who pays when growth creates new costs, with a focus on AI data center energy demand, utility rate structures, and the state laws now reshaping who funds the grid.</p>
-    <div class="reel-embed">
-      <div class="reel-frame">
-        <iframe src="https://www.youtube.com/embed/c4qCfQfNfck?rel=0" title="Dr. Mark McNees speaker reel" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-    </div>
-    <p class="reel-cta">Booking inquiries: <a href="mailto:mmcnees@fsu.edu">mmcnees@fsu.edu</a></p>
-  </div>
-</section>
-
 <!-- THE ARGUMENT -->
 <section id="argument">
   <div class="section-inner">
@@ -763,9 +751,9 @@
       <div class="argument-text">
         <p class="section-label">The Argument</p>
         <h2 class="section-heading">Corporations shouldn't externalize costs while internalizing profits. Energy is the current proof point.</h2>
-        <p>When a data center connects to the grid, it triggers infrastructure investment that can run into the billions. Under current utility regulation in most states, that cost is distributed across every existing ratepayer. The company building the data center pays nothing for the grid it depends on.</p>
+        <p>When a data center connects to the grid, it triggers infrastructure investment that can run into the billions. Under traditional cost-recovery rules, much of that cost is spread across every existing ratepayer rather than assigned to the customer whose demand triggered it.</p>
         <p>This is cost externalization. <strong>The company internalizes the profit. The public absorbs the expense.</strong> The mechanism is not unique to energy. The same structure drives pharmaceutical pricing, insurance withdrawal from high-risk markets, hospital consolidation, and agricultural water rights. The sector changes. The logic is identical.</p>
-        <p>Energy is where the policy is moving right now. Texas, Florida, and New Jersey have passed statutes requiring load creators to fund the infrastructure their demand triggers. Pennsylvania acted through its utility commission and Arizona through a rate case, reaching for the same principle by different means. The White House secured a voluntary <a href="https://www.whitehouse.gov/releases/2026/03/ratepayer-protection-pledge/">Ratepayer Protection Pledge</a> from seven major AI companies, and ALEC published <a href="https://alec.org/model-policy/digital-infrastructure-ratepayer-and-resource-protection-accord/">model policy</a> adopting cost causation as the governing standard. The consensus is arriving. That makes energy the best entry point for the broader argument.</p>
+        <p>Energy is where the policy is moving right now. Texas, Florida, New Jersey, and Oklahoma have passed statutes requiring load creators to fund the infrastructure their demand triggers. Pennsylvania acted through its utility commission and Arizona through a rate case, reaching for the same principle by different means. The White House secured a voluntary <a href="https://www.whitehouse.gov/releases/2026/03/ratepayer-protection-pledge/">Ratepayer Protection Pledge</a> from seven major AI companies, and ALEC published <a href="https://alec.org/model-policy/digital-infrastructure-ratepayer-and-resource-protection-accord/">model policy</a> adopting cost causation as the governing standard. The consensus is arriving. That makes energy the best entry point for the broader argument.</p>
         <p><strong>That's what this work is about. The energy pieces are the current vehicle. Corporate accountability is the destination.</strong></p>
         <p><a href="/press/data-center-tracker.html">See the state-by-state reference on who pays for the grid capacity that data centers trigger</a>, tracking the instrument in each of fourteen states with a primary source for every claim.</p>
       </div>
@@ -791,13 +779,13 @@
   </div>
 </section>
 
-<!-- SPEAKING -->
-<section id="speaking">
+<!-- FOR OFFICIALS -->
+<section id="officials">
   <div class="section-inner">
-    <p class="section-label">Speaking Topics</p>
-    <h2 class="section-heading">Two talks. One thesis.</h2>
-    <p>Dr. McNees delivers two keynotes: one on who pays for the cost of growth when large new loads hit shared infrastructure, and one on the broader pattern of corporations pushing costs onto the public. Full descriptions, speaker reel, and booking on the speaking page.</p>
-    <a href="/speaker/" class="btn-primary" style="margin-top:1.5rem;">See speaking topics</a>
+    <p class="section-label">For officials</p>
+    <h2 class="section-heading">Before your community decides.</h2>
+    <p>A plain-language guide for county commissioners, city councils, utility boards and residents: five questions to ask before a data center vote, with printable one-page handouts for Florida and for every other state.</p>
+    <a href="/community/" class="btn-primary" style="margin-top:1.5rem;">Open the guide</a>
   </div>
 </section>
 
@@ -856,7 +844,7 @@
         </div>
         <div class="about-fact">
           <p class="about-fact-label">Podcast</p>
-          <p class="about-fact-value">Host, InNOLEvation Mindset, FSU's entrepreneurship podcast, 120+ episodes</p>
+          <p class="about-fact-value">Host, InNOLEvation&reg; Mindset, FSU's entrepreneurship podcast, 120+ episodes</p>
         </div>
         <div class="about-fact">
           <p class="about-fact-label">Contact</p>
@@ -882,12 +870,27 @@
   </div>
 </section>
 
+<!-- SPEAKING -->
+<section id="speaking">
+  <div class="section-inner">
+    <p class="section-label">Speaking</p>
+    <h2 class="section-heading">Two talks. One thesis.</h2>
+    <p>Dr. McNees delivers two keynotes: one on who pays for the cost of growth when large new loads hit shared infrastructure, and one on the broader pattern of corporations pushing costs onto the public. Full descriptions and booking on the speaking page.</p>
+    <div class="reel-embed">
+      <div class="reel-frame">
+        <iframe src="https://www.youtube.com/embed/c4qCfQfNfck?rel=0" title="Dr. Mark McNees speaker reel" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+    <a href="/speaker/" class="btn-primary" style="margin-top:1.5rem;">See speaking topics</a>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
-    <p class="section-label">Book a Talk</p>
+    <p class="section-label">Contact</p>
     <h2 class="section-heading">Let's talk.</h2>
-    <p class="contact-sub">Keynote inquiries, media requests, and consulting conversations welcome. Response within 48 hours.</p>
+    <p class="contact-sub"><strong>Reporters on deadline:</strong> call or text <a href="tel:+18509737687">850.973.7687</a>. Same-day response. For keynotes and other inquiries, use the form below. Response within 48 hours.</p>
     <form class="contact-form" action="mailto:mmcnees@fsu.edu" method="post" enctype="text/plain">
       <div class="form-row">
         <div class="form-group">
@@ -931,7 +934,7 @@
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/markmcnees/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://x.com/markmcnees" target="_blank" rel="noopener">X / Twitter</a>
-    <a href="#contact">Book a Talk</a>
+    <a href="/press/">Press</a>
   </div>
 </footer>
 
