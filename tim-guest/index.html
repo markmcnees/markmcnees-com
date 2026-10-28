@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Guest Guide: The InNOLEvation® Mindset</title>
+<meta name="description" content="Everything a guest needs before recording The InNOLEvation® Mindset podcast at Florida State University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --garnet:#782F40;
+    --garnet-deep:#4E1D29;
+    --gold:#CEB888;
+    --gold-soft:#F1EADA;
+    --ink:#24201F;
+    --ink-soft:#544B48;
+    --paper:#FCFBF9;
+    --line:#E3DCCD;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:19px;line-height:1.6}
+  a{color:var(--garnet);text-underline-offset:3px}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+  h1,h2,h3{font-family:Bitter,Georgia,serif;line-height:1.15;margin:0}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+  /* Hero */
+  .hero{background:var(--garnet);color:#fff;padding:56px 0 64px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-120px;bottom:-160px;width:420px;height:420px;border-radius:50%;border:40px solid rgba(206,184,136,.22)}
+  .show{font-family:Bitter,Georgia,serif;font-weight:700;font-size:20px;color:var(--gold);margin:0 0 18px}
+  .hero h1{font-size:clamp(40px,7vw,68px);font-weight:800;max-width:14ch}
+  .hero p.lede{font-size:21px;max-width:44ch;margin:20px 0 0;color:#F6EDEF}
+  .who{display:flex;flex-wrap:wrap;gap:12px 28px;margin:28px 0 0;padding:0;list-style:none;font-size:18px;color:#F6EDEF}
+  .who strong{color:var(--gold);font-weight:700}
+
+  /* Jump nav */
+  nav.jump{position:sticky;top:0;z-index:5;background:var(--garnet-deep)}
+  nav.jump ul{list-style:none;margin:0 auto;padding:0 12px;display:flex;gap:4px;overflow-x:auto;max-width:960px}
+  nav.jump a{display:block;padding:14px 14px;color:#fff;text-decoration:none;font-weight:600;font-size:17px;white-space:nowrap}
+  nav.jump a:hover{color:var(--gold)}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(30px,4.4vw,40px);color:var(--garnet);margin-bottom:10px}
+  .intro{color:var(--ink-soft);max-width:60ch;margin:0 0 28px}
+
+  /* Send list */
+  .send{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0;border:1px solid var(--line);background:#fff}
+  .send div{padding:22px 24px;border-bottom:1px solid var(--line)}
+  .send h3{font-size:20px;margin-bottom:4px}
+  .send p{margin:0;color:var(--ink-soft)}
+  .email-btn{display:inline-block;margin-top:24px;background:var(--garnet);color:#fff;text-decoration:none;font-weight:700;padding:14px 22px;border-radius:6px}
+  .email-btn:hover{background:var(--garnet-deep)}
+  .wear{margin-top:28px;display:flex;gap:16px;align-items:flex-start;background:var(--gold-soft);padding:20px 24px;border-left:6px solid var(--gold)}
+  .wear strong{font-family:Bitter,Georgia,serif;font-size:22px;display:block}
+
+  /* Directions */
+  .dir{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  @media (max-width:760px){.dir{grid-template-columns:1fr}}
+  ol.steps{list-style:none;counter-reset:s;margin:0;padding:0}
+  ol.steps li{counter-increment:s;position:relative;padding:0 0 22px 60px}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:-2px;width:40px;height:40px;border-radius:50%;background:var(--garnet);color:#fff;font-family:Bitter,Georgia,serif;font-weight:700;display:flex;align-items:center;justify-content:center}
+  ol.steps li:not(:last-child)::after{content:"";position:absolute;left:19px;top:42px;bottom:4px;width:2px;background:var(--line)}
+  .where{background:#fff;border:1px solid var(--line);padding:24px}
+  .room{font-family:Bitter,Georgia,serif;font-weight:800;font-size:56px;color:var(--garnet);line-height:1}
+  .where p{margin:8px 0 0}
+  .call{display:block;margin-top:20px;padding:16px 20px;background:var(--garnet);color:#fff;text-decoration:none;font-weight:700;border-radius:6px;text-align:center;font-size:20px}
+  .call:hover{background:var(--garnet-deep)}
+
+  /* Parking */
+  .park{display:grid;grid-template-columns:2fr 1fr;gap:32px;align-items:start}
+  @media (max-width:760px){.park{grid-template-columns:1fr}}
+  .contact{background:#fff;border:1px solid var(--line);padding:22px 24px}
+  .contact h3{font-size:22px}
+  .contact p{margin:6px 0 0}
+
+  /* Conversation arc */
+  .arc{display:flex;gap:0;margin:8px 0 0;padding:0;list-style:none;counter-reset:a}
+  .arc li{flex:1;counter-increment:a;padding:16px 14px 0 0;border-top:6px solid var(--gold);position:relative}
+  .arc li::before{content:counter(a);display:block;font-family:Bitter,Georgia,serif;font-weight:700;color:var(--garnet);font-size:22px;margin-bottom:4px}
+  .arc h3{font-size:19px;margin-bottom:4px}
+  .arc p{margin:0;color:var(--ink-soft);font-size:17px}
+  @media (max-width:760px){
+    .arc{flex-direction:column}
+    .arc li{border-top:none;border-left:6px solid var(--gold);padding:4px 0 18px 18px}
+  }
+  .final{margin-top:44px;background:var(--garnet);color:#fff;padding:40px 36px}
+  .final p.k{margin:0 0 10px;color:var(--gold);font-weight:700}
+  .final blockquote{margin:0;font-family:Bitter,Georgia,serif;font-weight:700;font-size:clamp(26px,3.6vw,36px);line-height:1.3}
+  .final p.tip{margin:18px 0 0;color:#F6EDEF}
+
+  .listen{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;background:var(--gold-soft);padding:28px}
+  .listen p{margin:0;max-width:52ch}
+  footer{padding:36px 0 56px;color:var(--ink-soft);font-size:16px}
+  @media print{
+    nav.jump,.email-btn,.call{display:none}
+    .hero,.final{background:#fff;color:var(--ink);border:2px solid var(--garnet)}
+    .hero p.lede,.who,.final p.tip{color:var(--ink)}
+    section{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="show">The InNOLEvation® Mindset</p>
+    <h1>You’re coming on the show. Here’s everything you need.</h1>
+    <p class="lede">It’s a conversation over a cup of coffee. I ask questions, you tell your story. This page covers what to send, how to find the studio, and how the conversation goes.</p>
+    <ul class="who">
+      <li><strong>Host</strong> Dr. Mark McNees</li>
+      <li><strong>Studio</strong> William Johnston Building, room 3031</li>
+      <li><strong>Questions?</strong> <a href="tel:+18509737687" style="color:#fff">850.973.7687</a></li>
+    </ul>
+  </div>
+</header>
+
+<nav class="jump" aria-label="Sections">
+  <ul>
+    <li><a href="#send">What to send</a></li>
+    <li><a href="#find">Find the studio</a></li>
+    <li><a href="#parking">Parking</a></li>
+    <li><a href="#conversation">The conversation</a></li>
+    <li><a href="#listen">Listen first</a></li>
+  </ul>
+</nav>
+
+<main>
+<section id="send">
+  <div class="wrap">
+    <h2>What to send me before we record</h2>
+    <p class="intro">This helps me introduce you well and lets us promote you, your business, FSU Entrepreneurship and Innovation, and the Jim Moran College and Institute.</p>
+    <div class="send">
+      <div><h3>Your name</h3><p>Founder or founders, or your name if you’re faculty or staff.</p></div>
+      <div><h3>Your FSU connection</h3><p>Graduation year and major, or your position, or your JMI connection.</p></div>
+      <div><h3>A short description</h3><p>What your business does, or what you do for JMC or JMI. A few sentences is plenty.</p></div>
+      <div><h3>Website and social links</h3><p>Every address you’d like us to tag or share.</p></div>
+      <div><h3>Your logo</h3><p>If you have one. A PNG with a transparent background works best.</p></div>
+    </div>
+    <a class="email-btn" href="mailto:mmcnees@fsu.edu?subject=InNOLEvation%C2%AE%20Mindset%20guest%20details">Email your details to Mark</a>
+    <div class="wear">
+      <div><strong>Please don’t wear green.</strong>Any other color works on camera. We record video.</div>
+    </div>
+  </div>
+</section>
+
+<section id="find">
+  <div class="wrap">
+    <h2>How to find the studio</h2>
+    <p class="intro">The studio is on the third floor of the William Johnston Building (WJB), next to the College of Fine Arts and Landis Green. <a href="https://www.fsu.edu/johnstonground/directions.html">Campus map and directions to WJB</a>.</p>
+    <div class="dir">
+      <ol class="steps">
+        <li>Take the elevator to the third floor. Check that the room numbers start with 3.</li>
+        <li>Turn right out of the elevator.</li>
+        <li>Walk past the Office Depot Technology Complex.</li>
+        <li>The studio is the last door on the right, at the end of the hall.</li>
+      </ol>
+      <div class="where">
+        <div class="room">3031</div>
+        <p>William Johnston Building, third floor, at the end of the hall past the Office Depot Technology Complex.</p>
+        <a class="call" href="tel:+18509737687">Lost? Call Mark: 850.973.7687</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="parking">
+  <div class="wrap">
+    <h2>Parking</h2>
+    <div class="park">
+      <div>
+        <p style="margin-top:0">If you need a guest parking pass, email Holly and she’ll set it up. She can also help you find the studio if you don’t know the FSU campus.</p>
+        <p>Guest parking is about a five-minute walk from the studio, so give yourself a few extra minutes.</p>
+        <p style="color:var(--ink-soft)">Holly is in the Shaw Building, not the William Johnston Building.</p>
+      </div>
+      <div class="contact">
+        <h3>Holly</h3>
+        <p><a href="mailto:hea20g@fsu.edu?subject=Guest%20parking%20pass%20for%20The%20InNOLEvation%C2%AE%20Mindset">hea20g@fsu.edu</a></p>
+        <p><a href="tel:+18506447158">850.644.7158</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="conversation">
+  <div class="wrap">
+    <h2>How the conversation goes</h2>
+    <p class="intro">No script and no prep homework. I want to get to know you and hear your story. Here’s the order we usually follow.</p>
+    <ol class="arc">
+      <li><h3>The intro</h3><p>I open the show.</p></li>
+      <li><h3>Welcome</h3><p>I introduce you.</p></li>
+      <li><h3>Where you started</h3><p>How you grew up, and who, if anyone, showed you what entrepreneurship looks like.</p></li>
+      <li><h3>FSU</h3><p>Your time at FSU or your connection to it.</p></li>
+      <li><h3>Your business</h3><p>What you built and how it works.</p></li>
+      <li><h3>The hard parts</h3><p>The real challenges of being an entrepreneur.</p></li>
+    </ol>
+    <div class="final">
+      <p class="k">Every guest gets the same last question</p>
+      <blockquote>“If you could go back in time and were able to tell yourself one thing before you started your business, what would you tell yourself?”</blockquote>
+      <p class="tip">It’s the one question worth thinking about ahead of time.</p>
+    </div>
+  </div>
+</section>
+
+<section id="listen" style="border-bottom:none">
+  <div class="wrap">
+    <h2>Listen to an episode first</h2>
+    <div class="listen">
+      <p>Hearing one or two episodes is the best way to see how relaxed the conversation is.</p>
+      <a class="email-btn" style="margin-top:0" href="https://link.chtbl.com/OqW-ccqk">Listen to the podcast</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>The InNOLEvation® Mindset is hosted by Dr. Mark McNees, Jim Moran College of Entrepreneurship, Florida State University. Questions before your recording: <a href="tel:+18509737687">850.973.7687</a> or <a href="mailto:mmcnees@fsu.edu">mmcnees@fsu.edu</a>.</p>
+  </div>
+</footer>
+</body>
+</html>
